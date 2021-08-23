@@ -1,3 +1,0 @@
-\boolfalse {citerequest}\boolfalse {citetracker}\boolfalse {pagetracker}\boolfalse {backtracker}\relax 
-\defcounter {refsection}{0}\relax 
-\contentsline {chapter}{\numberline {1}Testing}{2}{chapter.1}%

@@ -1,0 +1,15 @@
+[0] Config.pm:311> INFO - This is Biber 2.16
+[0] Config.pm:314> INFO - Logfile is 'docs.blg'
+[113] biber-MSWIN64:340> INFO - === 
+[149] Biber.pm:415> INFO - Reading 'docs.bcf'
+[263] Biber.pm:952> INFO - Found 1 citekeys in bib section 0
+[286] Biber.pm:4340> INFO - Processing section 0
+[299] Biber.pm:4531> INFO - Looking for bibtex format file 'bibfile.bib' for section 0
+[349] bibtex.pm:1689> INFO - LaTeX decoding ...
+[358] bibtex.pm:1494> INFO - Found BibTeX data source 'bibfile.bib'
+[423] UCollate.pm:68> INFO - Overriding locale 'en-US' defaults 'variable = shifted' with 'variable = non-ignorable'
+[423] UCollate.pm:68> INFO - Overriding locale 'en-US' defaults 'normalization = NFD' with 'normalization = prenormalized'
+[423] Biber.pm:4168> INFO - Sorting list 'nty/global//global/global' of type 'entry' with template 'nty' and locale 'en-US'
+[423] Biber.pm:4174> INFO - No sort tailoring available for locale 'en-US'
+[425] bbl.pm:654> INFO - Writing 'docs.bbl' with encoding 'UTF-8'
+[426] bbl.pm:757> INFO - Output to docs.bbl

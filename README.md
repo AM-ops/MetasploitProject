@@ -23,7 +23,7 @@ The following knowledge was needed before we began this project
 ## Resources utilised
 
 ## Todo:
-- [ ] Conduct background research
+- [x] Conduct background research
 - [ ] Install VMs
 - [ ] Install Metasploit
 - [ ] Run exploits

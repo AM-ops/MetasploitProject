@@ -1,4 +1,4 @@
-# MetasploitProject
+# Metasploit Project
 Project for the ITRI625 (Computer Security II) module. Two scenarios are covered.
 
 ## Authors and contributors

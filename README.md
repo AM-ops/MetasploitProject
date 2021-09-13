@@ -23,16 +23,22 @@ The following knowledge was needed before we began this project
 ## Resources utilised
 
 ## Todo:
-- [ ] Conduct background research
-- [ ] Install VMs
-- [ ] Install Metasploit
+- [x] Conduct background research
+- [x] Install VMs
+- [x] Install Metasploit
 - [ ] Install Android Studio for Emulator
 - [ ] Run exploits
+  - [ ] Exploit 1 - SMS on Emulator 
 - [ ] Compile Documentation
+  - [x] Front Page
+  - [ ] Table of Contents
+  - [ ] Bibliography/References 
 - [ ] Create Blog
   - [x] Get a template for a basic blog
   - [ ] Add Scenario 1 to Blog
   - [ ] Add Scenario 2 to Blog
-  - [ ] Static (maybe?)
-  - [ ] Dynamic (maybe?)
+  - [ ] Update Contact, and Index Page
 - [ ] Create Videos
+  - [ ] Scenario 1
+  - [ ] Scenario 2
+  - [ ] For Blog 

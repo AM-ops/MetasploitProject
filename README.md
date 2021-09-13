@@ -26,10 +26,13 @@ The following knowledge was needed before we began this project
 - [ ] Conduct background research
 - [ ] Install VMs
 - [ ] Install Metasploit
+- [ ] Install Android Studio for Emulator
 - [ ] Run exploits
 - [ ] Compile Documentation
 - [ ] Create Blog
-  - [x] Get a template for a basic blog 
+  - [x] Get a template for a basic blog
+  - [ ] Add Scenario 1 to Blog
+  - [ ] Add Scenario 2 to Blog
   - [ ] Static (maybe?)
   - [ ] Dynamic (maybe?)
 - [ ] Create Videos

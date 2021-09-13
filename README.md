@@ -29,6 +29,7 @@ The following knowledge was needed before we began this project
 - [ ] Run exploits
 - [ ] Compile Documentation
 - [ ] Create Blog
+  - [x] Get a template for a basic blog 
   - [ ] Static (maybe?)
   - [ ] Dynamic (maybe?)
 - [ ] Create Videos

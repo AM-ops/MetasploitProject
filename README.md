@@ -14,6 +14,9 @@ The following knowledge was needed before we began this project
 4. Scripting, and Programming in general
 5. Excellent debugging skills
 
+## Documentation
+The Documentation compiled for this project can be found [here](https://github.com/AM-ops/MetasploitProject/raw/main/docs/docs.pdf)
+
 ## Scenarios
 
 ### Scenario 1

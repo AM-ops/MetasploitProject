@@ -29,9 +29,10 @@ The Documentation compiled for this project can be found [here](https://github.c
 - [x] Conduct background research
 - [x] Install VMs
 - [x] Install Metasploit
-- [ ] Install Android Studio for Emulator
+- [x] Install Android Studio for Emulator
 - [ ] Run exploits
-  - [ ] Exploit 1 - SMS on Emulator 
+  - [ ] Exploit 1 - SMS on Emulator
+  - [ ] Exploit 2 - Windows based exploit
 - [ ] Compile Documentation
   - [x] Front Page
   - [ ] Table of Contents
@@ -41,7 +42,3 @@ The Documentation compiled for this project can be found [here](https://github.c
   - [ ] Add Scenario 1 to Blog
   - [ ] Add Scenario 2 to Blog
   - [ ] Update Contact, and Index Page
-- [ ] Create Videos
-  - [ ] Scenario 1
-  - [ ] Scenario 2
-  - [ ] For Blog 

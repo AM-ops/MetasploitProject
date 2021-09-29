@@ -132,7 +132,58 @@ The option we chose is the \texttt{Virtual Machines} one. Thereafter you are pre
     \caption{The 2 options for Virtual Machines}
 \end{figure}
 Select the \texttt{VirtualBox} option and click on the direct download link.\\\\
-After the download is completed it is time to set up Kali Linux inside VirtualBox.
+After the download is completed it is time to set up Kali Linux inside VirtualBox. To achieve this open up the file and thereafter change the following settings.
+\begin{figure}[H]
+    \centering
+    \includegraphics[scale=0.5]{pics/vbkali1.PNG}
+    \caption{The main screen once the file is opened}
+\end{figure}
+Click on \textbf{Import} thereafter click on \textbf{Agree} on the Software Licence Agreement screen. The Kali Linux virtual machine will begin installing. Wait for it to be completed. Depending on the hardware available, it will be done in a few minutes.
+\begin{figure}[H]
+    \centering
+    \includegraphics[scale=0.5]{pics/vbkali2.PNG}
+    \caption{Software Licence Agreement screen}
+\end{figure}
+Once the installation is completed Oracle's VirtualBox will open to the following main screen. The newly installed Kali Linux is shown on the left of the main screen.
+\begin{figure}[H]
+    \centering
+    \includegraphics[scale=0.5]{pics/vbkalimain.PNG}
+    \caption{VirtualBox's main screen}
+\end{figure}
+Before starting up the Kali Linux virtual machine, a few settings have to be changed. Click on the \textbf{Settings} icon which is shown by a yellow gear icon. Navigate to \textbf{Systems} setting, and thereafter assign the recommended amount of \texttt{Base memory} under the \texttt{Motherboard} tab.
+\begin{figure}[H]
+    \centering
+    \includegraphics[scale=0.5]{pics/settings1.PNG}
+    \caption{Systems settings: Motherboard tab}
+\end{figure}
+Under the \texttt{Processor} tab assign the recommended amount of \texttt{Processor(s)} as well as check the \texttt{Enable Nested VT-x/AMD-V} option.
+\begin{figure}[H]
+    \centering
+    \includegraphics[scale=0.5]{pics/settings2.PNG}
+    \caption{Systems settings: Processor tab}
+\end{figure}
+If any errors are shown in the Settings for USB, then under the \texttt{USB} settings make sure that the \texttt{USB 1.1 (OHCI) Controller} option is only selected.
+\begin{figure}[H]
+    \centering
+    \includegraphics[scale=0.5]{pics/settings3.PNG}
+    \caption{USB settings}
+\end{figure}
+Click \textbf{OK} to save all your settings changes. You should now be able to start up the Kali Linux virtual machine. Click on the \texttt{Start} icon which is shown by a green arrow. Once the virtual machine starts up you will be taken to the login screen. enter the following for the username and password:
+\begin{itemize}
+    \item Username: \texttt{kali}
+    \item Password: \texttt{kali}
+\end{itemize}
+\begin{figure}[H]
+    \centering
+    \includegraphics[scale=0.5]{pics/kalimain.PNG}
+    \caption{Kali Linux login screen}
+\end{figure}
+Once you are successful in logging in, you will be greeted by the following splash screen of the Desktop.
+\begin{figure}[H]
+    \centering
+    \includegraphics[scale=0.5]{pics/kalihome.PNG}
+    \caption{Kali Linux's Desktop}
+\end{figure}
 \url{https://citizenlab.ca/}
 \printbibliography[heading=bibintoc]
 \end{document}

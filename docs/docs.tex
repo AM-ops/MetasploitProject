@@ -184,6 +184,71 @@ Once you are successful in logging in, you will be greeted by the following spla
     \includegraphics[scale=0.5]{pics/kalihome.PNG}
     \caption{Kali Linux's Desktop}
 \end{figure}
+\section{Metasploit on Kali Linux}
+To install Metasploit on Kali Linux the following has to be done.
+Go to the following GitHub url: \url{https://github.com/rapid7/metasploit-framework/wiki/Nightly-Installers}\\
+Copy the following command: 
+\begin{minted}
+[
+frame=lines,
+framesep=2mm,
+baselinestretch=1.2,
+bgcolor=LightBlue,
+fontsize=\footnotesize,
+breaklines,
+breaksymbolleft=\carriagereturn
+]
+{Shell}
+curl https://raw.githubusercontent.com/rapid7/metasploit-omnibus/master/config/
+templates/metasploit-framework-wrappers/msfupdate.erb > msfinstall && \
+  chmod 755 msfinstall && \
+  ./msfinstall
+\end{minted}
+Open up the terminal and paste the command copied. Thereafter press \textbf{Enter} to run it. If a password is required, Enter: \texttt{kali}\\\\
+Once the package has been installed you will see the screen as shown in Figure~\ref{fig:fig11}
+\begin{figure}[H]
+    \centering
+    \includegraphics[scale=0.5]{pics/meta1.PNG}
+    \caption{Metasploit Framework's GitHub page}
+\end{figure}
+\begin{figure}[H]
+    \centering
+    \includegraphics[scale=0.5]{pics/meta2.PNG}
+    \caption{Terminal asks for root access}
+\end{figure}
+\begin{figure}[H]
+    \centering
+    \includegraphics[scale=0.5]{pics/meta3.PNG}
+    \caption{Terminal completed installing package}
+    \label{fig:fig11}
+\end{figure}
+To install the Graphical User Interface (GUI) go to the following GitHub url:\\ \url{https://github.com/scriptjunkie/msfgui}\\\\
+Thereafter run the following command in the terminal (Preferably change the directory to the Desktop beforehand):
+\begin{minted}
+[
+frame=lines,
+framesep=2mm,
+baselinestretch=1.2,
+bgcolor=LightBlue,
+fontsize=\footnotesize,
+breaklines,
+breaksymbolleft=\carriagereturn
+]
+{Shell}
+git clone https://github.com/scriptjunkie/msfgui.git
+\end{minted}
+\begin{figure}[H]
+    \centering
+    \includegraphics[scale=0.5]{pics/meta4.PNG}
+    \caption{GUI folder added to the Desktop}
+\end{figure}
+A directory titled \texttt{msfgui} will now to added to your Dekstop.
+To run the GUI the following steps have to be carried out.
+\begin{figure}[H]
+    \centering
+    \includegraphics[scale=0.5]{pics/startm1.PNG}
+    \caption{Type 'n' for No}
+\end{figure}
 \url{https://citizenlab.ca/}
 \printbibliography[heading=bibintoc]
 \end{document}

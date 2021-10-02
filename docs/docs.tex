@@ -56,6 +56,7 @@ git clone https://github.com/AM-ops/MetasploitProject.git
 \end{minted}
 \end{enumerate}
 \section{Virtual Environments}
+\label{sec:sec2}
 There are multiple advantages of using virtual environments when testing for vulnerabilities and exploits in computer security. The primary reason being we create a layer of separation and abstraction between our host machine and our virtual environments. This 'sand-boxing' allows for analysis of threats in a contained environment.
 \subsection{VirtualBox}
 We made use of Oracle's VirtualBox software for the virtualisation. This can be downloaded from the following link: \url{https://www.virtualbox.org/wiki/Downloads}\\
@@ -185,6 +186,7 @@ Once you are successful in logging in, you will be greeted by the following spla
     \caption{Kali Linux's Desktop}
 \end{figure}
 \section{Metasploit on Kali Linux}
+\subsection{Installation for the command line}
 To install Metasploit on Kali Linux the following has to be done.
 Go to the following GitHub url: \url{https://github.com/rapid7/metasploit-framework/wiki/Nightly-Installers}\\
 Copy the following command: 
@@ -222,6 +224,7 @@ Once the package has been installed you will see the screen as shown in Figure~\
     \caption{Terminal completed installing package}
     \label{fig:fig11}
 \end{figure}
+\subsection{Graphical User Interface (GUI) installation}
 To install the Graphical User Interface (GUI) go to the following GitHub url:\\ \url{https://github.com/scriptjunkie/msfgui}\\\\
 Thereafter run the following command in the terminal (Preferably change the directory to the Desktop beforehand):
 \begin{minted}
@@ -235,20 +238,130 @@ breaklines,
 breaksymbolleft=\carriagereturn
 ]
 {Shell}
+cd ~/Desktop
 git clone https://github.com/scriptjunkie/msfgui.git
 \end{minted}
 \begin{figure}[H]
     \centering
-    \includegraphics[scale=0.5]{pics/meta4.PNG}
+    \includegraphics[scale=0.4]{pics/meta4.PNG}
     \caption{GUI folder added to the Desktop}
 \end{figure}
-A directory titled \texttt{msfgui} will now to added to your Dekstop.
-To run the GUI the following steps have to be carried out.
+A directory titled \texttt{msfgui} will now to added to your Desktop. To run the GUI the following steps have to be carried out.\\
+Firstly change directories to the following: \texttt{/opt/metasploit-framework/bin}. This can be done by running the command below in the terminal.
+\begin{minted}
+[
+frame=lines,
+framesep=2mm,
+baselinestretch=1.2,
+bgcolor=LightBlue,
+fontsize=\footnotesize,
+breaklines,
+breaksymbolleft=\carriagereturn
+]
+{Shell}
+cd /opt/metasploit-framework/bin
+\end{minted}
+Thereafter run the \texttt{msfconsole} shell script. This can be done by running the command below.
+\begin{minted}
+[
+frame=lines,
+framesep=2mm,
+baselinestretch=1.2,
+bgcolor=LightBlue,
+fontsize=\footnotesize,
+breaklines,
+breaksymbolleft=\carriagereturn
+]
+{Shell}
+sudo ./msfconsole
+\end{minted}
+If you are prompted for a root password, Enter: \texttt{kali}. Thereafter, If you are prompted with the following: \textit{"Would you like to use and setup a new database (recommended)?"}, Type \textbf{n} or \textbf{no} and press \textbf{Enter}.
 \begin{figure}[H]
     \centering
     \includegraphics[scale=0.5]{pics/startm1.PNG}
     \caption{Type 'n' for No}
 \end{figure}
+Thereafter once ever thing is completed you should see that the terminal now has changed its prompt to the following.
+\begin{minted}
+[
+frame=lines,
+framesep=2mm,
+baselinestretch=1.2,
+bgcolor=LightBlue,
+fontsize=\footnotesize,
+breaklines,
+breaksymbolleft=\carriagereturn
+]
+{Shell}
+msf6 > _
+\end{minted}
+This is shown in the picture below. This means that the Metasploit Framework has started up its service in the terminal. With this being done we can now move on to the next step of running the Graphical User Interface (GUI). Firstly you will have to open up a new terminal and change directories to the Desktop. So we can access the directory that was recently created i.e. \texttt{msfgui}. The commands are shown after Figure~\ref{fig:fig12}
+\begin{figure}[H]
+    \centering
+    \includegraphics[scale=0.5]{pics/startm2.PNG}
+    \caption{Type 'n' for No}
+    \label{fig:fig12}
+\end{figure}
+\begin{minted}
+[
+frame=lines,
+framesep=2mm,
+baselinestretch=1.2,
+bgcolor=LightBlue,
+fontsize=\footnotesize,
+breaklines,
+breaksymbolleft=\carriagereturn
+]
+{Shell}
+cd ~/Desktop/msfgui
+\end{minted}
+Thereafter run the \texttt{msfgui} shell script. This can be done by running the command below.
+\begin{minted}
+[
+frame=lines,
+framesep=2mm,
+baselinestretch=1.2,
+bgcolor=LightBlue,
+fontsize=\footnotesize,
+breaklines,
+breaksymbolleft=\carriagereturn
+]
+{Shell}
+./msfgui
+\end{minted}
+Make sure the other terminal that is running the Metasploit command line is also running when the above mentioned command is run. If you are shown the prompt below. Click on \textbf{Yes}.
+\begin{figure}[H]
+    \centering
+    \includegraphics[scale=0.4]{pics/prompt1.PNG}
+\end{figure}
+Thereafter another window will pop up. Let it automatically make a choice. If it does not close, then click on the option \texttt{Start new msfrpcd} as shown in the figure below.
+\begin{figure}[H]
+    \centering
+    \includegraphics[scale=0.4]{pics/prompt2.PNG}
+\end{figure}
+The Metasploit Framework Grahphical User Interface (GUI) will now be up and running. This is shown in the figure below.
+\begin{figure}[H]
+    \centering
+    \includegraphics[scale=0.5]{pics/metaguimain.PNG}
+    \caption{The main screen for the Metasploit Framework GUI}
+\end{figure}
+\section{Android Emulator installation}
+For the first scenario covered in Section~\ref{sec:sec1} we will utilise an Emulator to virtualise an Android phone. This is keeping in line with the topic of virtualisation mentioned in Section~\ref{sec:sec2}. To emulate such a device you will need the Android Software Development Kit (SDK). This can be downloaded from the following url: \url{https://developer.android.com/studio}. Below is a screenshot of this page.
+\begin{figure}[H]
+    \centering
+    \includegraphics[scale=0.5]{pics/as1.PNG}
+    \caption{Homepage of Android Studio}
+\end{figure}
+Therefore open up the link in the browser of Kali Linux and click on button \textbf{Download Android Studio}. Thereafter Agree to the Terms and Conditions and click on the \textbf{Download Android Studio} button once again.
+\begin{figure}[H]
+    \centering
+    \includegraphics[scale=0.5]{pics/as2.PNG}
+    \caption{Agree to the terms and conditions}
+\end{figure}
+\chapter{Scenario 1: Android exploit}
+\label{sec:sec1}
+\chapter{Scenario 2: Windows exploit}
+\chapter{Additional readings and miscellaneous information}
 \url{https://citizenlab.ca/}
 \printbibliography[heading=bibintoc]
 \end{document}

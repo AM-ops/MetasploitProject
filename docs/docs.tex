@@ -358,6 +358,54 @@ Therefore open up the link in the browser of Kali Linux and click on button \tex
     \includegraphics[scale=0.5]{pics/as2.PNG}
     \caption{Agree to the terms and conditions}
 \end{figure}
+After the file has been downloaded you will see it is a \texttt{tar.gz} file. You can extract it to the Desktop either using the command line or the File Explorer. Below both options are shown. Run the following command in a terminal where the file was downloaded.
+\begin{minted}
+[
+frame=lines,
+framesep=2mm,
+baselinestretch=1.2,
+bgcolor=LightBlue,
+fontsize=\footnotesize,
+breaklines,
+breaksymbolleft=\carriagereturn
+]
+{Shell}
+tar -xf filename.tar.gz -C /home/kali/Desktop
+\end{minted}
+The figure below shows a folder named \texttt{android-studio} created on the Desktop.
+\begin{figure}[H]
+    \centering
+    \includegraphics[scale=0.5]{pics/as3.PNG}
+    \caption{File extracted with the File Explorer}
+\end{figure}
+We can now start up Android Studio and thereafter create an Android phone emulator. You will have to run the \texttt{studio} shell script inside the Android Studio folder. This can be done by running the commands below.
+\begin{minted}
+[
+frame=lines,
+framesep=2mm,
+baselinestretch=1.2,
+bgcolor=LightBlue,
+fontsize=\footnotesize,
+breaklines,
+breaksymbolleft=\carriagereturn
+]
+{Shell}
+cd ~/Desktop/android-studio
+\end{minted}
+Thereafter,
+\begin{minted}
+[
+frame=lines,
+framesep=2mm,
+baselinestretch=1.2,
+bgcolor=LightBlue,
+fontsize=\footnotesize,
+breaklines,
+breaksymbolleft=\carriagereturn
+]
+{Shell}
+./studio
+\end{minted}
 \chapter{Scenario 1: Android exploit}
 \label{sec:sec1}
 \chapter{Scenario 2: Windows exploit}

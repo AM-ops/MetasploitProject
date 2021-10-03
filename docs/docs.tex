@@ -406,6 +406,132 @@ breaksymbolleft=\carriagereturn
 {Shell}
 ./studio
 \end{minted}
+You will be prompted with \texttt{Import Android Studio Settings}. Choose the \textbf{Do not import settings} and click \textbf{Ok}.
+\begin{figure}[H]
+    \centering
+    \includegraphics[scale=0.5]{pics/as4.PNG}
+    \caption{Do not import settings}
+\end{figure}
+\begin{figure}[H]
+    \centering
+    \includegraphics[scale=0.5]{pics/as5.PNG}
+    \caption{Data Sharing screen}
+\end{figure}
+Choose any option for the Data Sharing screen
+\begin{multicols}{2}
+\begin{figure}[H]
+    \centering
+    \includegraphics[scale=0.3]{pics/as6.PNG}
+\end{figure}
+\begin{figure}[H]
+    \centering
+    \includegraphics[scale=0.3]{pics/as7.PNG}
+\end{figure}
+\end{multicols}
+Click \textbf{Next} on both of the above screens
+\begin{multicols}{2}
+\begin{figure}[H]
+    \centering
+    \includegraphics[scale=0.3]{pics/as8.PNG}
+\end{figure}
+\begin{figure}[H]
+    \centering
+    \includegraphics[scale=0.3]{pics/as9.PNG}
+\end{figure}
+\end{multicols}
+Click \textbf{Next} on both of the above screens
+\begin{figure}[H]
+    \centering
+    \includegraphics[scale=0.3]{pics/as10.PNG}
+    \caption{Final Screen}
+\end{figure}
+Click on \textbf{Finish}. Thereafter you will see that the Components will begin downloading as seen in the figure below.
+\begin{multicols}{2}
+\begin{figure}[H]
+    \centering
+    \includegraphics[scale=0.3]{pics/as11.PNG}
+\end{figure}
+\begin{figure}[H]
+    \centering
+    \includegraphics[scale=0.3]{pics/as12.PNG}
+\end{figure}
+\end{multicols}
+Click on \textbf{Finish} after everything is completed. Thereafter you will see the \texttt{Welcome to Android Studio} screen.
+\begin{multicols}{2}
+\begin{figure}[H]
+    \centering
+    \includegraphics[scale=0.3]{pics/as13.PNG}
+\end{figure}
+\begin{figure}[H]
+    \centering
+    \includegraphics[scale=0.3]{pics/as14.PNG}
+\end{figure}
+\end{multicols}
+Click on \textbf{More actions} and then select the \textbf{AVD Manager} option. You will be lead to the \texttt{Android Virtual Device Manager} screen. Click on the \textbf{+ Create Virtual Device...} option.
+\begin{multicols}{2}
+\begin{figure}[H]
+    \centering
+    \includegraphics[scale=0.3]{pics/as15.PNG}
+\end{figure}
+\begin{figure}[H]
+    \centering
+    \includegraphics[scale=0.3]{pics/as16.PNG}
+\end{figure}
+\end{multicols}
+You will have to \textbf{Select Hardware}, and thereafter the \textbf{System Image}. For the purposes of this project the following specifications were utilised:
+\begin{itemize}
+    \item \textit{Hardware}: Pixel 3a
+    \item \textit{System Image}:
+    \begin{itemize}
+        \item \textit{Release name}: R
+        \item \textit{API Level}: 30
+        \item \textit{Target}: Android 11.0
+    \end{itemize}
+\end{itemize}
+You will have to download the System Image if it is not installed.
+\begin{figure}[H]
+    \centering
+    \includegraphics[scale=0.3]{pics/as17.PNG}
+    \caption{License Agreement screen}
+\end{figure}
+Make sure to agree to the License Agreement before downloading the System Image and then click \textbf{Next}.
+\pagebreak
+\begin{multicols}{2}
+\begin{figure}[H]
+    \centering
+    \includegraphics[scale=0.2]{pics/as18.PNG}
+\end{figure}
+\begin{figure}[H]
+    \centering
+    \includegraphics[scale=0.2]{pics/as19.PNG}
+\end{figure}
+\end{multicols}
+Click on \textbf{Finish} after the install is done.
+\begin{multicols}{2}
+\begin{figure}[H]
+    \centering
+    \includegraphics[scale=0.2]{pics/as20.PNG}
+\end{figure}
+\begin{figure}[H]
+    \centering
+    \includegraphics[scale=0.2]{pics/as21.PNG}
+\end{figure}
+\end{multicols}
+You should be able to select the newly installed System Image and click on \textbf{Next}. Thereafter under the \textbf{Emulated Performance -$>$ Graphics} settings. Choose the \textbf{Software - GLES 2.0} option if you do not have a GPU on your host machine. If a GPU is present you can select the \textbf{Hardware - GLES 2.0} option. Thereafter click on \textbf{Finish}.
+Click on \textbf{Finish} after the download is completed.
+
+You should see the following in your \textbf{AVD Manager} now as shown below.
+\begin{figure}[H]
+    \centering
+    \includegraphics[scale=0.4]{pics/as22.PNG}
+    \caption{Android Emulator listed under the AVD Manager}
+\end{figure}
+Click on the green arrow to start up the newly created Android Emulator.
+\begin{figure}[H]
+    \centering
+    \includegraphics[scale=1]{pics/as23.PNG}
+    \caption{The Android Emulator running}
+\end{figure}
 \chapter{Scenario 1: Android exploit}
 \label{sec:sec1}
 \chapter{Scenario 2: Windows exploit}

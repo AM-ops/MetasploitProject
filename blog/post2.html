@@ -138,7 +138,42 @@
                             <br><br> To find the correct address to use, you must open a new terminal and type "ifconfig" and look for the address at "inet".
                             <img class="img-fluid" src="assets/post2pics/post2walkthrough (5.2).PNG" alt="..." />
                         </p>
-                        
+                        <p> <b>Step 8: </b> Compile everything needed by typing "exploit" into the console.
+                            <img class="img-fluid" src="assets/post2pics/post2walkthrough (6).PNG" alt="..." />
+                            <br><br> This should result in the following screen.
+                            <img class="img-fluid" src="assets/post2pics/post2walkthrough (7.1).PNG" alt="..." />
+                            <br><br> To double check that everything is ready, in a <b>new</b> terminal, move into the highlighted directory in the previous image
+                            through the use of the "cd" command. Take note of where the directory ends - we want to view the contents of the folder where the file is.
+                            Then use the command "ls" to list the contents in the folder and look if the .mcl file is present. Since ours is named update, we can see it has been created.
+                            <img class="img-fluid" src="assets/post2pics/post2walkthrough (7.2).PNG" alt="..." />
+                        </p>
+
+                        <p> <b>Step 9: </b> Have the target install the .exe file. 
+                            <br><br>This is the tricky part in real-life for attackers. We've somewhat made it easier to accomplish
+                            by naming the file something that seems inconspicuous, however, we still need a person to install it and this is the point in real life 
+                            that some form of <i>Social Engineering</i> may be used. Social engineering is defined below:
+                            <blockquote class="blockquote"> In the context of information security, social engineering is the psychological manipulation of people into performing actions or divulging confidential information. </blockquote>
+                            Hopefully, it just became clear why we called our file update.exe! If not, one scenario where this .exe could be used is if we contact a person via a phone call or email claiming to be some software company - 
+                            this is a typical method where attackers would pose as a Microsoft employee and get a person to install 
+                            some needed update for some reason. Even the method for getting this .exe to a person is done remotely 
+                            and may seem legitimate at first.
+                            
+                            <br><br> On the same screen as before, look for the "Malicious executable at ..." section. It has been highlighted in the following image to help.
+                            <img class="img-fluid" src="assets/post2pics/post2walkthrough (8).PNG" alt="..." />
+                            <br><br>This is the address where our update.exe can be downloaded and installed from.
+                            (PS - <b>DO NOT</b> install this on your personal computer. It's called malicious for a reason!)
+                            
+                            <br><br> This is the point where we now open the Windows machine 
+                            (Please again refer to the <a href="/blog/post3.html">DIY Guide.</a> if stuck).
+                            Hitting the Windows key and R (⊞ + R) will open the Run dialogue box where that address should now be entered as shown below.
+                            <img class="img-fluid" src="assets/post2pics/post2walkthrough (9).PNG" alt="..." />
+
+                            <br><br> After clicking "OK" or hitting "enter", the following, or similar box, should pop-up if the target has their firewall enabled.
+                            <img class="img-fluid" src="assets/post2pics/post2walkthrough (10).PNG" alt="..." />
+                            <br><br>If the firewall is disabled, a different pop-up appears that instead if location, asks if you trust a file without any certificates.
+                            This box is almost too familiar to student and hobbyist programmers alike as neither have access to these certificates and most applications cause this pop-up
+                            and as such is typically ignored anyway.
+                        </p>
                         
                         <span class="caption text-muted">Arguing that you don't care about the right to privacy because you have nothing to hide is no different than saying you don't care about free speech because you have nothing to say.</span>
                     </div>

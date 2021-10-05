@@ -173,7 +173,46 @@
                             <br><br>If the firewall is disabled, a different pop-up appears that instead if location, asks if you trust a file without any certificates.
                             This box is almost too familiar to student and hobbyist programmers alike as neither have access to these certificates and most applications cause this pop-up
                             and as such is typically ignored anyway.
+
+                            <br><br> Once the target has installed the .exe file, the Metasploit console should have the following updates appear:
+                            <br> [*] Sending stage (x bytes) to x.x.x.x.x
+                            <br> [*] Meterpreter session x opened (x.x.x.x:x -> x.x.x.x:x) at x-x-x x:x:x -xxxx
+                            <br> With the x's representing numbers/information that will change. In the demonstration it looks like:
+                            <img class="img-fluid" src="assets/post2pics/post2walkthrough (11).PNG" alt="..." />
                         </p>
+
+                        <p> <b>Step 10: </b> Start a session and gain access to the exploited machine.
+                            <br> First, we need to get the session id of our newly exploited machine which can be done by typing the "sessions" command in console.
+                            <img class="img-fluid" src="assets/post2pics/post2walkthrough (12).PNG" alt="..." />
+                            <br><br>We can see that the new machine is listed as session 1. We then type "sessions -i 1" into the console to gain access.
+                            <i>Take note: the "-i" is vital to this command as it stipulates that the console should connect to the supplied session_id (in this case 1).</i>
+                            <img class="img-fluid" src="assets/post2pics/post2walkthrough (14).PNG" alt="..." />
+                        </p>
+
+                        <h3>You now have remote access to the infected system!</h3>
+
+                        <p> <b>Step 10: </b> Cause Havoc!
+                            <br> By typing "help" in the meterpreter console (it is the same one as before) lists of possible commands are given.
+                            <br>For example, we made use of the "sysinfo" command to see the systems information. 
+                            <br>The "localtime" to see what time the computer is set to.
+                            <br>The "idletime" to see how long the system's user has left it alone.
+                            <br>The "shell" command opens up a command prompt in our console that will execute command on tha system!
+                            <br>The outputs of each of these are shown below.
+                            <img class="img-fluid" src="assets/post2pics/post2walkthrough (15).PNG" alt="..." />
+
+                            <br><br> You'll notice we typed "calc" in the command prompt before closing it with Ctrl+C. 
+                            This is the command to open the calculator on Windows. And looking back to our infected machine, we can see the fruits of our labour!
+                            <img class="img-fluid" src="assets/post2pics/post2walkthrough (16).PNG" alt="..." />
+
+                        </p>
+                        <p>Now you can play to your hearts content. Try using the "mouse" and "keyboard_send" commands to create a file on the desktop now! ;P</p>
+
+                        <h3>What in the How to?</h3>
+                        <p>At this point, we've now shown you how to gain access to another system and how to interact with. But, what exactly happened?
+                            <br> 
+                        </p>
+
+
                         
                         <span class="caption text-muted">Arguing that you don't care about the right to privacy because you have nothing to hide is no different than saying you don't care about free speech because you have nothing to say.</span>
                     </div>

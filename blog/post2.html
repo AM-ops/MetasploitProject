@@ -39,12 +39,15 @@
                 <div class="row gx-4 gx-lg-5 justify-content-center">
                     <div class="col-md-10 col-lg-8 col-xl-7">
                         <div class="post-heading">
-                            <h1>Windows exploit</h1>
-                            <h2 class="subheading">In Progress!</h2>
+                            <h1>Windows 7: A not-so-deserted Operating System</h1>
+                            <h2 class="subheading">End-of-Life = Vulnerability Gold Mine </h2>
                             <span class="meta">
                                 Posted by
                                 <a href="https:github.com/Josh-SCG">Joshua Esterhuizen</a>
                                 on October 19, 2021
+                            </span>
+                            <span class="meta">
+                                Read Time: ±15min
                             </span>
                         </div>
                     </div>
@@ -56,8 +59,8 @@
             <div class="container px-4 px-lg-5">
                 <div class="row gx-4 gx-lg-5 justify-content-center">
                     <div class="col-md-10 col-lg-8 col-xl-7">
-                        <h3> Windows 7: A not-so-deserted OS</h3>
-                        <blockquote class="blockquote">Support for Windows 7 ended on January 14, 2020. If you are still using Windows 7, your PC may become more vulnerable to security risks.</blockquote>
+                        <h3>EOL for Win7</h3>
+                        <blockquote class="blockquote"> <br>Support for Windows 7 ended on January 14, 2020. If you are still using Windows 7, your PC may become more vulnerable to security risks.</blockquote>
                         
                         <p> The above statement is taken from the <a href="https://www.microsoft.com/en-za/microsoft-365/windows/end-of-windows-7-support">Microsoft website</a>  and states the death of support for Windows 7. 
                             However, this has not stopped users from continuing to use this operating system since then. 
@@ -72,13 +75,27 @@
                         
                         <p>From the data and graph from <a href="https://gs.statcounter.com/">StatCounter</a> we can see that as of September 2021, roughly 16% of Windows users are still running Windows 7.</p>
                         
-                        <h3> Exploits Waiting to Happen </h3>
-                        <p>Even though Metasploit has an abundance of exploits for Windows XP and Vista, there are luckily, or unluckily depending on who you are, a few targeting Windows 7.
-                            
+                        <h3>Exploits Waiting to Happen</h3>
+                        <p> Even though Metasploit has an abundance of exploits for Windows XP and Vista, 
+                            there are luckily, or unluckily depending on which end of the stick you find yourself, a few targeting Windows 7.
                         </p>
-                        <p>A Chinese tale tells of some men sent to harm a young girl who, upon seeing her beauty, become her protectors rather than her violators. That's how I felt seeing the Earth for the first time. I could not help but love and cherish her.</p>
-                        <p>For those who have seen the Earth from space, and for the hundreds and perhaps thousands more who will, the experience most certainly changes your perspective. The things that we share in our world are far more valuable than those which divide us.</p>
-                        <h2 class="section-heading">The Final Frontier</h2>
+
+                        <p> One such exploit is the ms15_100_mcl. While that naming convention may look 
+                            daunting it simply stands for "Microsoft Windows Media Center 
+                            MCL Vulnerability". The MCL bit here is a type of file used by Windows Media Center, 
+                            similar to how .DOCX files are used in word,  
+                            and stands for "Media Center Link." More information on this file type can be found 
+                            <a href="https://fileinfo.com/extension/mcl">here.</a>
+                        </p>
+
+                        <p> Before we demonstrate how to use this exploit, there is one thing that must be stated. 
+                            This is done purely for educational purposes - 
+                            we at J&A Blog in no way condone any <i>blackhat</i> hacking. 
+                            Now, lets demonstrate this exploit.
+                        </p>
+                        
+                        
+                        <h2 class="section-heading">The ms15_100_mcl Exploit on Metasploit</h2>
                         <p>There can be no thought of finishing for ‘aiming for the stars.’ Both figuratively and literally, it is a task to occupy the generations. And no matter how much progress one makes, there is always the thrill of just beginning.</p>
                         <p>There can be no thought of finishing for ‘aiming for the stars.’ Both figuratively and literally, it is a task to occupy the generations. And no matter how much progress one makes, there is always the thrill of just beginning.</p>
                         <blockquote class="blockquote">The dreams of yesterday are the hopes of today and the reality of tomorrow. Science has not yet mastered prophecy. We predict too much for the next year and yet far too little for the next ten.</blockquote>

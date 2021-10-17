@@ -31,3 +31,4 @@
 /docs/main-blx.bib
 /docs/*.synctex.gz
 /docs/_minted-docs
+docs/.vscode/settings.json

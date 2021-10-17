@@ -580,7 +580,21 @@ The scenario is described as follows:
 \end{displayquote}
 \section{Carrying out the exploit}
 Here are the steps taken to exploit the Android virtual machine.\\\\
-Step 1: Open up the Metasploit console in Kali Linux by running the following command below:
+Firstly, we should see if the Android VM is listed on our current NAT Network. For this run the following command shown below:
+\begin{minted}
+[
+frame=lines,
+framesep=2mm,
+baselinestretch=1.2,
+bgcolor=LightBlue,
+fontsize=\footnotesize,
+breaklines,
+]
+{Shell}
+nmap -sS
+\end{minted}
+nmap is a Securioty Scanner that allows us to scan networks with different options. The flags denoted by \texttt{-sS} are the most common and initiate a stealthier scan of the network.\cite{nmap} 
+Open up the Metasploit console in Kali Linux by running the following command below:
 \begin{minted}
 [
 frame=lines,
@@ -716,6 +730,7 @@ bgcolor=LightBlue,
 fontsize=\footnotesize,
 breaklines,
 ]{Text}{commands.txt}
+
 \section{Countermeasures}
 \chapter{Scenario 2: Windows exploit}
 \section{Overview}

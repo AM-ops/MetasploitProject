@@ -95,10 +95,15 @@
                         <p><b style="color: red;">DISCLAIMER:</b> DO NOT TRY THIS AT HOME OR ON PUBLIC NETWORKS!</p>
                         <p><img src="assets/img/ww.gif" class="img-fluid mx-auto d-block" alt="ww"/></p>
                         <h4>Step 1:</h4>
+                        <p>Open a terminal in your Kali VM and run the <code style="padding: .2em .4em; margin: 0;font-size: 85%; background-color: rgb(52 57 66); border-radius: 6px; color: white;">ifconfig</code> command as shown below</p>
+                        <pre><code data-language="shell">ifconfig</code></pre>
+                        <p>This will show you all the network related information you will need further in the exploit. This includes your IP address.</p>
+                        <p><img src="assets/post1pics/ifconfig.PNG" class="img-fluid mx-auto d-block" alt="ww"/></p>
+                        <h4>Step 2:</h4>
                         <p>Run the <code style="padding: .2em .4em; margin: 0;font-size: 85%; background-color: rgb(52 57 66); border-radius: 6px; color: white;">nmap</code> command as shown below</p>
-                        <p></p>
-                        <pre><code data-language="shell">nmap -sS</code></pre>
-                        <p><code style="padding: .2em .4em; margin: 0;font-size: 85%; background-color: rgb(52 57 66); border-radius: 6px; color: white;">nmap</code> is a Security Scanner that allows us to scan networks with different options. The flags denoted by <code style="padding: .2em .4em; margin: 0;font-size: 85%; background-color: rgb(52 57 66); border-radius: 6px; color: white;">-sS</code> are the most common and initiate a stealthier scan of the network.</p>
+                        <pre><code data-language="shell">nmap -sP subnet</code></pre>
+                        <p><code style="padding: .2em .4em; margin: 0;font-size: 85%; background-color: rgb(52 57 66); border-radius: 6px; color: white;">nmap</code> is a Security Scanner that allows us to scan networks with different options. The flags denoted by <code style="padding: .2em .4em; margin: 0;font-size: 85%; background-color: rgb(52 57 66); border-radius: 6px; color: white;">-sP</code> are the most commonly used and initiate a stealthier scan of the network as well as all the devices that are currently running. The entire subnet is scanned. This is shown below.</p>
+                        <p><img src="assets/post1pics/nmap.PNG" class="img-fluid mx-auto d-block" alt="ww"/></p>
                         <p>Fire up the Metasploit console by running this command on your Kali Linux VM's terminal</p>
                         <pre><code data-language="shell">msfconsole</code></pre>
                         <p>Your terminal should now look something like this</p>

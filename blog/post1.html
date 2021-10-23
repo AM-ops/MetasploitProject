@@ -122,7 +122,17 @@
                         <p>If this is successful we should once again see our terminal prompt change to ":/ #" as shown in the picture below.</p>
                         <p><img src="assets/post1pics/adb3.PNG" class="img-fluid mx-auto d-block" alt=""/></p>
                         <p>At this stage the vulnerable Android device is totally in our control. We can do as we please.</p>
-                        
+                        <p><img src="assets/img/hand.gif" class="img-fluid mx-auto d-block" alt=""/></p>
+                        <p>To ensure that we are truly in control of the device the <code style="padding: .2em .4em; margin: 0;font-size: 85%; background-color: rgb(52 57 66); border-radius: 6px; color: white;">print working directory</code> and the <code style="padding: .2em .4em; margin: 0;font-size: 85%; background-color: rgb(52 57 66); border-radius: 6px; color: white;">listing</code> commands can be run one after the other as shown below.</p>
+                        <pre><code data-language="shell">pwd</code></pre>
+                        <pre><code data-language="shell">ls</code></pre>
+                        <p>The results of the first command should just be "/" and the results of the second command should be a long list as demonstrated in the picture below.</p>
+                        <p><img src="assets/post1pics/adb4.PNG" class="img-fluid mx-auto d-block" alt=""/></p>
+                        <p>Now that privilege escalation has been successful we can move on to post exploitation where we can create a stronger more persistent stronghold within the virtual Android device.</p>
+                        <p><img src="assets/post1pics/adb5.PNG" class="img-fluid mx-auto d-block" alt=""/></p>
+                        <p><img src="assets/post1pics/adb6.PNG" class="img-fluid mx-auto d-block" alt=""/></p>
+                        <p><img src="assets/post1pics/adb7.PNG" class="img-fluid mx-auto d-block" alt=""/></p>
+                        <p><img src="assets/post1pics/adb8.PNG" class="img-fluid mx-auto d-block" alt=""/></p>
                         <h4>Step 3:</h4>
                         <p>In a new root terminal of your Kali Linux VM fire up the <i>Metasploit console</i> by running the <code style="padding: .2em .4em; margin: 0;font-size: 85%; background-color: rgb(52 57 66); border-radius: 6px; color: white;">msfconsole</code> command as shown below.</p>
                         <pre><code data-language="shell">msfconsole</code></pre>

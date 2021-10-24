@@ -25,6 +25,8 @@ The Documentation compiled for this project can be found [here](https://github.c
 
 ## Resources utilised
 
+A lot of Googling, as well as additional research on Forums, Websites, and [YouTube](https://youtube.com)
+
 ## Todo:
 - [x] Conduct background research
 - [x] Install VMs

@@ -5,6 +5,8 @@ Project for the ITRI625 (Computer Security II) module. Two scenarios are covered
 1. [AM-ops](https://github.com/AM-ops)
 2. [Josh-SCG](https://github.com/Josh-SCG)
 
+## Hosting
+The Blog for this project was hosted on GitHub Pages at [ITRI625.github.io](https://itri625.github.io/)
 
 ## Prerequisites
 The following knowledge was needed before we began this project

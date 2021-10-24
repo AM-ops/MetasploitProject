@@ -219,16 +219,52 @@
                         <p>The hacker is going to be like: Thank you very much!</p>
                         <p><img src="assets/post1pics/thumbs-up-hacker.gif" class="img-fluid mx-auto d-block" alt=""/></p>
                         <h4>Step 13:</h4>
-                        <p>The terminal where the <code style="padding: .2em .4em; margin: 0;font-size: 85%; background-color: rgb(52 57 66); border-radius: 6px; color: white;">exploit</code> command was run will now change. The prompt in the terminal will now be <code style="padding: .2em .4em; margin: 0;font-size: 85%; background-color: rgb(52 57 66); border-radius: 6px; color: white;">meterpreter ></code></p>
+                        <p>The terminal where the <code style="padding: .2em .4em; margin: 0;font-size: 85%; background-color: rgb(52 57 66); border-radius: 6px; color: white;">exploit</code> command was run will now change. The prompt in the terminal will now be <code style="padding: .2em .4em; margin: 0;font-size: 85%; background-color: rgb(52 57 66); border-radius: 6px; color: white;">meterpreter ></code> as demonstrated below.</p>
+                        <pre><code data-language="shell">meterpreter ></code></pre>
                         <p>From here on the hacker will have full control of the virtual Android device. A full list of <code style="padding: .2em .4em; margin: 0;font-size: 85%; background-color: rgb(52 57 66); border-radius: 6px; color: white;">meterpreter</code> commands can be accessed by typing the following <code style="padding: .2em .4em; margin: 0;font-size: 85%; background-color: rgb(52 57 66); border-radius: 6px; color: white;">help</code> command as demonstrated below.</p>
                         <pre><code>meterpreter > help</code></pre>
-                        <p>A screenshot is of some of these commands is shown.</p>
+                        <p>A screenshot of some of these commands is shown.</p>
                         <p><img src="assets/post1pics/msf6.PNG" class="img-fluid mx-auto d-block" alt=""/></p>
                         <p>A more comprehensive list of commands is shown below which was taken from the documentation of Metasploit</p>
                         <iframe style="background-color: seashell;" src="assets/commands.txt" frameborder="2" width="110%"></iframe>
                         <p>Some of these commands are quite dangerous and can easily compromise a victim within seconds.</p>
+                        <p><img src="assets/img/freindo-kevin.gif" class="img-fluid mx-auto d-block" alt=""/></p>
+                        <p><img src="assets/img/thats-scary-creepy.gif" class="img-fluid mx-auto d-block" alt=""/></p>
                         <h4>Step 14:</h4>
-                        <p>Now that the exploit is complete we can move onto</p>
+                        <p>Now that the exploit is complete we can move onto a quick example of post exploitation.</p>
+                        <p>Firstly, a few dummy contacts were created in the virtual Android device. This is shown below.</p>
+                        <p><img src="assets/post1pics/contacts.PNG" class="img-fluid mx-auto d-block" alt=""/></p>
+                        <p>Now we will access these contacts from our Kali Linux VM through the exploit we have just carried out.</p>
+                        <h4>Step 15:</h4>
+                        <p>Navigate to the terminal where the <code style="padding: .2em .4em; margin: 0;font-size: 85%; background-color: rgb(52 57 66); border-radius: 6px; color: white;">meterpreter</code> service is running and run the following <code style="padding: .2em .4em; margin: 0;font-size: 85%; background-color: rgb(52 57 66); border-radius: 6px; color: white;">meterpreter</code> command.</p>
+                        <pre><code data-language="shell">meterpreter > shell</code></pre>
+                        <p><img src="assets/post1pics/meter4.PNG" class="img-fluid mx-auto d-block" alt=""/></p>
+                        <p>This will open up a shell within the virtual Android device as we have done previously. We can also see the malicious file we created previously.</p>
+                        <h4>Step 16:</h4>
+                        <p>Now run the following <code style="padding: .2em .4em; margin: 0;font-size: 85%; background-color: rgb(52 57 66); border-radius: 6px; color: white;">meterpreter</code> command as shown below.</p>
+                        <pre><code data-language="shell">meterpreter > dump_contacts</code></pre>
+                        <p>This command dumps all the contacts that are on the exploited device into a <code style="padding: .2em .4em; margin: 0;font-size: 85%; background-color: rgb(52 57 66); border-radius: 6px; color: white;">.txt</code> file. This is shown below.</p>
+                        <p><img src="assets/post1pics/meter7.PNG" class="img-fluid mx-auto d-block" alt=""/></p>
+                        <p>From here on you can carry out any other command you feel like. It is up to you as the attacker to decide what to do.</p>
+                        <h3>Countermeasures</h3>
+                        <p>So you may ask <i>"What can we do, J&amp;A to protect ourselves and our devices?"</i></p>
+                        <p>This is the advice we can offer at J&amp;A</p>
+                        <ul>
+                            <li>Do not use open Wi-Fi networks.</li>
+                            <li>Disable the <i>"Install Apps from Unknown sources".</i></li>
+                            <li>option in your device settings.</li>
+                            <li>Only install verified applications from the Google Play store or other trusted stores such as F-Droid.</li>
+                            <li>Do not open files that are sent to you from unknown parties.</li>
+                            <li>Install and keep updated an Anti-Malware tool on your device.</li>
+                            <li>Install and keep updated an Anti-Virus software on your device.</li>
+                            <li>If possible, pay for a VPN service for your device.</li>
+                            <li>Do not carry out sensitive processes on your device if it is not secured or you do not have a VPN.</li>
+                            <li>Do not open any correspondence you receive on your device that is from an unknown party.</li>
+                            <li>Keep you device updated at all times, especially security updates/patches.</li>
+                            <li>Keep your applications on your device updated at all times and if possible disable auto-updates. This will allow you to keep track of what is updated and </li>when.
+                            <li>Delete any application on your device if you have not used it in the past month (This excludes your built-in applications).</li>
+                            <li>Disable Background processes (for applications) on your device.</li>
+                        </ul>
                         <p>
                         <blockquote class="blockquote">"We're always chasing the bad guys – the good guys are never ahead. We're not the ones who wrote these exploits. They are often found in the wild and the defenders are generally following the black hats."<br/> - H. D. Moore, Network Security Expert, Founder of the Metasploit Project</blockquote>
                         </p>

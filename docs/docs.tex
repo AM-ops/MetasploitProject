@@ -34,21 +34,87 @@
 \maketitle
 \tableofcontents{}
 \chapter{Metasploit}
-The growth and widespread adoption of technology and the internet can be compared to a double-edged sword. While the globe is more interconnected than ever, this almost unanimous adoption of technology has brought with it some issues and problems of its’ own. One such major issue is the increased security risk people undertake by participating in the use of technology and the internet. Before the most risk you would be in was if you had dropped important documents while nowadays an attacker could access this information through some nefarious mean without even alerting you or the targeted institution. The simplest was to guard against these on a large scale without sacrificing the comfort of using technology or the internet is to develop and put in place security measures to block these kinds of attacks. 
-
-The Metasploit framework was developed to aid in this process by providing a structured and contained way to attempt penetration on a system to test the security measures and their effectiveness.  This is helpful for both countering security in the wrong hands as well as aiding in improving the security of organisations.
+\section{Introduction}
+The growth and widespread adoption of technology and the internet can be compared to a double-edged sword. While the globe is more interconnected than ever, this almost unanimous adoption of technology has brought with it some issues and problems of its’ own. 
+\\\\
+One such major issue is the increased security risk people undertake by participating in the use of technology and the internet. Before the most risk you would be in was if you had dropped important documents while nowadays an attacker could access this information through some nefarious mean without even alerting you or the targeted institution. The simplest was to guard against these on a large scale without sacrificing the comfort of using technology or the internet is to develop and put in place security measures to block these kinds of attacks. 
+\\\\
+The Metasploit framework was developed to aid in this process by providing a structured and contained way to attempt penetration on a system to test the security measures and their effectiveness.  This is helpful for both countering security in the wrong hands as well as aiding in improving the security of organisations. 
 \section{What is Metasploit?}
 Before we can describe the ways that Metasploit can help organisations and how it counters security in the wrong hands, we need to understand what Metasploit is and how it functions. Metasploit and its’ framework were originally designed and developed as a tool for security experts in various fields such as network security, security administrators, product vendors and any other security experts to use within their own field according to the specific needs of each.\cite{testIDS}
-
+\\\\
 Other than that, Metasploit is describes as a tool that collectively combines exploits into one central hub for security experts and researchers or alternatively as a project that contains information pertaining to security vulnerabilities and aids in the penetration testing of a system as well as the development of an intrusion detection system.\cite{goodDef, testIDS}
-
+\\\\
 Penetration testing is a method of identifying certain vulnerabilities within a system be it a computer, network or website. As a process, it includes gathering data on the system to determine where vulnerabilities may lie and then attempt to exploit them to test the measures put in place.\cite{goodDef}
-
-
-
+\\\\
+Metasploit was originally equipped with many modules that can be used. The four main modules include:\cite{goodDef}
+\begin{itemize}
+\item Exploit module which allows for a means to attack a compromised system, 
+\item Payload which allows for a means for attackers to gather data by interacting with the target, 
+\item Auxiliary module, which is equipped to test, scan and recon the target and \item Encoders module which is used for evading firewall and anti-virus tools. 
+\end{itemize}
+It should also be noted that since Metasploit is an open source, meaning the code to how it was built is publicly available for download, this allows users and security experts to develop their own modules if the need for then is required. \cite{goodDef}
+\\\\
+There are also two other notable items that are coupled with Metasploit – those being Meterpreter and Msf-Venom. Meterpreter is a powerful payload that came to Metasploit some time after it was developed. It is an advanced dynamically integrated payload that is stored entirely within the memory of a system. \cite{testIDS}When a vulnerable system is found and consequentially infected with this payload via any exploit, it establishes a connection between the infected and attacker systems through a client side, the infected system, command which bypasses most firewall restrictions.\cite{testIDS}
+\\\\
+Meterpreter is also a powerful payload for another reason - it is very elusive and often goes by undetected by most security experts.\cite{testIDS}
+\\\\
+Meterpreter also comes with a command line style interface that has various commands such as getting system information, interacting with peripherals on the infected system and making use of the infected systems command line or power shell. 
+\\\\
+Msf-Venom on the other hand is not a payload but a Metasploit standalone payload generator. It is the updated replacement of msfpayload and msfencode.\cite{goodDef}
+\\\\
+It allows a user to generate any type of shellcode or payload that will affect a platform of their choice - such as on Linux, Windows or Android to name a few.\cite{goodDef}
+\section{How it counters security in the wrong hands}
+"Security in the wrong hands" is likely referring to people or organisations that are making use of security measures to halt, attack or generally inconvenience others. As such, Metasploit and its’ accompanying modules are a tool that will counter these types of attacks. 
+\\\\
+The clearest way that Metasploit can be used in this capacity is that it directly provides the tools to infiltrate and attack the system to remove the security measures in place and as such counters the given attack. Additionally, it can also be used to study the system itself to find any vulnerabilities and then generate payloads and exploits that match the systems security measures with Msf-Venom. 
+\\\\
+Metasploit allows for this with several keywords within the framework - namely those being:
+\begin{itemize}
+\item Search
+\item Use
+\item Exploit and Run
+\end{itemize}
+The search keyword allows for a Metasploit user to comb through the massive library of modules Metasploit provides and quickly and easily find the appropriate payload they require.\cite{goodDef}
+\\\\
+The use keyword allows for a Metasploit user to implement the particular module they want to and begin the exploitation process.\cite{goodDef}
+\\\\
+The exploit and run keywords allow a Metasploit user to activate their choice of payload and module and begin the actual infiltration of a vulnerably system. There are two keywords for this particular action.\cite{goodDef}
+\\\\
+However, Metasploit can also be used by security experts within an organisation to test their internal security systems and measures that they have in place.
+\section{How it improves the cyber security of an organisation}
+Security experts and system administrators within organisations have begun taking the approach of viewing their control measures as an ever-evolving system that needs constant attention as it is a matter of when the measures will fail and not if they will fail.\cite{usesEvade} 
+\\\\
+These experts and administrators can make use of Metasploit to test their systems and find any vulnerabilities in a controlled environment before they are exploited by any malicious attacker. This is a needed aspect of the security department of any organisation that wished to keep their data and information safe as one of the biggest issues to solve with exploits is how they evade detection. This is typically done by avoiding detection of an anti-virus or anti-malware program through the use of \cite{usesEvade, testIDS}:
+\begin{itemize}
+    \item Manual Binary Editing
+    \item Polymorphic code
+\end{itemize}
+Most anti-virus programs have been ineffective at detecting the payloads distributed by Metasploit and as such making use of these exact payloads to further secure a system is ideal.\cite{testIDS}
+\\\\
+However, before being able to update a security system to detect these payloads, the means of evasion must be understood. Manual binary editing is the process by which the malware in question changes a particular signature to avoid detection by signature-based security programs.\cite{usesEvade}
+\\\\\
+Due to this, the security experts could modify the means by which these applications check for signatures – as one suggestion is to sub-divide the files being scanned and checking if there is a partial match to a known malware or virus signature.\cite{usesEvade} 
+\\\\
+The above method, however, may not work on the second means of evasion -polymorphic code. A virus or piece of malware with this specific trait changes each time it is run and therefore has a different signature each time - avoiding signature-based detection entirely. \cite{usesEvade}
+\\\\
+Therefore using payloads from Metasploit with this characteristic allows for system administrators and security experts to efficiently test the intrusion detection systems and any heuristic-based anti-malware or anti-virus programs.\cite{usesEvade}
+\\\\
+Another use is that Metasploit can also be used to test the security measures of websites and web applications.\cite{testweb} 
+\\\\
+From this section, it is clear that Metasploit can be used to strengthen the security measures put in place by an organisation by allowing the security experts and system administrators to firstly identify what vulnerabilities the system has, then exploit it to understand how the exploit uses the vulnerability and then find a means to patch this vulnerability.
+\section{Conclusion}
+Metasploit is shown to be a powerful tool for security experts as it allows for a controlled means to study system vulnerabilities and exploits while aiding in the process of strengthening the systems themselves as well as the programs used to safeguard the systems.
 \chapter{Installation and Setup}
-For further details have a look at our blog page for the setup that was done. It is located at the following link:\\
-\url{https://ITRI625.github.io/post3.html}
+For further details have a look at our "DIY" blog page for the setup that was done in this project. It is located at the following link:\\
+\url{https://ITRI625.github.io/post3.html}\\\\
+The following tools were utilised:
+\begin{itemize}
+    \item Oracle VirtualBox
+    \item Vulnerable Windows 7 .iso image
+    \item Vulnerable Android x86\_64 .iso image
+    \item Kali Linux .iso image
+\end{itemize}
 % \section{Project files}
 % The project files can be found on the following GitHub link:\\
 % \url{https://github.com/AM-ops/MetasploitProject/}
@@ -588,16 +654,23 @@ GIFs on the Blog were sourced from \url{https://tenor.com/} and \url{https://gip
 Additionally, the screenshots taken were from VMs we implemented in VirtualBox and other images for the headers were sourced from Google Images.
 \chapter{Scenario 1: Android exploit}
 \label{sec:sec1}
-\section{Overview}
+\section{Overview \& Carrying out the exploit}
 The scenario is described as follows:
 \begin{displayquote}
 \textit{A person (that will be known as the victim in further discussions), opens a SMS received on their mobile device. This SMS has a malicious link embedded in it, or has a link that redirects to a malicious site. The link automatically downloads and runs an Android application package also known in other terms as an APK file. This APK file is what the Android Operating System uses to install applications. This malicious Application, once installed gives the Hacker (known as a perpetrator in an attack) full control over the device to outside parties, including the perpetrator. From here on out, the perpetrator has the victim in the palm of their hands, and can do what every they like to the device as well as carry out further attacks against the victim.}
 \end{displayquote}
-\section{Carrying out the exploit}
 The following resources were cited during this process.\cite{nmap, hypr, sdo, os1, zain, comm, meter}
-
-For further details have a look at our blog page for this exploit. It is located at the following link:\\
+\\\\
+For further details have a look at our "Exploit 1" blog page for this exploit. It is located at the following link:\\
 \url{https://ITRI625.github.io/post1.html}
+The following basic procedures/steps were followed:
+\begin{enumerate}
+    \item Install Oracle VirtualBox
+    \item Load Kali Linux image into VirtualBox
+    \item Load vulnerable Android x86\_64 image into VirtualBox
+    \item Carry out the exploit
+    \item Carry out post exploitation
+\end{enumerate}
 % Firstly, we should see if the Android VM is listed on our current NAT Network. For this run the following command shown below:
 % \begin{minted}
 % [
@@ -753,32 +826,64 @@ For further details have a look at our blog page for this exploit. It is located
 
 \section{Countermeasures}
 \chapter{Scenario 2: Windows exploit}
-\section{Overview}
+\section{Overview \& Carrying out the exploit}
 The scenario is described as follows:
 \begin{displayquote}
 \textit{Windows 7 had all support for the operating system halted in January of 2020. Windows 7 was certainly a user favourite and the end of support saw quite a few users disgruntledly switch to either Windows 8 or 10 to continue to get security focused support and patches. At this point, the support for windows 7 has been defunct for almost 2 years and as such many new exploits have likely surfaced. Nonetheless, even before Windows 7 met its end-of-life there were still many exploits that could be performed on the system that were sequentially fixed in the new versions of Windows. One such vulnerability present in Windows 7 is that the default version of Windows Media Centre will execute any code saved as a ".mcl" file.}
 \end{displayquote}
-\section{Carrying out the exploit}
-For further details have a look at our blog page for this exploit. It is located at the following link:\\
+For further details have a look at our "Exploit 2" blog page for this exploit. It is located at the following link:\\
 \url{https://ITRI625.github.io/post2.html}
+\\\\
+The following basic procedures/steps were followed:
+\begin{enumerate}
+    \item Install Oracle VirtualBox
+    \item Load Kali Linux image into VirtualBox
+    \item Load vulnerable Windows 7 image into VirtualBox
+    \item Carry out the exploit
+    \item Carry out post exploitation
+\end{enumerate}
 \section{Countermeasures}
 The most useful countermeasure to this, and typically, any security related vulnerability is user vigilance. A user should be aware of what files, services, websites, etc. should typically look like in their daily usage a computer system and, as such, should be able to identify when one of these, and in this case a file, looks suspicious and should be scanned via some program before using or opening it.
+\\\\
 Furthermore, it is also important since this exploit made use of a .mcl and .exe file that a user makes use of some form of antivirus or antimalware software and in this particular case, ones that are signature based. The reasoning for this is because the executable in this scenario is one that has been created and is typically used in a large scale. 
+\\\\
 It is also vital to understand the exploits you are vulnerable to. In the tutorial we demonstrated that the file could be run and Windows only alerts that it comes from an untrusted, meaning un-certified, source which nowadays is something that happens with most applications as the typically programmer does not have access to particular licencing on their applications. In this case, having a more rigorous firewall or settings for it may have restricted the reverse\_tcp from functioning.
-
+\\\\
 Apart from this, the main fix to this particular issue was to install a patch provided by Microsoft on their site, and as such having some sort of patch management system is also vital to users. This could be simply regularly checking each application download page for the newest version or patch. However, there are applications and programs that automate this process and keep all your programs up to date. It should also be noted that most programs tend to offer a "Check for updates" feature when installing the program and likely also in the settings after the fact. 
-
 \chapter{Closing remarks}
-\section{Reflection}
+\section{Reflection \& Work Consensus}
+The group for this project consisted of 2 members namely:
+\begin{itemize}
+    \item Affaan Muhammad - 33016763
+    \item Joshua Esterhuizen - 30285976
+\end{itemize}
+Below is our reflection that was carried out after the completion of the project.\\\\
+\textbf{Reflection}\\\\
 Joshua Esterhuizen had the following to say:
 \begin{displayquote}
-Working on this project has taught me several different things both within and outside of computer security. The most notable to me personally would be the fact that GitHub allows each user to create and then host a single static website. This is what was used to host the blog section of this project but will also be used by me in a personal capacity for a personal website in future. Apart from this, seeing the sheer amount of exploits that Metasploit has available to use is a bit disconcerting as it covers a wide array of different machines, programs and means of execution and has definitely made me that much more critical of everything I do online. This project also allowed me the chance to learn how to use HTML and CSS when writing the blog, which also forced me to switch up my usual writing style for one that is more colloquial for the general public instead of assuming the people reading the writing are already knowledgeable on the topics.
+\textit{Working on this project has taught me several different things both within and outside of computer security. The most notable to me personally would be the fact that GitHub allows each user to create and then host a single static website. This is what was used to host the blog section of this project but will also be used by me in a personal capacity for a personal website in future. 
+\\\\
+Apart from this, seeing the sheer amount of exploits that Metasploit has available to use is a bit disconcerting as it covers a wide array of different machines, programs and means of execution and has definitely made me that much more critical of everything I do online. 
+\\\\
+This project also allowed me the chance to learn how to use HTML and CSS when writing the blog, which also forced me to switch up my usual writing style for one that is more colloquial for the general public instead of assuming the people reading the writing are already knowledgeable on the topics. 
+}
 \end{displayquote}
+\pagebreak
 Affaan Muhammad had the following to say:
 \begin{displayquote}
-Lorem ipsum
+\textit{The Computer Security II module (ITRI625) was an enjoyable experience overall. The practical aspects were an added bonus which helped strengthen the theoretical knowledge that was learned during the year.
+\\\\
+Additionally it was also enjoyable to once again delve into details of Operating Systems, as well as Computer Networking which was done in the final year of our undergraduate degree. So in essence during the Honours year we built upon the foundations laid in the undergrad years.
+\\\\
+It was tremendous fun to once again do Web Development and implementing static pages using GitHub Pages.
+\\\\
+A few mishaps that have to be mentioned is the tricky work-around that was done to implement NAT Networks to allow communication between virtual environments. Any other issues that came up were solved as soon as possible and being able to navigate and sift through error was key to the success for this project.
+\\\\
+Using the Kali Linux operating system, the command line, debugging, and scripting was enjoyable as always and helped in adding to our knowledge base.
+\\\\
+Additionally, good time management and excellent communication was vital to the added success of this project.}
 \end{displayquote}
-\section{Work Consensus}
+\textbf{Work Consensus}\\\\
 All members in the group contributed to this project and a 50/50 balance between work allocation was kept. Below is a table showing how the work was divided in this project amongst the 2 members i.e. Affaan \& Joshua
 \begin{table}[H]
 \centering
@@ -884,7 +989,71 @@ They include the following:
 \end{itemize}
 \end{multicols}
 \section{Security Groups}
+\begin{multicols}{2}
+\begin{itemize}
+\item \href{https://www.afcea.org/membership/chapters/search.jsp}{AFCEA Chapters}
+\item \href{https://cloudsecurityalliance.org/chapters/global/}{CSA Chapters}
+\item \href{https://mga.ieee.org/resources-operations/geographic-unit/chapters}{IEEE Technical Chapters}
+\item \href{https://www.infragard.org/Application/General/ChapterList}{InfraGard Local Chapters}
+\item \href{https://www.isaca.org/Membership/Local-Chapter-Information/Pages/default.aspx}{ISACA Local Chapters}
+\item \href{https://www.isc2.org/Chapters}{(ISC)$^{2}$ Chapter Program}
+\item \href{https://www.issa.org/general/custom.asp?page=chapter_main}{ISSA Chapter Directory}
+\item \href{https://www.owasp.org/index.php/OWASP_Chapter}{OWASP Chapters Program}
+\end{itemize}
+\end{multicols}
 \section{Contests and Competitions}
+\begin{multicols}{2}
+\begin{itemize}
+\item \href{https://csaw.engineering.nyu.edu/}{CSAW Capture the Flag (CTF)}
+\item \href{https://www.defcon.org/html/defcon-15/dc-15-contests.html}{DEF CON Contests}
+\item \href{https://csaw.engineering.nyu.edu/esc}{ESC: Embedded Security Challenge}
+\item \href{http://www.nationalccdc.org/}{NCCDC: National Collegiate Cyber Defense Competition}
+\item \href{https://www.nationalcyberleague.org/}{NCL: National Cyber League}
+\item \href{http://cyberpanoply.com/}{Panoply}
+\item \href{https://picoctf.com/}{Pitcoctf}
+\item \href{https://en.wikipedia.org/wiki/Pwn2Own}{Pwn2Own}
+\item \href{https://www.chromium.org/Home/chromium-security}{Pwnium}
+\item \href{https://www.sans.org/netwars}{SANS NetWars}
+\item \href{https://www.uscyberchallenge.org/}{U.S. Cyber Challenge}
+\end{itemize}
+\end{multicols}
 \section{Conferences}
+\begin{multicols}{2}
+\begin{itemize}
+\item \href{http://www.sigsac.org/ccs/}{ACM CCS: ACM Conference on Computer and Communications Security}
+\item \href{https://www.acsac.org/}{ACSAC: Annual Computer Security Applications Conference}
+\item \href{https://www.iacr.org/conferences/}{Asiacrypt/Crypto/Eurocrypt}
+\item \href{https://www.blackhat.com/}{Black Hat}
+\item \href{http://www.securitybsides.com/w/page/12194156/FrontPage}{BSides}
+\item \href{https://cansecwest.com/}{CanSecWest}
+\item \href{https://csaw.isis.poly.edu/}{CSAW: Cyber Security Awareness Week Conference}
+\item \href{https://www.deepsec.net/}{DeepSec}
+\item \href{https://www.defcon.org/index.html}{DEF CON}
+\item \href{https://www.derbycon.com/}{DerbyCon}
+\item \href{https://2018.hack.lu/}{Hack.lu}
+\item \href{https://www.hackerhalted.com/}{Hacker Halted}
+\item \href{http://thehackersconference.com/}{The Hackers Conference}
+\item \href{http://2015.hackitoergosum.org/}{Hackito Ergo Sum}
+\item \href{https://conference.hitb.org/}{HITBSecConf: Hack In The Box Security Conference}
+\item \href{https://icmconference.org/}{ICMC: International Cryptographic Module Conference}
+\item \href{https://www.ieee-security.org/}{IEEE Symposium on Security and Privacy}
+\item \href{https://www.ndss-symposium.org/}{NDSS (Network and Distributed System Security) Symposium}
+\item \href{https://www.nspw.org/}{NSPW: New Security Paradigms Workshop}
+\item \href{https://nullcon.net/website/}{Nullcon}
+\item \href{https://www.rsaconference.com/}{RSA Security Conference}
+\item \href{https://www.sans.org/information-security-training/by-location/north-america}{SANS CDI: Cyber Defense Initiative}
+\item \href{https://www.digitalbond.com/s4/}{S4: SCADA Security Scientific Symposium}
+\item \href{https://secure360.org/}{Secure 360}
+\item \href{https://www.secureworldexpo.com/}{SecureWorld Expo}
+\item \href{https://www.shmoocon.org/}{ShmooCon}
+\item \href{http://www.sinconf.org/sin2019/index.html}{SIN: International Conference on Security of Information and Networks}
+\item \href{https://sourceconference.com/}{SOURCE Conference}
+\item \href{https://www.swisscyberstorm.com/}{Swiss Cyber Storm}
+\item \href{https://thotcon.org/}{Thotcon}
+\item \href{https://troopers.de/}{TROOPERS IT Security Conference}
+\item \href{https://www.usenix.org/conferences/byname/108}{USENIX Security Symposium}
+\item \href{https://www.virusbulletin.com/conference/vb2019/}{VB: Virus Bulletin Conference}
+\end{itemize}
+\end{multicols}
 \printbibliography[heading=bibintoc]
 \end{document}

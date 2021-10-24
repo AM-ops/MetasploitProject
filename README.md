@@ -22,8 +22,10 @@ The Documentation compiled for this project can be found [here](https://github.c
 ## Scenarios
 
 ### Scenario 1
+The first scenario dealt with an exploit carried out on a virtual machine loaded with an .iso image of [Android-x86](https://www.android-x86.org/)
 
 ### Scenario 2
+The second scenario dealt with an exploit carried out on a virtual machine loaded with an .iso image of Windows 7
 
 ## Resources utilised
 

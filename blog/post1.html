@@ -79,9 +79,9 @@
                 <div class="row gx-4 gx-lg-5 justify-content-center">
                     <div class="col-md-10 col-lg-8 col-xl-7">
                         <h2>Worldwide Mobile Operating Systems Market Share</h2>
-                        
+                        <p><i>Please be patient while the graphs load</i></p>
                         <h2>African Mobile Operating Systems Market Share</h2>
-                        
+                        <p><i>Please be patient while the graphs load</i></p>
                         <p>Looking at the graphs above my reaction is:</p>
                         <p><img src="assets/img/umm.gif" class="img-fluid mx-auto d-block" alt="umm"/></p>
                         <h2>From the Situation Room</h2>
@@ -123,17 +123,29 @@
                         <p><img src="assets/post1pics/adb3.PNG" class="img-fluid mx-auto d-block" alt=""/></p>
                         <p>At this stage the vulnerable Android device is totally in our control. We can do as we please.</p>
                         <p><img src="assets/img/hand.gif" class="img-fluid mx-auto d-block" alt=""/></p>
-                        <p>To ensure that we are truly in control of the device the <code style="padding: .2em .4em; margin: 0;font-size: 85%; background-color: rgb(52 57 66); border-radius: 6px; color: white;">print working directory</code> and the <code style="padding: .2em .4em; margin: 0;font-size: 85%; background-color: rgb(52 57 66); border-radius: 6px; color: white;">listing</code> commands can be run one after the other as shown below.</p>
+                        <p>To ensure that we are truly in control of the device. The following commands are helpful:<br/><code style="padding: .2em .4em; margin: 0;font-size: 85%; background-color: rgb(52 57 66); border-radius: 6px; color: white;">print working directory</code> and the <code style="padding: .2em .4em; margin: 0;font-size: 85%; background-color: rgb(52 57 66); border-radius: 6px; color: white;">listing</code> commands can be run one after the other as shown below.</p>
                         <pre><code data-language="shell">pwd</code></pre>
                         <pre><code data-language="shell">ls</code></pre>
                         <p>The results of the first command should just be "/" and the results of the second command should be a long list as demonstrated in the picture below.</p>
                         <p><img src="assets/post1pics/adb4.PNG" class="img-fluid mx-auto d-block" alt=""/></p>
                         <p>Now that privilege escalation has been successful we can move on to post exploitation where we can create a stronger more persistent stronghold within the virtual Android device.</p>
+                        <p>Although post exploitation is an entire topic on its own, the basics will be discussed a little bit.</p>
+                        <p>Firstly, run the <code style="padding: .2em .4em; margin: 0;font-size: 85%; background-color: rgb(52 57 66); border-radius: 6px; color: white;">change directory</code> command as shown below.</p>
+                        <pre><code data-language="shell">cd /mnt/sdcard/</code></pre>
+                        <p>This changes the directory to the SD card of the device as demonstrated in the next picture below.</p>
+                        <p>Thereafter you can create a <code style="padding: .2em .4em; margin: 0;font-size: 85%; background-color: rgb(52 57 66); border-radius: 6px; color: white;">.sh</code> file called <code style="padding: .2em .4em; margin: 0;font-size: 85%; background-color: rgb(52 57 66); border-radius: 6px; color: white;">testFile.sh</code> which can then be executed when ever you feel like. The file can be created by running the <code style="padding: .2em .4em; margin: 0;font-size: 85%; background-color: rgb(52 57 66); border-radius: 6px; color: white;">touch</code> command as shown below.</p>
+                        <pre><code data-language="shell">touch testFile.sh</code></pre>
                         <p><img src="assets/post1pics/adb5.PNG" class="img-fluid mx-auto d-block" alt=""/></p>
-                        <p><img src="assets/post1pics/adb6.PNG" class="img-fluid mx-auto d-block" alt=""/></p>
+                        <p>To edit a file you can easily call a text editor from the command line by running the <code style="padding: .2em .4em; margin: 0;font-size: 85%; background-color: rgb(52 57 66); border-radius: 6px; color: white;">vi</code> command as shown below. This text editor is default in all Unix based systems.</p>
+                        <pre><code data-language="shell">vi testFile.sh</code></pre>
                         <p><img src="assets/post1pics/adb7.PNG" class="img-fluid mx-auto d-block" alt=""/></p>
+                        <p>This will open the <code style="padding: .2em .4em; margin: 0;font-size: 85%; background-color: rgb(52 57 66); border-radius: 6px; color: white;">vi</code> text editor within the terminal. To edit the file you will have to enter the <code style="padding: .2em .4em; margin: 0;font-size: 85%; background-color: rgb(52 57 66); border-radius: 6px; color: white;">insert</code> mode of the text editor. This can be achieved by pressing the <code style="padding: .2em .4em; margin: 0;font-size: 85%; background-color: rgb(52 57 66); border-radius: 6px; color: white;">I</code> key on your keyboard. Once you are completed with the editing you can press <code style="padding: .2em .4em; margin: 0;font-size: 85%; background-color: rgb(52 57 66); border-radius: 6px; color: white;">Esc</code> key on your keyboard. Thereafter, type the following <code style="padding: .2em .4em; margin: 0;font-size: 85%; background-color: rgb(52 57 66); border-radius: 6px; color: white;">:wq!</code> and then press the <code style="padding: .2em .4em; margin: 0;font-size: 85%; background-color: rgb(52 57 66); border-radius: 6px; color: white;">Enter</code> key. This will write the changes to the file and quit the text editor. You will be lead back to terminal once again.</p>
                         <p><img src="assets/post1pics/adb8.PNG" class="img-fluid mx-auto d-block" alt=""/></p>
+                        <p>Above we see the <code style="padding: .2em .4em; margin: 0;font-size: 85%; background-color: rgb(52 57 66); border-radius: 6px; color: white;">vi</code> text editor in <code style="padding: .2em .4em; margin: 0;font-size: 85%; background-color: rgb(52 57 66); border-radius: 6px; color: white;">insert</code> mode.</p>
+                        <p>Once malicious code has been written and saved you can simply execute it from the terminal because you have root access.</p>
+                        <p>Before we go further it has to be noted that if initially an open port was not found on the virtual Android device we can still carry out the exploit by following the steps discussed further down.</p>
                         <h4>Step 3:</h4>
+                        <p>Let us carry out a new exploit!</p>
                         <p>In a new root terminal of your Kali Linux VM fire up the <i>Metasploit console</i> by running the <code style="padding: .2em .4em; margin: 0;font-size: 85%; background-color: rgb(52 57 66); border-radius: 6px; color: white;">msfconsole</code> command as shown below.</p>
                         <pre><code data-language="shell">msfconsole</code></pre>
                         <p>Your terminal should now look something like this</p>
@@ -141,16 +153,17 @@
                         <p>Your terminal should also have "msf6" as its prompt now. This means you can begin to use commands specific to <i>Metasploit</i>. Additionally, if you see any information popping up before the "msf6" prompt, then consider it an inside joke by the developers of the Framework.</p>
                         <p><img src="assets/img/joke.gif" class="img-fluid mx-auto d-block" alt=""/></p>
                         <h4>Step 4:</h4>
-                        <p>Now inside the Metasploit console type the <code style="padding: .2em .4em; margin: 0;font-size: 85%; background-color: rgb(52 57 66); border-radius: 6px; color: white;">Multi Handler</code> command as shown below.</p>
+                        <p>Now inside the Metasploit console type the <code style="padding: .2em .4em; margin: 0;font-size: 85%; background-color: rgb(52 57 66); border-radius: 6px; color: white;">Multi_Handler</code> command as shown below.</p>
                         <pre><code data-language="shell">msf6> use exploit/multi/handler</code></pre>
-                        <p>The <code style="padding: .2em .4em; margin: 0;font-size: 85%; background-color: rgb(52 57 66); border-radius: 6px; color: white;">Multi Handler</code> command launches a stub that runs outside the Framework. This command launches a payload that can be used by our exploit and is built to our specifications, as we will see later.</p>
+                        <p>The <code style="padding: .2em .4em; margin: 0;font-size: 85%; background-color: rgb(52 57 66); border-radius: 6px; color: white;">Multi_Handler</code> command launches a stub that runs outside the Framework. This command launches a payload that can be used by our exploit and is built to our specifications, as we will see later.</p>
                         <h4>Step 5:</h4>
                         <p>Next run the <code style="padding: .2em .4em; margin: 0;font-size: 85%; background-color: rgb(52 57 66); border-radius: 6px; color: white;">Meterpreter</code> command as is shown below.</p>
                         <pre><code data-language="shell">msf6> search android/meterpreter</code></pre>
                         <p>This will search through the Metasploit Framework to find an exploit that fits our search terms, i.e. an Android Meterpreter exploit. The commands from this and the previous step are shown below.</p>
                         <p><img src="assets/post1pics/msf2.PNG" class="img-fluid mx-auto d-block" alt=""/></p>
                         <p>Meterpreter is a tool that is part of the Metasploit Framework which allows you to take advantage of, as well as, find vulnerabilities in a system. This penetration testing tool can easily take hold of victim's resources as needed. Meterpreter utilises an in-memory injection which writes nothing to disk. This allows for the exploit to run without being detected by normal means. A new process is not created, rather it injects itself into a compromised process. For this reason also the forensic footprint left behind by the Meterpreter is extremly limited.</p>
-                        <h4>Step 4:</h4>
+                        <h4>Step 6:</h4>
+                        <p>Now we can move on to setting a payload for our exploit</p>
                         <pre><code data-language="shell">msf6> set payload android/meterpreter/reverse_tcp</code></pre>
                         <p>When the host initiates a connection, that is called a <i>forward connection</i>. However, when the opposite is done, a server initiates the connection to a host, then it is called a <i>reverse connection</i></p>
                         <p>Firewalls work on the basic principle of blocking all incoming connection. So all incoming connections (reverse connections) are blocked by the firewall. However, if a host initiates a connection (forward connection) it is allowed and the return for the connection initiated by the host will be permitted.</p>

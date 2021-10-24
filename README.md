@@ -30,15 +30,19 @@ The Documentation compiled for this project can be found [here](https://github.c
 - [x] Install VMs
 - [x] Install Metasploit
 - [x] Install Android Studio for Emulator
-- [ ] Run exploits
-  - [ ] Exploit 1 - SMS on Emulator
-  - [ ] Exploit 2 - Windows based exploit
-- [ ] Compile Documentation
+- [x] Run exploits
+  - [x] Exploit 1 - SMS on Emulator
+  - [x] Exploit 2 - Windows based exploit
+- [x] Compile Documentation
   - [x] Front Page
-  - [ ] Table of Contents
-  - [ ] Bibliography/References 
-- [ ] Create Blog
+  - [x] Table of Contents
+  - [x] Exploit 1
+  - [x] Exploit 2
+  - [x] Reflection and Work Consensus
+  - [x] Additional readings and miscellaneous information
+  - [x] Bibliography/References 
+- [x] Create Blog
   - [x] Get a template for a basic blog
-  - [ ] Add Scenario 1 to Blog
-  - [ ] Add Scenario 2 to Blog
-  - [ ] Update Contact, and Index Page
+  - [x] Add Scenario 1 to Blog
+  - [x] Add Scenario 2 to Blog
+  - [x] Update Contact, About Us and Home Page
